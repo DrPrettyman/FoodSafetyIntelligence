@@ -22,6 +22,12 @@
 | 2026-02-20 | Chunking results: 1142 chunks, 1.2M chars, avg 1084 chars/chunk | Done |
 | 2026-02-20 | Fixed duplicate chunk IDs: amending regulation 32019R1381 has repeated article numbers | Done |
 | 2026-02-20 | Tests: 42 total (5 corpus, 7 downloader, 13 parser, 17 chunking), all passing | Done |
+| 2026-02-20 | entity_extractor.py: regex-based extraction of defined terms + cross-references | Done |
+| 2026-02-20 | Extraction results: 324 defined terms (272 unique), 361 cross-references | Done |
+| 2026-02-20 | Tests: 58 total (all modules), all passing | Done |
+| 2026-02-20 | routing.py: deterministic routing table from structured parameters to regulations | Done |
+| 2026-02-20 | Routing: category mapping + entity matching, always includes General Food Law + FIC | Done |
+| 2026-02-20 | Tests: 77 total (5 corpus, 7 downloader, 13 parser, 17 chunking, 16 entity, 19 routing), all passing | Done |
 
 ## Data Notes
 
@@ -192,6 +198,22 @@ Smallest: 32012R0432 (Health claims list, 2 arts), 32017R2470 (Novel food Union 
 The 35 oversized chunks are articles where a single paragraph exceeds the max limit — the chunker can't split within a paragraph. Largest is 2212 chars (32018R0848 Art 39), only ~10% over the 2000 limit. Acceptable.
 
 **Duplicate article numbers**: Regulation 32019R1381 (Transparency Regulation) is an amending regulation that inserts articles into other regulations. Its HTML contains multiple "Article 8", "Article 32", "Article 39" headings (referring to articles being inserted into target regulations). Fixed by adding `_occ{N}` suffix to chunk IDs for duplicates.
+
+### Entity Extraction Results (2026-02-20)
+
+324 defined terms extracted (272 unique) from 24 of 33 regulations. 361 cross-references to other regulations.
+
+The 9 regulations with no extracted terms are: annex-based docs (32012R0231, 32012R0432, 32017R2470, 32016R0127), regulations that reference definitions from other regs without defining their own (32004R0853, 32006R1881, 32008R1331, 32002L0046), and the amending regulation 32019R1381.
+
+Key terms found across multiple regulations: "food" (5 regs), "feed" (3 regs), "food additive" (2 regs), "novel food", "traceability", "hazard", "risk", etc.
+
+Cross-reference network: Regulation (EC) No 178/2002 (General Food Law) is the most referenced regulation — foundational definitions that most other food safety regulations point to.
+
+**Regex patterns used:**
+- Single quotes: `'term' means ...` / `'term' shall mean ...`
+- Double quotes (including smart quotes): `"term" means ...`
+- Parenthetical aliases: `"food" (or "foodstuff") means ...`
+- Hereinafter clause: `"food hygiene", hereinafter called "hygiene", means ...`
 
 ## Open Questions
 
