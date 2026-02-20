@@ -6,6 +6,11 @@
 |------|---------------|--------|
 | 2026-02-20 | Project scaffolding: created CLAUDE.md, notes.md | Done |
 | 2026-02-20 | EUR-Lex data access research: tested Cellar REST API, SPARQL, website, Python packages | Done |
+| 2026-02-20 | Project structure: pyproject.toml, directories, __init__.py files, .env.example | Done |
+| 2026-02-20 | corpus.py: 30 CELEX numbers across 15 regulatory categories | Done |
+| 2026-02-20 | eurlex_downloader.py: tested on 3 docs, all downloaded OK | Done |
+| 2026-02-20 | Tests: 12 tests for corpus + downloader, all passing | Done |
+| 2026-02-20 | HTML structure analysis: examined both XHTML and old HTML formats | Done |
 
 ## Data Notes
 
@@ -95,9 +100,11 @@ Two distinct formats encountered:
 **Older format (pre-~2010, HTML 4.01):**
 - Content-Type: `text/html;charset=UTF-8`
 - Dublin Core metadata in `<meta>` tags
-- Main content in `<div id="TexteOnly">`
-- Uses legacy `<TXT_TE>` tags (Formex-style elements)
-- Less structured, harder to parse
+- Main content in `<div id="TexteOnly">` → `<TXT_TE>` tag
+- All content is bare `<p>` tags with NO CSS classes
+- Articles identifiable only by text pattern: `<p>Article N</p>` followed by subtitle paragraph
+- 32002R0178 (General Food Law) has 65 articles in this format
+- Parsing requires regex-based article boundary detection, not CSS class matching
 
 **Formex 4 XML (`fmx4`):** The `fmx4` format available from Cellar is NOT the full text — it's a metadata wrapper/TOC. Not useful for our purposes. XHTML/HTML is the way to go.
 
@@ -117,6 +124,8 @@ Two distinct formats encountered:
 - **Cellar REST API** is the clear winner for document download. Simple, fast, no auth, no rate limits observed.
 - **SPARQL endpoint** is useful for corpus discovery (finding CELEX numbers by EuroVoc topic).
 - **Content negotiation** with both `text/html` and `application/xhtml+xml` in the Accept header handles both old and new documents.
+- **pyproject.toml**: build-backend must be `setuptools.build_meta`, NOT `setuptools.backends._legacy:_Backend` (the latter doesn't exist and breaks `pip install -e`).
+- **Python 3.14** is what's installed (`/opt/homebrew/bin/python3`). Use `python3` not `python`. Venv at `.venv/`.
 
 ## What Didn't Work
 

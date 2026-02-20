@@ -7,6 +7,11 @@
 3. `planning/general/portfolio-principles-reference.md` — 7 research-backed principles for portfolio design (2024-2026)
 4. `planning/general/modern-framework-project-ideas.md` — The four candidate project ideas and how they fit together
 
+## Testing
+
+Write pytest tests as you go — every new module should have corresponding tests in `tests/`.
+Run tests with: `source .venv/bin/activate && pytest`
+
 ## Project Log
 
 **`notes.md`** is the running project log. Read it before starting any session to understand current state.
