@@ -18,6 +18,10 @@
 | 2026-02-20 | Parser: discovered 3rd format variant (xhtml_mid, ~2004 era), added handler | Done |
 | 2026-02-20 | Full corpus parse: 33 regulations, 881 articles, all parse OK | Done |
 | 2026-02-20 | Tests: 25 total, all passing (including full corpus parse test) | Done |
+| 2026-02-20 | chunking.py: article-aware chunking with sub-chunking at paragraph boundaries | Done |
+| 2026-02-20 | Chunking results: 1142 chunks, 1.2M chars, avg 1084 chars/chunk | Done |
+| 2026-02-20 | Fixed duplicate chunk IDs: amending regulation 32019R1381 has repeated article numbers | Done |
+| 2026-02-20 | Tests: 42 total (5 corpus, 7 downloader, 13 parser, 17 chunking), all passing | Done |
 
 ## Data Notes
 
