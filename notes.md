@@ -176,6 +176,23 @@ Largest docs by article count: 32017R0625 (Official Controls, 167 arts), 32002R0
 
 Smallest: 32012R0432 (Health claims list, 2 arts), 32017R2470 (Novel food Union List, 2 arts) — these are mostly annex-based docs where the articles just say "see annex."
 
+### Chunking Results (2026-02-20)
+
+1142 total chunks from 881 articles across 33 regulations. 1.2M characters total.
+
+| Metric | Value |
+|--------|-------|
+| Total chunks | 1142 |
+| Total characters | 1,239,023 |
+| Avg chars/chunk | 1084 |
+| Single-chunk articles | 704 |
+| Sub-chunked article parts | 438 |
+| Chunks over 2000 chars | 35 |
+
+The 35 oversized chunks are articles where a single paragraph exceeds the max limit — the chunker can't split within a paragraph. Largest is 2212 chars (32018R0848 Art 39), only ~10% over the 2000 limit. Acceptable.
+
+**Duplicate article numbers**: Regulation 32019R1381 (Transparency Regulation) is an amending regulation that inserts articles into other regulations. Its HTML contains multiple "Article 8", "Article 32", "Article 39" headings (referring to articles being inserted into target regulations). Fixed by adding `_occ{N}` suffix to chunk IDs for duplicates.
+
 ## Open Questions
 
 - How do annexes appear in the HTML structure? Annexes contain the actual regulated substance lists (E-numbers, Union List, etc.) and may need special parsing. The parser currently stops at article boundaries and doesn't extract annex content.
