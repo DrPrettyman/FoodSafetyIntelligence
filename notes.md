@@ -28,6 +28,11 @@
 | 2026-02-20 | routing.py: deterministic routing table from structured parameters to regulations | Done |
 | 2026-02-20 | Routing: category mapping + entity matching, always includes General Food Law + FIC | Done |
 | 2026-02-20 | Tests: 77 total (5 corpus, 7 downloader, 13 parser, 17 chunking, 16 entity, 19 routing), all passing | Done |
+| 2026-02-20 | vector_store.py: sentence-transformers + numpy vector store (ChromaDB incompatible with Py 3.14) | Done |
+| 2026-02-20 | Vector store: all-MiniLM-L6-v2 embeddings, cosine similarity, celex_id filtering | Done |
+| 2026-02-20 | 5 end-to-end evaluation scenarios + 2 quality metrics, all passing | Done |
+| 2026-02-20 | Tests: 94 total (all modules + evaluation), all passing | Done |
+| 2026-02-20 | **MVP COMPLETE**: ingestion → parsing → chunking → extraction → routing → vector search → evaluation | Done |
 
 ## Data Notes
 
@@ -214,6 +219,34 @@ Cross-reference network: Regulation (EC) No 178/2002 (General Food Law) is the m
 - Double quotes (including smart quotes): `"term" means ...`
 - Parenthetical aliases: `"food" (or "foodstuff") means ...`
 - Hereinafter clause: `"food hygiene", hereinafter called "hygiene", means ...`
+
+### Vector Store (2026-02-20)
+
+**ChromaDB failed on Python 3.14** — Pydantic V1 incompatibility (`unable to infer type for attribute "chroma_server_nofile"`). Switched to sentence-transformers + numpy with manual cosine similarity.
+
+**Embedding model**: `all-MiniLM-L6-v2` (384-dim embeddings, runs locally, ~22M params). Pre-normalized embeddings so cosine similarity = dot product.
+
+**Persistence**: numpy `.npy` for embeddings + JSON for metadata/texts. Simple and fast.
+
+**Filtering**: celex_id-based filtering via numpy boolean mask before top-k selection. This is the integration point with the routing table — routing narrows the search space, vector search does semantic similarity within that subset.
+
+### Evaluation Results (2026-02-20)
+
+5 real-world scenarios tested end-to-end (routing → filtered vector search):
+
+| Scenario | Product | Routing | Key Regulations Found |
+|----------|---------|---------|----------------------|
+| 1 | Insect protein bar (novel food) | Novel food + labelling | 32015R2283, 32011R1169 |
+| 2 | Vitamin D supplement | Supplements + health claims + fortification | 32002L0046, 32006R1924, 32006R1925 |
+| 3 | Sweetened beverage in plastic bottle | Additives + plastic FCM + labelling | 32008R1333, 32011R0010, 32011R1169 |
+| 4 | GMO soy product | GMO food/feed + traceability | 32003R1829, 32003R1830 |
+| 5 | Organic cereal | Organic + contaminants | 32018R0848, 32023R0915/32006R1881 |
+
+Quality metrics:
+- **Routing precision**: focused query returns <50% of corpus (not the whole 33 regulations)
+- **Filtered vs unfiltered**: filtered search surfaces domain-relevant articles at least as well as unfiltered
+
+All 7 evaluation tests pass.
 
 ## Open Questions
 
