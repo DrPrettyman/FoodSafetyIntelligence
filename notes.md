@@ -11,6 +11,13 @@
 | 2026-02-20 | eurlex_downloader.py: tested on 3 docs, all downloaded OK | Done |
 | 2026-02-20 | Tests: 12 tests for corpus + downloader, all passing | Done |
 | 2026-02-20 | HTML structure analysis: examined both XHTML and old HTML formats | Done |
+| 2026-02-20 | html_parser.py: parses both formats, extracts articles with metadata | Done |
+| 2026-02-20 | Parser test results: 32015R2283→36 arts, 32002R0178→65 arts, 32008R1333→35 arts | Done |
+| 2026-02-20 | Tests: 21 total (5 corpus, 7 downloader, 9 parser), all passing | Done |
+| 2026-02-20 | Full corpus: downloaded 33 docs (16 MB), 0 errors | Done |
+| 2026-02-20 | Parser: discovered 3rd format variant (xhtml_mid, ~2004 era), added handler | Done |
+| 2026-02-20 | Full corpus parse: 33 regulations, 881 articles, all parse OK | Done |
+| 2026-02-20 | Tests: 25 total, all passing (including full corpus parse test) | Done |
 
 ## Data Notes
 
@@ -97,7 +104,15 @@ Two distinct formats encountered:
   - `.oj-note` — Footnotes
 - Structural IDs: `tit_1`, `pbl_1` (preamble), `art_N` (articles), `enc_1` (enacting terms)
 
-**Older format (pre-~2010, HTML 4.01):**
+**Mid-era format (~2004-2012, XHTML without ELI):**
+- Same CSS class patterns as newer XHTML but WITHOUT the `oj-` prefix
+- Uses: `.ti-art`, `.sti-art`, `.normal`, `.ti-section-1`, `.doc-ti`
+- Articles are direct children of `<body>`, not nested in `eli-subdivision` divs
+- Parser walks next siblings from each `ti-art` heading
+- Only 2 docs in our corpus use this format: 32004R0852, 32004R0853
+- Detected by presence of `.ti-art` class when no `.eli-container` exists
+
+**Older format (pre-~2004, HTML 4.01):**
 - Content-Type: `text/html;charset=UTF-8`
 - Dublin Core metadata in `<meta>` tags
 - Main content in `<div id="TexteOnly">` → `<TXT_TE>` tag
@@ -133,10 +148,32 @@ Two distinct formats encountered:
 - **Existing Python packages** are all stale (oldest: 2022, newest: Aug 2024). None recommended for production use.
 - **Formex 4 XML** format from Cellar is just a metadata wrapper, not the full document text. XHTML is the correct format.
 - **Requesting only `application/xhtml+xml`** in the Accept header fails for older documents (returns 404). Must include `text/html` as well.
+- **pyproject.toml build-backend** — `setuptools.backends._legacy:_Backend` does NOT exist. Must use `setuptools.build_meta`.
+
+### Parser Results (2026-02-20)
+
+Parser tested on 3 downloaded regulations:
+
+| CELEX | Format | Articles Found | Art 1 Title | Definitions Art |
+|-------|--------|---------------|-------------|-----------------|
+| 32015R2283 | xhtml | 36 | Subject matter and purpose | Art 3, 4817 chars |
+| 32002R0178 | html_legacy | 65 | Aim and scope | Art 3, 4281 chars |
+| 32008R1333 | xhtml | 35 | Subject matter | Art 3, 4004 chars |
+
+Both format parsers extract correct article counts, titles, and body text. Definitions articles all have substantial content (>4000 chars), suitable for entity extraction.
+
+### Full Corpus Parse Results (2026-02-20)
+
+33 regulations downloaded (16 MB total), all parse successfully. 881 articles total.
+
+Format breakdown: 27 xhtml (ELI), 2 xhtml_mid, 4 html_legacy.
+
+Largest docs by article count: 32017R0625 (Official Controls, 167 arts), 32002R0178 (General Food Law, 65 arts), 32018R0848 (Organic, 61 arts).
+
+Smallest: 32012R0432 (Health claims list, 2 arts), 32017R2470 (Novel food Union List, 2 arts) — these are mostly annex-based docs where the articles just say "see annex."
 
 ## Open Questions
 
-- How consistent are the CSS classes across all ~120 documents? Need to parse a few from different eras and categories to check.
-- `eurlex-parser` package has an `get_articles_by_celex_id()` function — worth testing to see if its parsing logic is reusable, or if we need to build from scratch.
-- How do annexes appear in the HTML structure? Annexes contain the actual regulated substance lists (E-numbers, Union List, etc.) and may need special parsing.
+- How do annexes appear in the HTML structure? Annexes contain the actual regulated substance lists (E-numbers, Union List, etc.) and may need special parsing. The parser currently stops at article boundaries and doesn't extract annex content.
 - Cross-reference links in the HTML — are they `<a>` tags pointing to other CELEX numbers? If so, we can build the dependency graph from the HTML itself.
+- Legacy format title detection is heuristic-based and sometimes picks up body text as title (e.g., 32002L0046 Art 2, Art 3). Acceptable for now but could be improved.
