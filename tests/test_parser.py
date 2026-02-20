@@ -50,6 +50,22 @@ def xhtml_doc():
 
 
 @pytest.fixture
+def xhtml_mid_doc():
+    """Minimal XHTML document mimicking mid-era EUR-Lex format (~2004-2012)."""
+    return """<?xml version="1.0" encoding="UTF-8"?>
+    <html><body>
+    <p class="doc-ti">TEST REGULATION (mid-era)</p>
+    <p class="ti-art">Article 1</p>
+    <p class="sti-art">Scope</p>
+    <p class="normal">This regulation applies to food hygiene.</p>
+    <p class="normal">It covers all food business operators.</p>
+    <p class="ti-art">Article 2</p>
+    <p class="sti-art">Definitions</p>
+    <p class="normal">"hygiene" means measures to ensure food safety.</p>
+    </body></html>"""
+
+
+@pytest.fixture
 def legacy_html_doc():
     """Minimal HTML document mimicking older EUR-Lex format."""
     return """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -105,6 +121,28 @@ def test_parse_xhtml_articles(xhtml_doc, tmp_path):
     assert result.articles[0].article_number == 1
     assert result.articles[0].title == "Subject matter"
     assert "lays down rules" in result.articles[0].text
+    assert result.articles[1].article_number == 2
+    assert result.articles[1].title == "Definitions"
+
+
+def test_detect_xhtml_mid_format(xhtml_mid_doc):
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(xhtml_mid_doc, "lxml")
+    assert detect_format(soup) == "xhtml_mid"
+
+
+def test_parse_xhtml_mid_articles(xhtml_mid_doc, tmp_path):
+    html_file = tmp_path / "32099R0003.html"
+    html_file.write_text(xhtml_mid_doc)
+
+    result = parse_regulation(html_file, "32099R0003")
+
+    assert result.format_type == "xhtml_mid"
+    assert len(result.articles) == 2
+    assert result.articles[0].article_number == 1
+    assert result.articles[0].title == "Scope"
+    assert "food hygiene" in result.articles[0].text
     assert result.articles[1].article_number == 2
     assert result.articles[1].title == "Definitions"
 
@@ -165,6 +203,24 @@ class TestLiveFiles:
         assert result.format_type == "xhtml"
         assert len(result.articles) == 35
         assert result.articles[0].article_number == 1
+
+    def test_parse_food_hygiene_mid_era(self):
+        path = SAMPLE_DIR / "32004R0852.html"
+        if not path.exists():
+            pytest.skip("32004R0852 not downloaded")
+        result = parse_regulation(path, "32004R0852")
+        assert result.format_type == "xhtml_mid"
+        assert len(result.articles) == 18
+        assert result.articles[0].article_number == 1
+        assert result.articles[0].title == "Scope"
+
+    def test_parse_all_corpus_files(self):
+        """Every HTML file in the sample dir should parse without errors."""
+        from src.ingestion.html_parser import parse_corpus
+
+        regulations = parse_corpus()
+        for reg in regulations:
+            assert len(reg.articles) > 0, f"{reg.celex_id} has 0 articles"
 
     def test_definitions_article_has_content(self):
         """Article 3 (Definitions) should have substantial text in all test docs."""
