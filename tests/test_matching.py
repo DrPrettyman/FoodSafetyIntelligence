@@ -172,12 +172,13 @@ class TestMatchRequirements:
         assert len(result.false_negatives) == 2
 
     def test_one_to_one_constraint(self):
-        """Two extracted requirements for one ground truth = 1 TP + 1 FP."""
+        """Two extracted requirements for one ground truth = 1 TP + 1 additional detail."""
         gt = [_gt("NF-01")]
         extracted = [_ext(), _ext()]  # both match same key
         result = match_requirements(extracted, gt)
         assert len(result.true_positives) == 1
-        assert len(result.false_positives) == 1
+        assert len(result.false_positives) == 0
+        assert len(result.additional_detail) == 1
 
     def test_partial_match_counted(self):
         gt = [_gt("NF-01", rtype="authorisation")]
@@ -220,17 +221,19 @@ class TestMatchRequirements:
             _gt("NF-2", art=18, reg="32002R0178", rtype="traceability", desc="establish traceability"),
             _gt("NF-3", art=9, rtype="labelling", desc="specific labelling conditions"),
         ]
-        # 1 exact match, 2 FP, 3 FN
+        # 1 exact match, 1 additional detail (dup from matched article), 1 true FP, 3 FN
         extracted = [
             _ext(art=7, rtype="authorisation"),  # matches NF-0
-            _ext(art=7, rtype="authorisation"),  # duplicate → FP (key already consumed)
-            _ext(reg="XXXXX", art=99, rtype="labelling"),  # FP
+            _ext(art=7, rtype="authorisation"),  # dup → additional_detail (same article as TP)
+            _ext(reg="XXXXX", art=99, rtype="labelling"),  # true FP (unknown article)
         ]
         result = match_requirements(extracted, gt, allow_partial=False)
         assert len(result.true_positives) == 1
-        assert len(result.false_positives) == 2
+        assert len(result.additional_detail) == 1
+        assert len(result.false_positives) == 1
         assert len(result.false_negatives) == 3
-        assert result.precision == pytest.approx(1 / 3, abs=0.01)
+        # precision = 1 / (1 + 1) = 0.50 (TP / (TP + FP), additional detail excluded)
+        assert result.precision == pytest.approx(0.5, abs=0.01)
         assert result.recall == pytest.approx(1 / 4, abs=0.01)
 
 

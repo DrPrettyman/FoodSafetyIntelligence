@@ -68,14 +68,14 @@ class TestExtractionQuality:
         result = _run_matching(scenario, output)
         print("\n" + format_scenario_report(scenario.scenario_id, result))
         assert result.precision >= 0.15, (
-            f"Novel food precision {result.precision:.2f} < 0.50"
+            f"Novel food precision {result.precision:.2f} < 0.15"
         )
 
     def test_novel_food_recall(self, evaluation_data):
         scenario, output = evaluation_data["novel_food_insect_protein"]
         result = _run_matching(scenario, output)
         assert result.recall >= 0.20, (
-            f"Novel food recall {result.recall:.2f} < 0.30"
+            f"Novel food recall {result.recall:.2f} < 0.20"
         )
 
     def test_fic_labelling_precision(self, evaluation_data):
@@ -83,14 +83,14 @@ class TestExtractionQuality:
         result = _run_matching(scenario, output)
         print("\n" + format_scenario_report(scenario.scenario_id, result))
         assert result.precision >= 0.15, (
-            f"FIC labelling precision {result.precision:.2f} < 0.50"
+            f"FIC labelling precision {result.precision:.2f} < 0.15"
         )
 
     def test_fic_labelling_recall(self, evaluation_data):
         scenario, output = evaluation_data["fic_labelling_general"]
         result = _run_matching(scenario, output)
         assert result.recall >= 0.20, (
-            f"FIC labelling recall {result.recall:.2f} < 0.30"
+            f"FIC labelling recall {result.recall:.2f} < 0.20"
         )
 
     def test_food_supplements_precision(self, evaluation_data):
@@ -98,14 +98,14 @@ class TestExtractionQuality:
         result = _run_matching(scenario, output)
         print("\n" + format_scenario_report(scenario.scenario_id, result))
         assert result.precision >= 0.15, (
-            f"Food supplements precision {result.precision:.2f} < 0.50"
+            f"Food supplements precision {result.precision:.2f} < 0.15"
         )
 
     def test_food_supplements_recall(self, evaluation_data):
         scenario, output = evaluation_data["food_supplement_vitamin_d"]
         result = _run_matching(scenario, output)
         assert result.recall >= 0.20, (
-            f"Food supplements recall {result.recall:.2f} < 0.30"
+            f"Food supplements recall {result.recall:.2f} < 0.20"
         )
 
     def test_aggregate_precision(self, evaluation_data):
