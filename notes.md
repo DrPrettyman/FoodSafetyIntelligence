@@ -44,6 +44,9 @@
 | 2026-02-25 | Pipeline CLI: added --provider and --model args, openai as optional dep | Done |
 | 2026-02-25 | Tests: 143 total (39 extraction tests with provider mocks, 10 pipeline), all passing | Done |
 | 2026-02-26 | Live extraction via claude-code provider: 8 requirements from 5 articles, fully validated | Done |
+| 2026-02-26 | Layer 3 evaluation: matching engine, ground truth checklists, cached evaluation | Done |
+| 2026-02-26 | Evaluation results: 3 scenarios, P=0.26 R=0.42 F1=0.31 (baseline, granularity mismatch) | Done |
+| 2026-02-26 | Tests: 177 total (24 matching + 10 eval extraction + 143 existing), all passing | Done |
 
 ## Data Notes
 
@@ -292,6 +295,39 @@ All 7 evaluation tests pass.
 - Requirement types: traceability (3), labelling (2), authorisation (1), notification (1), documentation (1)
 - Cross-references extracted: 32006R1924, 32011R1169, 32015R2283
 - Quality assessment: all requirements map to explicit obligations in the source text, no hallucinated requirements observed
+
+### Layer 3 Evaluation — Extraction Quality (2026-02-26)
+
+**Evaluation framework** (`src/evaluation/`):
+- Ground truth checklists: 3 scenarios × 8 requirements each = 24 ground truth items
+- Matching: key-based `(regulation_id, article_number, requirement_type)` with relaxed fallback (2-of-3 key fields + word overlap)
+- Metrics: precision, recall, F1 per scenario + macro-averaged aggregate
+- Cached evaluation: `scripts/run_extraction_scenarios.py` populates cache, pytest evaluates cached results
+
+**Baseline results** (claude-code provider, first run):
+
+| Scenario | Precision | Recall | F1 | TP | Partial | FP | FN |
+|----------|-----------|--------|-----|----|---------|----|-----|
+| Novel food (insect protein) | 0.27 | 0.38 | 0.32 | 1 | 2 | 8 | 5 |
+| FIC labelling (general food) | 0.31 | 0.62 | 0.42 | 3 | 2 | 11 | 3 |
+| Food supplements (vitamin D) | 0.18 | 0.25 | 0.21 | 1 | 1 | 9 | 6 |
+| **Aggregate (macro-avg)** | **0.26** | **0.42** | **0.31** | — | — | — | — |
+
+**Key findings:**
+
+1. **Precision is low due to granularity mismatch, not accuracy errors.** The LLM correctly extracts multiple sub-requirements per article (e.g., Art 18 traceability → 4 separate obligations for supplier ID, recipient ID, labelling, and system procedures). Our ground truth has 1 item per article. Most "false positives" are legitimate requirements at finer granularity. This is actually desirable for compliance — a compliance officer wants every obligation, not just the article summary.
+
+2. **Recall is limited by retrieval coverage.** Many false negatives occur because the relevant article wasn't in the top-10 search results. For example, Novel Foods Art 6 (authorisation) and Art 7 (safety conditions) were not retrieved, despite being the most important articles. This is a retrieval/query problem, not an extraction problem.
+
+3. **Food supplements scenario has lowest scores** because the query retrieves articles from only a subset of the relevant regulations (32002L0046 well-covered, but 32006R1924 and 32006R1925 poorly represented in search results). Routing correctly identifies all regulations, but vector search doesn't surface enough articles from each.
+
+4. **No hallucinated regulations.** Every extracted requirement references a CELEX ID from the routed set. The LLM does not invent regulations.
+
+**Improvement paths:**
+- Increase `n_results` (currently 10) to retrieve more articles → higher recall at cost of LLM token usage
+- Add article-level deduplication before matching → higher precision measurement
+- Use multiple queries per scenario (one per regulation) instead of a single broad query → better coverage
+- Expand ground truth to include sub-article granularity to match LLM output
 
 ### Pipeline & Serialization (2026-02-25)
 
