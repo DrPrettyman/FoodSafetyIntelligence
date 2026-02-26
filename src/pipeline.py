@@ -234,11 +234,32 @@ def query(
             parts.extend(keywords)
         query_text = " ".join(parts) if parts else "food safety requirements"
 
+    # Hybrid search: first run a broad query to get the most semantically
+    # relevant results, then add per-regulation results to ensure coverage
+    # of every routed regulation.
     search_results = store.search(
         query=query_text,
         celex_ids=routing_result.celex_ids,
         n_results=n_results,
     )
+
+    seen_chunk_ids = {r["chunk_id"] for r in search_results}
+    covered_celex = {r["metadata"]["celex_id"] for r in search_results}
+    per_reg = max(2, n_results // len(routing_result.celex_ids)) if routing_result.celex_ids else 0
+
+    for celex_id in routing_result.celex_ids:
+        hits = store.search(
+            query=query_text,
+            celex_ids=[celex_id],
+            n_results=per_reg,
+        )
+        for hit in hits:
+            if hit["chunk_id"] not in seen_chunk_ids:
+                seen_chunk_ids.add(hit["chunk_id"])
+                search_results.append(hit)
+
+    # Sort merged results by score descending
+    search_results.sort(key=lambda x: x["score"], reverse=True)
 
     output = {
         "routing": {
