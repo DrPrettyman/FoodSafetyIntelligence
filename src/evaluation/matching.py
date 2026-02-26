@@ -142,8 +142,26 @@ def match_requirements(
                 still_unmatched.append(ext)
         unmatched_extracted = still_unmatched
 
-    # Remaining
-    result.false_positives = unmatched_extracted
+    # Article-level deduplication: extracted requirements from the same
+    # (regulation_id, article_number) as a TP or partial match are "additional
+    # detail" from a correctly identified article, not false positives.
+    matched_articles: set[tuple[str, int]] = set()
+    for gt_item, _ext in result.true_positives:
+        matched_articles.add((gt_item.regulation_id, gt_item.article_number))
+    for gt_item, _ext, _reason in result.partial_matches:
+        matched_articles.add((gt_item.regulation_id, gt_item.article_number))
+
+    true_fps = []
+    additional_detail = []
+    for ext in unmatched_extracted:
+        art_key = (ext["regulation_id"], ext["article_number"])
+        if art_key in matched_articles:
+            additional_detail.append(ext)
+        else:
+            true_fps.append(ext)
+
+    result.false_positives = true_fps
+    result.additional_detail = additional_detail
     result.false_negatives = list(unmatched_gt.values())
 
     return result

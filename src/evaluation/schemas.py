@@ -81,6 +81,8 @@ class MatchResult:
     )
     false_positives: list[dict] = field(default_factory=list)
     false_negatives: list[GroundTruthRequirement] = field(default_factory=list)
+    # Extra extractions from articles already matched (not counted as FP)
+    additional_detail: list[dict] = field(default_factory=list)
 
     @property
     def precision(self) -> float:

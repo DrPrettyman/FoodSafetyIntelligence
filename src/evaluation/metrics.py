@@ -18,6 +18,7 @@ def compute_scenario_metrics(scenario_id: str, result: MatchResult) -> dict:
         "partial_matches": len(result.partial_matches),
         "false_positives": len(result.false_positives),
         "false_negatives": len(result.false_negatives),
+        "additional_detail": len(result.additional_detail),
     }
 
 
@@ -91,6 +92,16 @@ def format_scenario_report(scenario_id: str, result: MatchResult) -> str:
             lines.append(
                 f"  {gt.requirement_id} [{gt.regulation_id} Art {gt.article_number} "
                 f"{gt.requirement_type}] — {gt.description[:80]}"
+            )
+        lines.append("")
+
+    if result.additional_detail:
+        lines.append(f"ADDITIONAL DETAIL ({len(result.additional_detail)}) — "
+                      "extra sub-requirements from matched articles, not counted as FP:")
+        for ext in result.additional_detail:
+            lines.append(
+                f"  [{ext['regulation_id']} Art {ext['article_number']} "
+                f"{ext['requirement_type']}] — {ext.get('requirement_summary', '')[:80]}"
             )
         lines.append("")
 
