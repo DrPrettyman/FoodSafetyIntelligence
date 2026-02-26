@@ -1,0 +1,95 @@
+{
+  "scenario_id": "fic_labelling_general",
+  "description": "General pre-packaged food: mandatory labelling requirements under FIC regulation",
+  "pipeline_inputs": {
+    "product_type": "",
+    "ingredients": [],
+    "claims": [],
+    "packaging": "",
+    "keywords": ["labelling"],
+    "query_text": "food labelling mandatory information allergens nutrition declaration requirements",
+    "n_results": 10
+  },
+  "ground_truth_requirements": [
+    {
+      "requirement_id": "FIC-01",
+      "regulation_id": "32011R1169",
+      "article_number": 9,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Mandatory food information list: name of food, ingredients list, allergens, net quantity, date of minimum durability, storage conditions, name and address of operator, country of origin, instructions for use, nutrition declaration",
+      "source": "Regulation (EU) No 1169/2011 Art 9(1)",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-02",
+      "regulation_id": "32011R1169",
+      "article_number": 21,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Allergens listed in Annex II must be emphasised in the ingredients list through a typographical means clearly distinguishing them from the rest",
+      "source": "Regulation (EU) No 1169/2011 Art 21",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-03",
+      "regulation_id": "32011R1169",
+      "article_number": 30,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Mandatory nutrition declaration must include energy value, fat, saturates, carbohydrate, sugars, protein, and salt",
+      "source": "Regulation (EU) No 1169/2011 Art 30(1)",
+      "notes": "Art 26 also relevant for nutrition declaration obligation"
+    },
+    {
+      "requirement_id": "FIC-04",
+      "regulation_id": "32011R1169",
+      "article_number": 7,
+      "requirement_type": "general_obligation",
+      "priority": "ongoing",
+      "description": "Food information shall not be misleading as to the characteristics, composition, nature, method of production, or properties of the food",
+      "source": "Regulation (EU) No 1169/2011 Art 7",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-05",
+      "regulation_id": "32011R1169",
+      "article_number": 12,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Mandatory food information must be available and easily accessible for all foods delivered to the final consumer or mass caterers",
+      "source": "Regulation (EU) No 1169/2011 Art 12",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-06",
+      "regulation_id": "32011R1169",
+      "article_number": 13,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Mandatory food information must appear in a minimum font size (1.2mm x-height) and be legible, indelible, and not hidden or obscured",
+      "source": "Regulation (EU) No 1169/2011 Art 13",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-07",
+      "regulation_id": "32011R1169",
+      "article_number": 24,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "Country of origin or place of provenance is mandatory where failure to indicate could mislead the consumer",
+      "source": "Regulation (EU) No 1169/2011 Art 26(2)",
+      "notes": "Art 26 contains the obligation; Art 24 defines the terms"
+    },
+    {
+      "requirement_id": "FIC-08",
+      "regulation_id": "32011R1169",
+      "article_number": 17,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "The name of the food shall be its legal name, or in the absence thereof, its customary name or a descriptive name",
+      "source": "Regulation (EU) No 1169/2011 Art 17",
+      "notes": ""
+    }
+  ]
+}

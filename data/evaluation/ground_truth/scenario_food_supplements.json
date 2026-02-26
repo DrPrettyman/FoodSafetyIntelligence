@@ -1,0 +1,95 @@
+{
+  "scenario_id": "food_supplement_vitamin_d",
+  "description": "Vitamin D food supplement with health claims: supplement directive, claims regulation, fortification, labelling",
+  "pipeline_inputs": {
+    "product_type": "food supplement",
+    "ingredients": ["vitamin"],
+    "claims": ["health claim"],
+    "packaging": "",
+    "keywords": [],
+    "query_text": "vitamin D food supplement permitted health claim labelling dosage requirements",
+    "n_results": 10
+  },
+  "ground_truth_requirements": [
+    {
+      "requirement_id": "FS-01",
+      "regulation_id": "32002L0046",
+      "article_number": 3,
+      "requirement_type": "general_obligation",
+      "priority": "before_launch",
+      "description": "Only vitamins and minerals listed in Annex I in the forms listed in Annex II may be used in the manufacture of food supplements",
+      "source": "Directive 2002/46/EC Art 4(1)",
+      "notes": "Art 3 has scope/definitions; Art 4 has the substance list requirement. May match either article."
+    },
+    {
+      "requirement_id": "FS-02",
+      "regulation_id": "32002L0046",
+      "article_number": 6,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Food supplement labelling must include: 'food supplement' designation, names and amounts of vitamins/minerals, recommended daily portion, warning not to exceed stated dose, statement that supplements should not replace a varied diet, storage out of reach of children",
+      "source": "Directive 2002/46/EC Art 6",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-03",
+      "regulation_id": "32002L0046",
+      "article_number": 5,
+      "requirement_type": "max_limit",
+      "priority": "ongoing",
+      "description": "Maximum amounts of vitamins and minerals in food supplements shall be set considering upper safe intake levels and intake from other dietary sources",
+      "source": "Directive 2002/46/EC Art 5",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-04",
+      "regulation_id": "32006R1924",
+      "article_number": 3,
+      "requirement_type": "general_obligation",
+      "priority": "ongoing",
+      "description": "Nutrition and health claims must not be false, ambiguous, or misleading, and must be substantiated by generally accepted scientific evidence",
+      "source": "Regulation (EC) No 1924/2006 Art 3",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-05",
+      "regulation_id": "32006R1924",
+      "article_number": 5,
+      "requirement_type": "labelling",
+      "priority": "before_launch",
+      "description": "Health claims are only permitted if the nutrient is present in a significant amount as defined by EU legislation and the substance can be used by the body",
+      "source": "Regulation (EC) No 1924/2006 Art 5",
+      "notes": "May be classified as general_obligation"
+    },
+    {
+      "requirement_id": "FS-06",
+      "regulation_id": "32006R1924",
+      "article_number": 10,
+      "requirement_type": "authorisation",
+      "priority": "before_launch",
+      "description": "Health claims are only permitted if authorised and included in the Union list of permitted claims, and must be accompanied by specific mandatory statements",
+      "source": "Regulation (EC) No 1924/2006 Art 10",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-07",
+      "regulation_id": "32006R1925",
+      "article_number": 3,
+      "requirement_type": "general_obligation",
+      "priority": "ongoing",
+      "description": "Vitamins and minerals may only be added to foods from the sources listed in Annex II and in bioavailable forms",
+      "source": "Regulation (EC) No 1925/2006 Art 3",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-08",
+      "regulation_id": "32002R0178",
+      "article_number": 18,
+      "requirement_type": "traceability",
+      "priority": "ongoing",
+      "description": "Food business operators must establish traceability at all stages of production, processing and distribution",
+      "source": "Regulation (EC) No 178/2002 Art 18",
+      "notes": ""
+    }
+  ]
+}
