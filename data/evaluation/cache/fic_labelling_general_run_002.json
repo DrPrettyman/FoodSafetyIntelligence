@@ -1,0 +1,421 @@
+{
+  "scenario_id": "fic_labelling_general",
+  "run_id": "run_002",
+  "timestamp": "2026-02-26T12:06:30.143299+00:00",
+  "provider": "claude-code",
+  "model": null,
+  "pipeline_output": {
+    "routing": {
+      "celex_ids": [
+        "32011R1169",
+        "32002R0178",
+        "32018R0848"
+      ],
+      "reasons": {
+        "32011R1169": [
+          "always included (Food Information to Consumers (FIC) Regulation)",
+          "keyword: \"labelling\" defined in this regulation"
+        ],
+        "32002R0178": [
+          "always included (General Food Law Regulation)"
+        ],
+        "32018R0848": [
+          "keyword: \"labelling\" defined in this regulation"
+        ]
+      },
+      "regulation_count": 3
+    },
+    "retrieval": {
+      "query": "food labelling mandatory information allergens nutrition declaration requirements",
+      "results_count": 9,
+      "articles": [
+        {
+          "chunk_id": "32011R1169_art16",
+          "text": "[32011R1169] SECTION 1 Content and presentation Article 16 \u2014 Omission of certain mandatory particulars\n\n1.\u00a0\u00a0\u00a0In the case of glass bottles intended for reuse which are indelibly marked and which therefore bear no label, ring or collar only the particulars listed in points (a), (c), (e), (f) and (l) of Article 9(1) shall be mandatory.\n2.\u00a0\u00a0\u00a0In the case of packaging or containers the largest surface of which has an area of less than 10\u00a0cm2only the particulars listed in points (a), (c), (e) and (f) of Article 9(1) shall be mandatory on the package or on the label. The particulars referred to in point (b) of Article 9(1) shall be provided through other means or shall be made available at the request of the consumer.\n3.\u00a0\u00a0\u00a0Without prejudice to other Union provisions requiring a mandatory nutrition declaration, the declaration referred to in point (l) of Article 9(1) shall not be mandatory for the foods listed in Annex V.\n4.\u00a0\u00a0\u00a0Without prejudice to other Union provisions requiring a list of ingredients or a mandatory nutrition declaration, the particulars referred to in points (b) and (l) of Article 9(1) shall not be mandatory for beverages containing more than 1,2\u00a0% by volume of alcohol.\nBy 13 December 2014, the Commission shall produce a report concerning the application of Article 18 and Article 30(1) to the products referred to in this paragraph, and addressing whether alcoholic beverages should in future be covered, in particular, by the requirement to provide the information on the energy value, and the reasons justifying possible exemptions, taking into account the need to ensure coherence with other relevant Union policies. In this context, the Commission shall consider the need to propose a definition of \u2018alcopops\u2019.\nThe Commission shall accompany that report by a legislative proposal, if appropriate, determining the rules for a list of ingredients or a mandatory nutrition declaration for those products.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 16,
+            "article_title": "Omission of certain mandatory particulars",
+            "chapter": "SECTION 1",
+            "section": "Content and presentation",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art16",
+            "char_count": 1831
+          },
+          "score": 0.6779100298881531
+        },
+        {
+          "chunk_id": "32011R1169_art21",
+          "text": "[32011R1169] SECTION 2 Detailed provisions on mandatory particulars Article 21 \u2014 Labelling of certain substances or products causing allergies or intolerances\n\n1.\u00a0\u00a0\u00a0Without prejudice to the rules adopted under Article 44(2), the particulars referred to in point (c) of Article 9(1) shall meet the following requirements:\n(a)\nthey shall be indicated in the list of ingredients in accordance with the rules laid down in Article 18(1), with a clear reference to the name of the substance or product as listed in Annex II; and\n(b)\nthe name of the substance or product as listed in Annex II shall be emphasised through a typeset that clearly distinguishes it from the rest of the list of ingredients, for example by means of the font, style or background colour.\nIn the absence of a list of ingredients, the indication of the particulars referred to in point (c) of Article 9(1) shall comprise the word \u2018contains\u2019 followed by the name of the substance or product as listed in Annex II.\nWhere several ingredients or processing aids of a food originate from a single substance or product listed in Annex II, the labelling shall make it clear for each ingredient or processing aid concerned.\nThe indication of the particulars referred to in point (c) of Article 9(1) shall not be required in cases where the name of the food clearly refers to the substance or product concerned.\n2.\u00a0\u00a0\u00a0In order to ensure better information for consumers and to take account of the most recent scientific progress and technical knowledge, the Commission shall systematically re-examine and, where necessary, update the list in Annex II by means of delegated acts, in accordance with Article 51.\nWhere, in the case of the emergence of a risk to consumers\u2019 health, imperative grounds of urgency so require, the procedure provided for in Article 52 shall apply to delegated acts adopted pursuant to this Article.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 21,
+            "article_title": "Labelling of certain substances or products causing allergies or intolerances",
+            "chapter": "SECTION 2",
+            "section": "Detailed provisions on mandatory particulars",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art21",
+            "char_count": 1722
+          },
+          "score": 0.6725345849990845
+        },
+        {
+          "chunk_id": "32011R1169_art36",
+          "text": "[32011R1169] CHAPTER V VOLUNTARY FOOD INFORMATION Article 36 \u2014 Applicable requirements\n\n1.\u00a0\u00a0\u00a0Where food information referred to in Articles 9 and 10 is provided on a voluntary basis, such information shall comply with the requirements laid down in Sections 2 and 3 of Chapter IV.\n2.\u00a0\u00a0\u00a0Food information provided on a voluntary basis shall meet the following requirements:\n(a)\nit shall not mislead the consumer, as referred to in Article 7;\n(b)\nit shall not be ambiguous or confusing for the consumer; and\n(c)\nit shall, where appropriate, be based on the relevant scientific data.\n3.\u00a0\u00a0\u00a0The Commission shall adopt implementing acts on the application of the requirements referred to in paragraph 2 of this Article to the following voluntary food information:\n(a)\ninformation on the possible and unintentional presence in food of substances or products causing allergies or intolerances;\n(b)\ninformation related to suitability of a food for vegetarians or vegans; and\n(c)\nthe indication of reference intakes for specific population groups in addition to the reference intakes set out in Annex XIII.\nThose implementing acts shall be adopted in accordance with the examination procedure referred to in Article 48(2).\n4.\u00a0\u00a0\u00a0In order to ensure that consumers are appropriately informed, where voluntary food information is provided by food business operators on a divergent basis which might mislead or confuse the consumer, the Commission may, by means of delegated acts, in accordance with Article 51, provide for additional cases of provision of voluntary food information to the ones referred to in paragraph 3 of this Article.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 36,
+            "article_title": "Applicable requirements",
+            "chapter": "CHAPTER V",
+            "section": "VOLUNTARY FOOD INFORMATION",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art36",
+            "char_count": 1534
+          },
+          "score": 0.6681851148605347
+        },
+        {
+          "chunk_id": "32002R0178_art14_chunk0",
+          "text": "[32002R0178] Article 14 \u2014 Food safety requirements (part 1/2)\n\n1. Food shall not be placed on the market if it is unsafe.\n2. Food shall be deemed to be unsafe if it is considered to be:\n(a) injurious to health;\n(b) unfit for human consumption.\n3. In determining whether any food is unsafe, regard shall be had:\n(a) to the normal conditions of use of the food by the consumer and at each stage of production, processing and distribution, and\n(b) to the information provided to the consumer, including information on the label, or other information generally available to the consumer concerning the avoidance of specific adverse health effects from a particular food or category of foods.\n4. In determining whether any food is injurious to health, regard shall be had:\n(a) not only to the probable immediate and/or short-term and/or long-term effects of that food on the health of a person consuming it, but also on subsequent generations;\n(b) to the probable cumulative toxic effects;\n(c) to the particular health sensitivities of a specific category of consumers where the food is intended for that category of consumers.\n5. In determining whether any food is unfit for human consumption, regard shall be had to whether the food is unacceptable for human consumption according to its intended use, for reasons of contamination, whether by extraneous matter or otherwise, or through putrefaction, deterioration or decay.\n6. Where any food which is unsafe is part of a batch, lot or consignment of food of the same class or description, it shall be presumed that all the food in that batch, lot or consignment is also unsafe, unless following a detailed assessment there is no evidence that the rest of the batch, lot or consignment is unsafe.\n7. Food that complies with specific Community provisions governing food safety shall be deemed to be safe insofar as the aspects covered by the specific Community provisions are concerned.",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 14,
+            "article_title": "Food safety requirements",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 2,
+            "chunk_id": "32002R0178_art14_chunk0",
+            "char_count": 1868
+          },
+          "score": 0.5582748651504517
+        },
+        {
+          "chunk_id": "32002R0178_art16",
+          "text": "[32002R0178] Article 16 \u2014 Presentation\n\nWithout prejudice to more specific provisions of food law, the labelling, advertising and presentation of food or feed, including their shape, appearance or packaging, the packaging materials used, the manner in which they are arranged and the setting in which they are displayed, and the information which is made available about them through whatever medium, shall not mislead consumers.",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 16,
+            "article_title": "Presentation",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002R0178_art16",
+            "char_count": 389
+          },
+          "score": 0.5523764491081238
+        },
+        {
+          "chunk_id": "32002R0178_art18",
+          "text": "[32002R0178] Article 18 \u2014 Traceability\n\n1. The traceability of food, feed, food-producing animals, and any other substance intended to be, or expected to be, incorporated into a food or feed shall be established at all stages of production, processing and distribution.\n2. Food and feed business operators shall be able to identify any person from whom they have been supplied with a food, a feed, a food-producing animal, or any substance intended to be, or expected to be, incorporated into a food or feed.\nTo this end, such operators shall have in place systems and procedures which allow for this information to be made available to the competent authorities on demand.\n3. Food and feed business operators shall have in place systems and procedures to identify the other businesses to which their products have been supplied. This information shall be made available to the competent authorities on demand.\n4. Food or feed which is placed on the market or is likely to be placed on the market in the Community shall be adequately labelled or identified to facilitate its traceability, through relevant documentation or information in accordance with the relevant requirements of more specific provisions.\n5. Provisions for the purpose of applying the requirements of this Article in respect of specific sectors may be adopted in accordance with the procedure laid down in Article 58(2).",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 18,
+            "article_title": "Traceability",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002R0178_art18",
+            "char_count": 1350
+          },
+          "score": 0.549441933631897
+        },
+        {
+          "chunk_id": "32018R0848_art30_chunk1",
+          "text": "[32018R0848] CHAPTER IV LABELLING Article 30 \u2014 Use of terms referring to organic production (part 2/3)\n\n4.\u00a0\u00a0\u00a0The terms referred to in paragraph 1 and 3 shall not be used for a product for which Union law requires the labelling or advertising to state that the product contains GMOs, consists of GMOs or is produced from GMOs.\n5.\u00a0\u00a0\u00a0For processed food, the terms referred to in paragraph 1 may be used:\n(a)\nin the sales description, and in the list of ingredients where such a list is mandatory pursuant to Union legislation, provided that:\n(i)\nthe processed food complies with the production rules set out in Part IV of Annex II and with the rules laid down in accordance with Article 16(3);\n(ii)\nat least 95\u00a0% of the agricultural ingredients of the product by weight are organic; and\n(iii)\nin the case of flavourings, they are only used for natural flavouring substances and natural flavouring preparations labelled in accordance with Article 16(2), (3) and (4) of Regulation (EC) No 1334/2008 and all of the flavouring components and carriers of flavouring components in the flavouring concerned are organic;\n(b)\nonly in the list of ingredients, provided that:\n(i)\nless than 95\u00a0% of the agricultural ingredients of the product by weight are organic, and provided that those ingredients comply with the production rules set out in this Regulation; and\n(ii)\nthe processed food complies with the production rules set out in points 1.5, 2.1(a), 2.1(b) and 2.2.1 of Part IV of Annex II and with the rules laid down in accordance with Article 16(3);\n(c)\nin the sales description and in the list of ingredients, provided that:\n(i)\nthe main ingredient is a product of hunting or fishing;\n(ii)\nthe term referred to in paragraph 1 is clearly related in the sales description to another ingredient which is organic and different from the main ingredient;\n(iii)\nall other agricultural ingredients are organic; and\n(iv)\nthe food complies with points 1.5, 2.1(a), 2.1(b) and 2.2.1 of Part IV of Annex II and with the rules laid down in accordance with Article 16(3).",
+          "metadata": {
+            "celex_id": "32018R0848",
+            "article_number": 30,
+            "article_title": "Use of terms referring to organic production",
+            "chapter": "CHAPTER IV",
+            "section": "LABELLING",
+            "chunk_index": 1,
+            "total_chunks": 3,
+            "chunk_id": "32018R0848_art30_chunk1",
+            "char_count": 1949
+          },
+          "score": 0.5302213430404663
+        },
+        {
+          "chunk_id": "32018R0848_art31",
+          "text": "[32018R0848] CHAPTER IV LABELLING Article 31 \u2014 Labelling of products and substances used in crop production\n\nNotwithstanding the scope of this Regulation as set out in Article 2(1), products and substances used in plant protection products or as fertilisers, soil conditioners or nutrients that have been authorised in accordance with Articles 9 and 24 may bear a reference indicating that those products or substances have been authorised for use in organic production in accordance with this Regulation.",
+          "metadata": {
+            "celex_id": "32018R0848",
+            "article_number": 31,
+            "article_title": "Labelling of products and substances used in crop production",
+            "chapter": "CHAPTER IV",
+            "section": "LABELLING",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32018R0848_art31",
+            "char_count": 396
+          },
+          "score": 0.528424859046936
+        },
+        {
+          "chunk_id": "32018R0848_art24_chunk3",
+          "text": "[32018R0848] CHAPTER III PRODUCTION RULES Article 24 \u2014 Authorisation of products and substances for use in organic production (part 4/4)\n\n6.\u00a0\u00a0\u00a0The Commission is empowered to adopt delegated acts in accordance with Article 54 amending paragraphs 3 and 4 of this Article by adding further criteria for the authorisation of products and substances referred to in paragraphs 1 and 2 of this Article for use in organic production in general, and in the production of processed organic food in particular, as well as further criteria for the withdrawal of such authorisations, or by amending those added criteria.\n7.\u00a0\u00a0\u00a0Where a Member State considers that a product or substance should be added to or withdrawn from the lists of authorised products and substances referred to in paragraphs 1 and 2, or that the specifications of use referred to in the production rules should be amended, it shall ensure that a dossier giving the reasons for the inclusion, withdrawal or other amendments is officially sent to the Commission and to the other Member States and is made publicly available, subject to Union and national legislation on data protection.\nThe Commission shall publish any requests referred to in this paragraph.\n8.\u00a0\u00a0\u00a0The Commission shall regularly review the lists referred to in this Article.\nThe list of non-organic ingredients referred to in point (b) of paragraph 2 shall be reviewed at least once a year.\n9.\u00a0\u00a0\u00a0The Commission shall adopt implementing acts concerning the authorisation or withdrawal of authorisation of products and substances in accordance with paragraphs 1 and 2 that may be used in organic production in general and in the production of processed organic food in particular, and establishing the procedures to be followed for such authorisations and the lists of such products and substances and, where appropriate, their description, compositional requirements and conditions for use.\nThose implementing acts shall be adopted in accordance with the examination procedure referred to in Article 55(2).",
+          "metadata": {
+            "celex_id": "32018R0848",
+            "article_number": 24,
+            "article_title": "Authorisation of products and substances for use in organic production",
+            "chapter": "CHAPTER III",
+            "section": "PRODUCTION RULES",
+            "chunk_index": 3,
+            "total_chunks": 4,
+            "chunk_id": "32018R0848_art24_chunk3",
+            "char_count": 1890
+          },
+          "score": 0.5035004615783691
+        }
+      ]
+    },
+    "extraction": {
+      "requirements": [
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 16,
+          "article_title": "Omission of certain mandatory particulars",
+          "requirement_summary": "For glass bottles intended for reuse that are indelibly marked and bear no label, only the name of the food, allergens, net quantity, date of minimum durability, and nutrition declaration are mandatory.",
+          "requirement_type": "labelling",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators using indelibly marked reusable glass bottles",
+          "conditions": "Only applies to glass bottles intended for reuse which are indelibly marked and bear no label, ring or collar",
+          "cross_references": [],
+          "source_text_snippet": "In the case of glass bottles intended for reuse which are indelibly marked and which therefore bear no label, ring or collar only the particulars listed in points (a), (c), (e), (f) and (l) of Article 9(1) shall be mandatory",
+          "confidence": 0.7
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 16,
+          "article_title": "Omission of certain mandatory particulars",
+          "requirement_summary": "For packaging with a largest surface area of less than 10 cm\u00b2, only the name of the food, allergens, net quantity, and date of minimum durability are mandatory on the package or label. The list of ingredients must be provided through other means or made available at the consumer's request.",
+          "requirement_type": "labelling",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators using small packaging (largest surface < 10 cm\u00b2)",
+          "conditions": "Only applies to packaging or containers with largest surface area less than 10 cm\u00b2",
+          "cross_references": [],
+          "source_text_snippet": "In the case of packaging or containers the largest surface of which has an area of less than 10 cm2 only the particulars listed in points (a), (c), (e) and (f) of Article 9(1) shall be mandatory on the package or on the label",
+          "confidence": 0.7
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 16,
+          "article_title": "Omission of certain mandatory particulars",
+          "requirement_summary": "Foods listed in Annex V are exempt from the mandatory nutrition declaration, unless other Union provisions require it.",
+          "requirement_type": "labelling",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators whose products are listed in Annex V of Regulation 1169/2011",
+          "conditions": "Only applies to foods listed in Annex V; does not override other Union provisions requiring a nutrition declaration",
+          "cross_references": [],
+          "source_text_snippet": "the declaration referred to in point (l) of Article 9(1) shall not be mandatory for the foods listed in Annex V",
+          "confidence": 0.65
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 16,
+          "article_title": "Omission of certain mandatory particulars",
+          "requirement_summary": "Beverages containing more than 1.2% alcohol by volume are exempt from providing a list of ingredients and a mandatory nutrition declaration, unless other Union provisions require them.",
+          "requirement_type": "labelling",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators producing beverages with more than 1.2% alcohol by volume",
+          "conditions": "Only applies to beverages containing more than 1.2% by volume of alcohol",
+          "cross_references": [],
+          "source_text_snippet": "the particulars referred to in points (b) and (l) of Article 9(1) shall not be mandatory for beverages containing more than 1,2 % by volume of alcohol",
+          "confidence": 0.6
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 21,
+          "article_title": "Labelling of certain substances or products causing allergies or intolerances",
+          "requirement_summary": "Allergens listed in Annex II must be indicated in the list of ingredients with a clear reference to the substance name as listed in Annex II, and must be visually emphasised through a distinct typeset (e.g. bold, different font, style, or background colour) that clearly distinguishes them from the rest of the list of ingredients.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators placing pre-packed food on the EU market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "the name of the substance or product as listed in Annex II shall be emphasised through a typeset that clearly distinguishes it from the rest of the list of ingredients",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 21,
+          "article_title": "Labelling of certain substances or products causing allergies or intolerances",
+          "requirement_summary": "When there is no list of ingredients, allergen information must be provided using the word 'contains' followed by the name of the substance or product as listed in Annex II.",
+          "requirement_type": "labelling",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators placing food without a list of ingredients on the EU market",
+          "conditions": "Applies only when there is no list of ingredients on the product",
+          "cross_references": [],
+          "source_text_snippet": "In the absence of a list of ingredients, the indication of the particulars referred to in point (c) of Article 9(1) shall comprise the word 'contains' followed by the name of the substance or product as listed in Annex II",
+          "confidence": 0.9
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 21,
+          "article_title": "Labelling of certain substances or products causing allergies or intolerances",
+          "requirement_summary": "Where several ingredients or processing aids originate from a single allergen listed in Annex II, the labelling must make this clear for each ingredient or processing aid concerned.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators placing food on the EU market where multiple ingredients derive from a single Annex II allergen",
+          "conditions": "Applies when several ingredients or processing aids originate from a single substance listed in Annex II",
+          "cross_references": [],
+          "source_text_snippet": "Where several ingredients or processing aids of a food originate from a single substance or product listed in Annex II, the labelling shall make it clear for each ingredient or processing aid concerned",
+          "confidence": 0.9
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 36,
+          "article_title": "Applicable requirements",
+          "requirement_summary": "Any voluntary food information provided on a product must comply with the mandatory labelling requirements set out in Sections 2 and 3 of Chapter IV of Regulation 1169/2011.",
+          "requirement_type": "labelling",
+          "priority": "ongoing",
+          "applicable_to": "food business operators providing voluntary food information",
+          "conditions": "Applies when food information covered by Articles 9 and 10 is provided voluntarily",
+          "cross_references": [],
+          "source_text_snippet": "Where food information referred to in Articles 9 and 10 is provided on a voluntary basis, such information shall comply with the requirements laid down in Sections 2 and 3 of Chapter IV",
+          "confidence": 0.85
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 36,
+          "article_title": "Applicable requirements",
+          "requirement_summary": "Voluntary food information must not mislead the consumer, must not be ambiguous or confusing, and must, where appropriate, be based on relevant scientific data.",
+          "requirement_type": "labelling",
+          "priority": "ongoing",
+          "applicable_to": "food business operators providing voluntary food information",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "it shall not mislead the consumer, as referred to in Article 7; it shall not be ambiguous or confusing for the consumer; and it shall, where appropriate, be based on the relevant scientific data",
+          "confidence": 0.9
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 14,
+          "article_title": "Food safety requirements",
+          "requirement_summary": "Food must not be placed on the market if it is unsafe \u2014 that is, if it is injurious to health or unfit for human consumption. Safety assessment must consider normal conditions of use, consumer information, probable short/long-term and cumulative toxic effects, and the health sensitivities of specific consumer categories.",
+          "requirement_type": "safety_assessment",
+          "priority": "before_launch",
+          "applicable_to": "all food business operators placing food on the EU market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "Food shall not be placed on the market if it is unsafe",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 14,
+          "article_title": "Food safety requirements",
+          "requirement_summary": "Where any food in a batch, lot, or consignment is found to be unsafe, the entire batch, lot, or consignment is presumed unsafe unless a detailed assessment provides evidence that the rest is safe.",
+          "requirement_type": "general_obligation",
+          "priority": "ongoing",
+          "applicable_to": "all food business operators handling food batches, lots, or consignments",
+          "conditions": "Applies when any food within a batch, lot, or consignment is found to be unsafe",
+          "cross_references": [],
+          "source_text_snippet": "Where any food which is unsafe is part of a batch, lot or consignment of food of the same class or description, it shall be presumed that all the food in that batch, lot or consignment is also unsafe",
+          "confidence": 0.9
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 16,
+          "article_title": "Presentation",
+          "requirement_summary": "The labelling, advertising, and presentation of food \u2014 including shape, appearance, packaging, packaging materials, arrangement, display setting, and information provided through any medium \u2014 must not mislead consumers.",
+          "requirement_type": "labelling",
+          "priority": "ongoing",
+          "applicable_to": "all food business operators marketing food in the EU",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "the labelling, advertising and presentation of food or feed, including their shape, appearance or packaging, the packaging materials used, the manner in which they are arranged and the setting in which they are displayed, and the information which is made available about them through whatever medium, shall not mislead consumers",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 18,
+          "article_title": "Traceability",
+          "requirement_summary": "Traceability of food, feed, food-producing animals, and any substance intended to be incorporated into food or feed must be established at all stages of production, processing, and distribution.",
+          "requirement_type": "traceability",
+          "priority": "before_launch",
+          "applicable_to": "all food and feed business operators in the EU",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "The traceability of food, feed, food-producing animals, and any other substance intended to be, or expected to be, incorporated into a food or feed shall be established at all stages of production, processing and distribution",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 18,
+          "article_title": "Traceability",
+          "requirement_summary": "Food and feed business operators must be able to identify any person from whom they have been supplied with food, feed, food-producing animals, or any substance incorporated into food. Systems and procedures must be in place to make this information available to competent authorities on demand.",
+          "requirement_type": "traceability",
+          "priority": "before_launch",
+          "applicable_to": "all food and feed business operators in the EU",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "Food and feed business operators shall be able to identify any person from whom they have been supplied with a food, a feed, a food-producing animal, or any substance intended to be, or expected to be, incorporated into a food or feed",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 18,
+          "article_title": "Traceability",
+          "requirement_summary": "Food and feed business operators must have systems and procedures to identify all businesses to which their products have been supplied, and this information must be available to competent authorities on demand.",
+          "requirement_type": "traceability",
+          "priority": "before_launch",
+          "applicable_to": "all food and feed business operators in the EU",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "Food and feed business operators shall have in place systems and procedures to identify the other businesses to which their products have been supplied. This information shall be made available to the competent authorities on demand",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 18,
+          "article_title": "Traceability",
+          "requirement_summary": "Food or feed placed on the EU market must be adequately labelled or identified to facilitate traceability, through relevant documentation or information in accordance with applicable specific provisions.",
+          "requirement_type": "traceability",
+          "priority": "before_launch",
+          "applicable_to": "all food and feed business operators placing products on the EU market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "Food or feed which is placed on the market or is likely to be placed on the market in the Community shall be adequately labelled or identified to facilitate its traceability",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32018R0848",
+          "article_number": 30,
+          "article_title": "Use of terms referring to organic production",
+          "requirement_summary": "Terms referring to organic production must not be used on the labelling or advertising of any product that is required by Union law to state that it contains, consists of, or is produced from GMOs.",
+          "requirement_type": "prohibition",
+          "priority": "before_launch",
+          "applicable_to": "food business operators labelling or advertising food products with organic claims",
+          "conditions": "Applies to products where Union law requires labelling or advertising to indicate the product contains, consists of, or is produced from GMOs",
+          "cross_references": [],
+          "source_text_snippet": "The terms referred to in paragraph 1 and 3 shall not be used for a product for which Union law requires the labelling or advertising to state that the product contains GMOs, consists of GMOs or is produced from GMOs",
+          "confidence": 0.65
+        },
+        {
+          "regulation_id": "32018R0848",
+          "article_number": 30,
+          "article_title": "Use of terms referring to organic production",
+          "requirement_summary": "Organic terms may be used in the sales description and list of ingredients of processed food only if the product complies with Part IV of Annex II production rules, at least 95% of agricultural ingredients by weight are organic, and flavourings meet specific organic requirements. If less than 95% of ingredients are organic, organic terms may only be used in the list of ingredients for those organic ingredients.",
+          "requirement_type": "labelling",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators producing and labelling processed organic food",
+          "conditions": "Applies to processed food claiming organic status; specific thresholds determine where organic terms may appear",
+          "cross_references": [
+            "32008R1334"
+          ],
+          "source_text_snippet": "the processed food complies with the production rules set out in Part IV of Annex II\u2026 at least 95 % of the agricultural ingredients of the product by weight are organic",
+          "confidence": 0.6
+        }
+      ],
+      "requirements_count": 18,
+      "articles_processed": 9
+    }
+  }
+}

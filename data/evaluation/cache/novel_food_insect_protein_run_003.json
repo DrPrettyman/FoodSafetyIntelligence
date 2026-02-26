@@ -1,0 +1,563 @@
+{
+  "scenario_id": "novel_food_insect_protein",
+  "run_id": "run_003",
+  "timestamp": "2026-02-26T12:11:00.717343+00:00",
+  "provider": "claude-code",
+  "model": null,
+  "pipeline_output": {
+    "routing": {
+      "celex_ids": [
+        "32011R1169",
+        "32002R0178",
+        "32015R2283",
+        "32017R2468",
+        "32017R2470",
+        "32018R0456",
+        "32017R2469"
+      ],
+      "reasons": {
+        "32011R1169": [
+          "always included (Food Information to Consumers (FIC) Regulation)"
+        ],
+        "32002R0178": [
+          "always included (General Food Law Regulation)"
+        ],
+        "32015R2283": [
+          "product type: \"novel food\" \u2192 category novel_food",
+          "product type: \"novel food\" defined in this regulation"
+        ],
+        "32017R2468": [
+          "product type: \"novel food\" \u2192 category novel_food"
+        ],
+        "32017R2470": [
+          "product type: \"novel food\" \u2192 category novel_food"
+        ],
+        "32018R0456": [
+          "product type: \"novel food\" \u2192 category novel_food"
+        ],
+        "32017R2469": [
+          "product type: \"novel food\" \u2192 category novel_food"
+        ]
+      },
+      "regulation_count": 7
+    },
+    "retrieval": {
+      "query": "insect protein novel food authorisation labelling requirements",
+      "results_count": 18,
+      "articles": [
+        {
+          "chunk_id": "32002R0178_art18",
+          "text": "[32002R0178] Article 18 \u2014 Traceability\n\n1. The traceability of food, feed, food-producing animals, and any other substance intended to be, or expected to be, incorporated into a food or feed shall be established at all stages of production, processing and distribution.\n2. Food and feed business operators shall be able to identify any person from whom they have been supplied with a food, a feed, a food-producing animal, or any substance intended to be, or expected to be, incorporated into a food or feed.\nTo this end, such operators shall have in place systems and procedures which allow for this information to be made available to the competent authorities on demand.\n3. Food and feed business operators shall have in place systems and procedures to identify the other businesses to which their products have been supplied. This information shall be made available to the competent authorities on demand.\n4. Food or feed which is placed on the market or is likely to be placed on the market in the Community shall be adequately labelled or identified to facilitate its traceability, through relevant documentation or information in accordance with the relevant requirements of more specific provisions.\n5. Provisions for the purpose of applying the requirements of this Article in respect of specific sectors may be adopted in accordance with the procedure laid down in Article 58(2).",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 18,
+            "article_title": "Traceability",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002R0178_art18",
+            "char_count": 1350
+          },
+          "score": 0.4745025336742401
+        },
+        {
+          "chunk_id": "32011R1169_art1",
+          "text": "[32011R1169] CHAPTER I GENERAL PROVISIONS Article 1 \u2014 Subject matter and scope\n\n1.\u00a0\u00a0\u00a0This Regulation provides the basis for the assurance of a high level of consumer protection in relation to food information, taking into account the differences in the perception of consumers and their information needs whilst ensuring the smooth functioning of the internal market.\n2.\u00a0\u00a0\u00a0This Regulation establishes the general principles, requirements and responsibilities governing food information, and in particular food labelling. It lays down the means to guarantee the right of consumers to information and procedures for the provision of food information, taking into account the need to provide sufficient flexibility to respond to future developments and new information requirements.\n3.\u00a0\u00a0\u00a0This Regulation shall apply to food business operators at all stages of the food chain, where their activities concern the provision of food information to consumers. It shall apply to all foods intended for the final consumer, including foods delivered by mass caterers, and foods intended for supply to mass caterers.\nThis Regulation shall apply to catering services provided by transport undertakings when the departure takes place on the territories of the Member States to which the Treaties apply.\n4.\u00a0\u00a0\u00a0This Regulation shall apply without prejudice to labelling requirements provided for in specific Union provisions applicable to particular foods.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 1,
+            "article_title": "Subject matter and scope",
+            "chapter": "CHAPTER I",
+            "section": "GENERAL PROVISIONS",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art1",
+            "char_count": 1359
+          },
+          "score": 0.469424843788147
+        },
+        {
+          "chunk_id": "32011R1169_art6",
+          "text": "[32011R1169] CHAPTER III GENERAL FOOD INFORMATION REQUIREMENTS AND RESPONSIBILITIES OF FOOD BUSINESS OPERATORS Article 6 \u2014 Basic requirement\n\nAny food intended for supply to the final consumer or to mass caterers shall be accompanied by food information in accordance with this Regulation.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 6,
+            "article_title": "Basic requirement",
+            "chapter": "CHAPTER III",
+            "section": "GENERAL FOOD INFORMATION REQUIREMENTS AND RESPONSIBILITIES OF FOOD BUSINESS OPERATORS",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art6",
+            "char_count": 147
+          },
+          "score": 0.4599716365337372
+        },
+        {
+          "chunk_id": "32011R1169_art49",
+          "text": "[32011R1169] CHAPTER VII IMPLEMENTING, AMENDING AND FINAL PROVISIONS Article 49 \u2014 Amendments to Regulation (EC) No\u00a01924/2006\n\nThe first and second paragraphs of Article 7 of Regulation (EC) No\u00a01924/2006 are replaced by the following:\n\u2018Nutrition labelling of products on which a nutrition and/or health claim is made shall be mandatory, with the exception of generic advertising. The information to be provided shall consist of that specified in Article 30(1) of Regulation (EU) No\u00a01169/2011 of the European Parliament and of the Council of 25 October 2011 on the provision of food information to consumers(*1). Where a nutrition and/or health claim is made for a nutrient referred to in Article 30(2) of Regulation (EU) No\u00a01169/2011 the amount of that nutrient shall be declared in accordance with Articles 31 to 34 of that Regulation.\nThe amount(s) of the substance(s) to which a nutrition or health claim relates that does not appear in the nutrition labelling shall be stated in the same field of vision as the nutrition labelling and be expressed in accordance with Articles 31, 32 and 33 of Regulation (EU) No\u00a01169/2011. The units of measurement used to express the amount of the substance shall be appropriate for the individual substances concerned.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 49,
+            "article_title": "Amendments to Regulation (EC) No\u00a01924/2006",
+            "chapter": "CHAPTER VII",
+            "section": "IMPLEMENTING, AMENDING AND FINAL PROVISIONS",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art49",
+            "char_count": 1130
+          },
+          "score": 0.4595050811767578
+        },
+        {
+          "chunk_id": "32011R1169_art2_chunk2",
+          "text": "[32011R1169] CHAPTER I GENERAL PROVISIONS Article 2 \u2014 Definitions (part 3/5)\n\n\u2018place of provenance\u2019 means any place where a food is indicated to come from, and that is not the \u2018country of origin\u2019 as determined in accordance with Articles 23 to 26 of Regulation (EEC) No\u00a02913/92; the name, business name or address of the food business operator on the label shall not constitute an indication of the country of origin or place of provenance of food within the meaning of this Regulation;\n(h)\n\u2018compound ingredient\u2019 means an ingredient that is itself the product of more than one ingredient;\n(i)\n\u2018label\u2019 means any tag, brand, mark, pictorial or other descriptive matter, written, printed, stencilled, marked, embossed or impressed on, or attached to the packaging or container of food;\n(j)\n\u2018labelling\u2019 means any words, particulars, trade marks, brand name, pictorial matter or symbol relating to a food and placed on any packaging, document, notice, label, ring or collar accompanying or referring to such food;\n(k)\n\u2018field of vision\u2019 means all the surfaces of a package that can be read from a single viewing point;\n(l)\n\u2018principal field of vision\u2019 means the field of vision of a package which is most likely to be seen at first glance by the consumer at the time of purchase and that enables the consumer to immediately identify a product in terms of its character or nature and, if applicable, its brand name. If a package has several identical principal fields of vision, the principal field of vision is the one chosen by the food business operator;\n(m)\n\u2018legibility\u2019 means the physical appearance of information, by means of which the information is visually accessible to the general population and which is determined by various elements, inter alia, font size, letter spacing, spacing between lines, stroke width, type colour, typeface, width-height ratio of the letters, the surface of the material and significant contrast between the print and the background;\n(n)",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 2,
+            "article_title": "Definitions",
+            "chapter": "CHAPTER I",
+            "section": "GENERAL PROVISIONS",
+            "chunk_index": 2,
+            "total_chunks": 5,
+            "chunk_id": "32011R1169_art2_chunk2",
+            "char_count": 1891
+          },
+          "score": 0.45301851630210876
+        },
+        {
+          "chunk_id": "32015R2283_art25",
+          "text": "[32015R2283] CHAPTER IV ADDITIONAL PROCEDURAL RULES AND OTHER REQUIREMENTS Article 25 \u2014 Additional information requirements\n\nAny food business operator which has placed a novel food on the market shall immediately inform the Commission of any information of which it has become aware concerning:\n(a)\nany new scientific or technical information which might influence the evaluation of the safety of use of the novel food;\n(b)\nany prohibition or restriction imposed by a third country in which the novel food is placed on the market.\nThe Commission shall make that information available to the Member States.",
+          "metadata": {
+            "celex_id": "32015R2283",
+            "article_number": 25,
+            "article_title": "Additional information requirements",
+            "chapter": "CHAPTER IV",
+            "section": "ADDITIONAL PROCEDURAL RULES AND OTHER REQUIREMENTS",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32015R2283_art25",
+            "char_count": 481
+          },
+          "score": 0.4477083683013916
+        },
+        {
+          "chunk_id": "32015R2283_art10_chunk0",
+          "text": "[32015R2283] SECTION I General rules Article 10 \u2014 Procedure for authorising the placing on the market within the Union of a novel food and updating the Union list (part 1/2)\n\n1.\u00a0\u00a0\u00a0The procedure for authorising the placing on the market within the Union of a novel food and updating of the Union list provided for in Article 9 shall start either on the Commission's initiative or following an application to the Commission by an applicant. The Commission shall make the application available to the Member States without delay. The Commission shall make the summary of the application, based on the information referred to in points (a), (b) and\u00a0(e) of paragraph 2 of this Article, publicly available.\n2.\u00a0\u00a0\u00a0The application for an authorisation shall include:\n(a)\nthe name and address of the applicant;\n(b)\nthe name and description of the novel food;\n(c)\nthe description of the production process(es);\n(d)\nthe detailed composition of the novel food;\n(e)\nscientific evidence demonstrating that the novel food does not pose a safety risk to human health;\n(f)\nwhere appropriate, the analysis method(s);\n(g)\na proposal for the conditions of intended use and for specific labelling requirements which do not mislead the consumer or a verifiable justification why those elements are not necessary.\n3.\u00a0\u00a0\u00a0Upon request by the Commission, the European Food Safety Authority (\u2018the Authority\u2019) shall give its opinion as to whether the update is liable to have an effect on human health.\n4.\u00a0\u00a0\u00a0When test methods are applied to engineered nanomaterials as referred to in points (a) (viii) and (ix) of Article\u00a03(2), an explanation shall be provided by the applicants of their scientific appropriateness for nanomaterials and, where applicable, of the technical adaptations or adjustments that have been made in order to respond to the specific characteristics of those materials.\n5.\u00a0\u00a0\u00a0The procedure for authorising the placing on the market within the Union of a novel food and updating the Union list as provided for in Article 9 shall end with the adoption of an implementing act in accordance with Article 12.",
+          "metadata": {
+            "celex_id": "32015R2283",
+            "article_number": 10,
+            "article_title": "Procedure for authorising the placing on the market within the Union of a novel food and updating the Union list",
+            "chapter": "SECTION I",
+            "section": "General rules",
+            "chunk_index": 0,
+            "total_chunks": 2,
+            "chunk_id": "32015R2283_art10_chunk0",
+            "char_count": 1919
+          },
+          "score": 0.4455608129501343
+        },
+        {
+          "chunk_id": "32011R1169_art15",
+          "text": "[32011R1169] SECTION 1 Content and presentation Article 15 \u2014 Language requirements\n\n1.\u00a0\u00a0\u00a0Without prejudice to Article 9(3), mandatory food information shall appear in a language easily understood by the consumers of the Member States where a food is marketed.\n2.\u00a0\u00a0\u00a0Within their own territory, the Member States in which a food is marketed may stipulate that the particulars shall be given in one or more languages from among the official languages of the Union.\n3.\u00a0\u00a0\u00a0Paragraphs 1 and 2 shall not preclude the particulars from being indicated in several languages.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 15,
+            "article_title": "Language requirements",
+            "chapter": "SECTION 1",
+            "section": "Content and presentation",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art15",
+            "char_count": 479
+          },
+          "score": 0.43083804845809937
+        },
+        {
+          "chunk_id": "32018R0456_art7",
+          "text": "[32018R0456] Article 7 \u2014 Information on the novel food status and publication\n\n1.\u00a0\u00a0\u00a0The notification referred to in Article 6(5) of this Regulation shall include the following:\n(a)\nthe name and description of the food concerned;\n(b)\na statement indicating whether the food concerned is novel, not novel or not novel only in food supplements;\n(c)\nreasons justifying the statement referred to in point (b);\n(d)\nwhere the food is novel food, the most appropriate food category under which it falls in accordance with Article\u00a03(2) of Regulation (EU) 2015/2283.\n2.\u00a0\u00a0\u00a0The Commission shall without delay make the information on the novel food status publicly available on the Commission's website.",
+          "metadata": {
+            "celex_id": "32018R0456",
+            "article_number": 7,
+            "article_title": "Information on the novel food status and publication",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32018R0456_art7",
+            "char_count": 611
+          },
+          "score": 0.4234018325805664
+        },
+        {
+          "chunk_id": "32011R1169_art3",
+          "text": "[32011R1169] CHAPTER II GENERAL PRINCIPLES ON FOOD INFORMATION Article 3 \u2014 General objectives\n\n1.\u00a0\u00a0\u00a0The provision of food information shall pursue a high level of protection of consumers\u2019 health and interests by providing a basis for final consumers to make informed choices and to make safe use of food, with particular regard to health, economic, environmental, social and ethical considerations.\n2.\u00a0\u00a0\u00a0Food information law shall aim to achieve in the Union the free movement of legally produced and marketed food, taking into account, where appropriate, the need to protect the legitimate interests of producers and to promote the production of quality products.\n3.\u00a0\u00a0\u00a0When food information law establishes new requirements, a transitional period after the entry into force of the new requirements shall be granted, except in duly justified cases. During such transitional period, foods bearing labels not complying with the new requirements may be placed on the market, and stocks of such foods that have been placed on the market before the end of the transitional period may continue to be sold until exhausted.\n4.\u00a0\u00a0\u00a0An open and transparent public consultation shall be conducted, including with stakeholders, directly or through representative bodies, during the preparation, evaluation and revision of food information law, except where the urgency of the matter does not allow it.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 3,
+            "article_title": "General objectives",
+            "chapter": "CHAPTER II",
+            "section": "GENERAL PRINCIPLES ON FOOD INFORMATION",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art3",
+            "char_count": 1292
+          },
+          "score": 0.41510307788848877
+        },
+        {
+          "chunk_id": "32002R0178_art16",
+          "text": "[32002R0178] Article 16 \u2014 Presentation\n\nWithout prejudice to more specific provisions of food law, the labelling, advertising and presentation of food or feed, including their shape, appearance or packaging, the packaging materials used, the manner in which they are arranged and the setting in which they are displayed, and the information which is made available about them through whatever medium, shall not mislead consumers.",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 16,
+            "article_title": "Presentation",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002R0178_art16",
+            "char_count": 389
+          },
+          "score": 0.40392592549324036
+        },
+        {
+          "chunk_id": "32017R2469_art7",
+          "text": "[32017R2469] Article 7 \u2014 Information to be included in the opinion of the Authority\n\n1.\u00a0\u00a0\u00a0The opinion of the Authority shall include the following information:\n(a)\nthe identity of the novel food;\n(b)\nthe assessment of the production process;\n(c)\ncompositional data;\n(d)\nspecifications;\n(e)\nthe history of use of the novel food and/or its source;\n(f)\nthe proposed uses and use levels and anticipated intake;\n(g)\nabsorption, distribution, metabolism and excretion (ADME);\n(h)\nnutritional information;\n(i)\ntoxicological information;\n(j)\nallergenicity;\n(k)\nan overall risk assessment for the novel food under the proposed uses and use levels and highlighting uncertainties and limitations where relevant;\n(l)\nwhen the dietary exposure exceeds the health-based guidance value identified in the overall risk assessment, the dietary exposure assessment of the novel food shall be detailed, providing the contribution to the total exposure of each food category or foodstuff for which the use is authorised or has been requested;\n(m)\nconclusions.\n2.\u00a0\u00a0\u00a0The Commission may ask for additional information in its request for an opinion of the Authority.",
+          "metadata": {
+            "celex_id": "32017R2469",
+            "article_number": 7,
+            "article_title": "Information to be included in the opinion of the Authority",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32017R2469_art7",
+            "char_count": 1056
+          },
+          "score": 0.39947420358657837
+        },
+        {
+          "chunk_id": "32017R2469_art3",
+          "text": "[32017R2469] Article 3 \u2014 Structure, content and presentation of an application\n\n1.\u00a0\u00a0\u00a0An application shall be submitted electronically to the Commission and shall consist of the following:\n(a)\na cover letter;\n(b)\na technical dossier;\n(c)\na summary of the dossier.\n2.\u00a0\u00a0\u00a0The cover letter referred to in paragraph 1(a) shall be drafted in accordance with the template provided in Annex I.\n3.\u00a0\u00a0\u00a0The technical dossier referred to in paragraph 1(b) shall contain:\n(a)\nthe administrative data as provided for in Article 4;\n(b)\nthe scientific data as provided for in Article 5.\n4.\u00a0\u00a0\u00a0Where the applicant submits an application to modify the conditions of use, the specifications, additional specific labelling requirements or post-market monitoring requirements of an authorised novel food, it may not be necessary for the applicant to provide all the data required under Article 5 of this Regulation where the applicant provides verifiable justification explaining that the proposed changes do not affect the results of the existing risk assessment.\n5.\u00a0\u00a0\u00a0In addition to the information referred to in points (a), (b) and (e) of Article 10(2) of Regulation (EU) 2015/2283, the summary of the dossier referred to in paragraph 1(c) of this Article shall set out the reasons why the use of the novel food complies with the conditions laid down in Article 7 of Regulation (EU) 2015/2283.",
+          "metadata": {
+            "celex_id": "32017R2469",
+            "article_number": 3,
+            "article_title": "Structure, content and presentation of an application",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32017R2469_art3",
+            "char_count": 1293
+          },
+          "score": 0.38006168603897095
+        },
+        {
+          "chunk_id": "32017R2468_art3",
+          "text": "[32017R2468] Article 3 \u2014 Structure, content and presentation of a notification\n\n1.\u00a0\u00a0\u00a0A notification shall be submitted electronically to the Commission and shall consist of the following:\n(a)\na cover letter;\n(b)\na technical dossier;\n(c)\na summary of the dossier.\n2.\u00a0\u00a0\u00a0The cover letter referred to in paragraph 1(a) shall be drafted in accordance with the template provided in Annex I.\n3.\u00a0\u00a0\u00a0The technical dossier referred to in paragraph 1(b) shall contain:\n(a)\nthe administrative data as provided for in Article 5;\n(b)\nthe scientific data as provided for in Article 6.\n4.\u00a0\u00a0\u00a0Where the applicant submits a notification to modify the conditions of use, the specifications, specific labelling requirements or post-market monitoring requirements of an authorised traditional food from a third country, it may not be necessary for the applicant to provide all the data required under Article 6 where the applicant provides verifiable justification explaining that the proposed changes do not affect the results of the existing safety assessment.\n5.\u00a0\u00a0\u00a0The summary of the dossier referred to in paragraph 1(c) shall provide evidence that the use of a traditional food from a third country complies with the conditions laid down in Article 7 of Regulation (EU) 2015/2283.",
+          "metadata": {
+            "celex_id": "32017R2468",
+            "article_number": 3,
+            "article_title": "Structure, content and presentation of a notification",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32017R2468_art3",
+            "char_count": 1182
+          },
+          "score": 0.36814990639686584
+        },
+        {
+          "chunk_id": "32017R2470_art1",
+          "text": "[32017R2470] Article 1 \u2014 Union list of authorised novel foods\n\nThe Union list of novel foods authorised to be placed on the market within the Union as referred to in Article 6(1) of Regulation (EU) 2015/2283 is hereby established and set out in the Annex to this Regulation.",
+          "metadata": {
+            "celex_id": "32017R2470",
+            "article_number": 1,
+            "article_title": "Union list of authorised novel foods",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32017R2470_art1",
+            "char_count": 211
+          },
+          "score": 0.36735475063323975
+        },
+        {
+          "chunk_id": "32018R0456_art4",
+          "text": "[32018R0456] Article 4 \u2014 Content and presentation of a consultation request\n\n1.\u00a0\u00a0\u00a0The consultation request shall be submitted electronically to the recipient Member State and shall consist of the following:\n(a)\na cover letter;\n(b)\na technical dossier;\n(c)\nsupporting documentation;\n(d)\nan explanatory note clarifying the purpose and relevance of the submitted documentation.\n2.\u00a0\u00a0\u00a0The cover letter referred to in paragraph 1(a) shall be drafted in accordance with the template provided in Annex\u00a0I.\n3.\u00a0\u00a0\u00a0The technical dossier referred to in paragraph 1(b) shall contain the information necessary to enable the recipient Member State to conclude on the novel food status and shall be drafted in accordance with the template provided in Annex\u00a0II.\n4.\u00a0\u00a0\u00a0By way of derogation from paragraph 3, an applicant is not required to provide all the elements referred to in Annex\u00a0II, provided that the applicant has submitted verifiable justification for the absence of each missing element.",
+          "metadata": {
+            "celex_id": "32018R0456",
+            "article_number": 4,
+            "article_title": "Content and presentation of a consultation request",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32018R0456_art4",
+            "char_count": 899
+          },
+          "score": 0.3503241539001465
+        },
+        {
+          "chunk_id": "32017R2468_art4",
+          "text": "[32017R2468] Article 4 \u2014 Structure, content and presentation of an application\n\n1.\u00a0\u00a0\u00a0An application shall be submitted electronically to the Commission and shall consist of the following:\n(a)\na cover letter;\n(b)\na technical dossier;\n(c)\na summary of the dossier;\n(d)\nduly reasoned safety objections referred to in Article 15(2) of Regulation (EU) 2015/2283;\n(e)\nthe applicant's response to duly reasoned safety objections.\n2.\u00a0\u00a0\u00a0The cover letter referred to in paragraph 1(a) shall be drafted in accordance with the template provided in Annex\u00a0II.\n3.\u00a0\u00a0\u00a0The technical dossier referred to in paragraph 1(b) shall contain:\n(a)\nthe administrative data as provided for in Article 5;\n(b)\nthe scientific data as provided for in Article 6.\n4.\u00a0\u00a0\u00a0Where the applicant submits an application to modify the conditions of use, the specifications, specific labelling requirements or post-market monitoring requirements of an authorised traditional food from a third country, it may not be necessary for the applicant to provide all the data required under Article 6 where the applicant provides verifiable justification explaining that the proposed changes not affect the results of the existing safety assessment.\n5.\u00a0\u00a0\u00a0The summary of the dossier referred to in paragraph 1(c) shall provide evidence that the use of a traditional food from a third country complies with the conditions laid down in Article 7 of Regulation (EU) 2015/2283.",
+          "metadata": {
+            "celex_id": "32017R2468",
+            "article_number": 4,
+            "article_title": "Structure, content and presentation of an application",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32017R2468_art4",
+            "char_count": 1340
+          },
+          "score": 0.34665626287460327
+        },
+        {
+          "chunk_id": "32017R2470_art2",
+          "text": "[32017R2470] Article 2\n\nThis Regulation shall enter into force on the twentieth day following that of its publication in theOfficial Journal of the European Union.",
+          "metadata": {
+            "celex_id": "32017R2470",
+            "article_number": 2,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32017R2470_art2",
+            "char_count": 139
+          },
+          "score": 0.09830480068922043
+        }
+      ]
+    },
+    "extraction": {
+      "requirements": [
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 18,
+          "article_title": "Traceability",
+          "requirement_summary": "Food business operators must establish traceability at all stages of production, processing and distribution. They must be able to identify all suppliers and all businesses to which their products have been supplied, and make this information available to competent authorities on demand.",
+          "requirement_type": "traceability",
+          "priority": "ongoing",
+          "applicable_to": "food and feed business operators at all stages of production, processing and distribution",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "The traceability of food, feed, food-producing animals, and any other substance intended to be, or expected to be, incorporated into a food or feed shall be established at all stages of production, processing and distribution.",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 18,
+          "article_title": "Traceability",
+          "requirement_summary": "Food or feed placed on the market must be adequately labelled or identified to facilitate traceability, through relevant documentation or information in accordance with applicable specific provisions.",
+          "requirement_type": "labelling",
+          "priority": "ongoing",
+          "applicable_to": "food and feed business operators placing food or feed on the market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "Food or feed which is placed on the market or is likely to be placed on the market in the Community shall be adequately labelled or identified to facilitate its traceability",
+          "confidence": 0.9
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 6,
+          "article_title": "Basic requirement",
+          "requirement_summary": "Any food intended for supply to the final consumer or to mass caterers must be accompanied by food information in accordance with Regulation (EU) No 1169/2011.",
+          "requirement_type": "labelling",
+          "priority": "ongoing",
+          "applicable_to": "food business operators supplying food to final consumers or mass caterers",
+          "conditions": "",
+          "cross_references": [
+            "32011R1169"
+          ],
+          "source_text_snippet": "Any food intended for supply to the final consumer or to mass caterers shall be accompanied by food information in accordance with this Regulation.",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 49,
+          "article_title": "Amendments to Regulation (EC) No 1924/2006",
+          "requirement_summary": "When a nutrition or health claim is made on a product, mandatory nutrition labelling must be provided as specified in Article 30(1) of Regulation (EU) No 1169/2011. The amount of any claimed nutrient not in the standard nutrition labelling must be stated in the same field of vision as the nutrition labelling.",
+          "requirement_type": "labelling",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators making nutrition or health claims on products",
+          "conditions": "Only applies when a nutrition and/or health claim is made on the product",
+          "cross_references": [
+            "32006R1924",
+            "32011R1169"
+          ],
+          "source_text_snippet": "Nutrition labelling of products on which a nutrition and/or health claim is made shall be mandatory",
+          "confidence": 0.7
+        },
+        {
+          "regulation_id": "32015R2283",
+          "article_number": 25,
+          "article_title": "Additional information requirements",
+          "requirement_summary": "Any food business operator that has placed a novel food on the market must immediately inform the Commission of any new scientific or technical information that might affect the safety evaluation, or any prohibition or restriction imposed by a third country where the novel food is marketed.",
+          "requirement_type": "monitoring",
+          "priority": "ongoing",
+          "applicable_to": "food business operators that have placed a novel food on the market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "Any food business operator which has placed a novel food on the market shall immediately inform the Commission of any information of which it has become aware concerning",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32015R2283",
+          "article_number": 10,
+          "article_title": "Procedure for authorising the placing on the market within the Union of a novel food and updating the Union list",
+          "requirement_summary": "To authorise a novel food, an applicant must submit an application to the Commission containing: name and address of the applicant, name and description of the novel food, description of the production process, detailed composition, scientific evidence demonstrating safety, analysis methods where appropriate, and a proposal for conditions of use and specific labelling requirements.",
+          "requirement_type": "authorisation",
+          "priority": "before_launch",
+          "applicable_to": "applicants seeking authorisation to place a novel food on the EU market",
+          "conditions": "",
+          "cross_references": [
+            "32015R2283"
+          ],
+          "source_text_snippet": "The application for an authorisation shall include: (a) the name and address of the applicant; (b) the name and description of the novel food; (c) the description of the production process(es); (d) the detailed composition of the novel food; (e) scientific evidence demonstrating that the novel food does not pose a safety risk to human health",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32015R2283",
+          "article_number": 10,
+          "article_title": "Procedure for authorising the placing on the market within the Union of a novel food and updating the Union list",
+          "requirement_summary": "When test methods are applied to engineered nanomaterials, applicants must provide an explanation of the scientific appropriateness of those methods for nanomaterials and, where applicable, the technical adaptations made for such materials.",
+          "requirement_type": "documentation",
+          "priority": "before_launch",
+          "applicable_to": "applicants seeking authorisation for novel foods involving engineered nanomaterials",
+          "conditions": "Only applies when the novel food involves engineered nanomaterials",
+          "cross_references": [
+            "32015R2283"
+          ],
+          "source_text_snippet": "When test methods are applied to engineered nanomaterials... an explanation shall be provided by the applicants of their scientific appropriateness for nanomaterials",
+          "confidence": 0.6
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 15,
+          "article_title": "Language requirements",
+          "requirement_summary": "Mandatory food information must appear in a language easily understood by consumers of the Member States where the food is marketed. Member States may require that information be given in one or more of their official EU languages.",
+          "requirement_type": "labelling",
+          "priority": "ongoing",
+          "applicable_to": "food business operators marketing food to consumers in EU Member States",
+          "conditions": "",
+          "cross_references": [
+            "32011R1169"
+          ],
+          "source_text_snippet": "mandatory food information shall appear in a language easily understood by the consumers of the Member States where a food is marketed",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32018R0456",
+          "article_number": 4,
+          "article_title": "Content and presentation of a consultation request",
+          "requirement_summary": "A consultation request on novel food status must be submitted electronically to the recipient Member State and must include a cover letter, a technical dossier, supporting documentation, and an explanatory note. The cover letter and technical dossier must follow the templates provided in the regulation's annexes.",
+          "requirement_type": "documentation",
+          "priority": "before_launch",
+          "applicable_to": "applicants seeking a determination on the novel food status of a food",
+          "conditions": "Applies when consulting a Member State on novel food status",
+          "cross_references": [
+            "32018R0456"
+          ],
+          "source_text_snippet": "The consultation request shall be submitted electronically to the recipient Member State and shall consist of the following: (a) a cover letter; (b) a technical dossier; (c) supporting documentation; (d) an explanatory note",
+          "confidence": 0.85
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 16,
+          "article_title": "Presentation",
+          "requirement_summary": "The labelling, advertising and presentation of food \u2014 including shape, appearance, packaging, packaging materials, arrangement, display setting, and any information made available through any medium \u2014 must not mislead consumers.",
+          "requirement_type": "labelling",
+          "priority": "ongoing",
+          "applicable_to": "food business operators involved in labelling, advertising or presenting food",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "the labelling, advertising and presentation of food or feed... shall not mislead consumers",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32017R2469",
+          "article_number": 3,
+          "article_title": "Structure, content and presentation of an application",
+          "requirement_summary": "An application for novel food authorisation must be submitted electronically to the Commission and must include a cover letter (using the prescribed template), a technical dossier containing administrative and scientific data, and a summary of the dossier demonstrating compliance with Article 7 of Regulation (EU) 2015/2283.",
+          "requirement_type": "documentation",
+          "priority": "before_launch",
+          "applicable_to": "applicants seeking novel food authorisation under Regulation (EU) 2015/2283",
+          "conditions": "",
+          "cross_references": [
+            "32015R2283"
+          ],
+          "source_text_snippet": "An application shall be submitted electronically to the Commission and shall consist of the following: (a) a cover letter; (b) a technical dossier; (c) a summary of the dossier",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32017R2468",
+          "article_number": 3,
+          "article_title": "Structure, content and presentation of a notification",
+          "requirement_summary": "A notification for a traditional food from a third country must be submitted electronically to the Commission and must include a cover letter (using the prescribed template), a technical dossier containing administrative and scientific data, and a summary providing evidence of compliance with Article 7 of Regulation (EU) 2015/2283.",
+          "requirement_type": "notification",
+          "priority": "before_launch",
+          "applicable_to": "applicants notifying a traditional food from a third country under Regulation (EU) 2015/2283",
+          "conditions": "Only applies to traditional foods from third countries",
+          "cross_references": [
+            "32015R2283"
+          ],
+          "source_text_snippet": "A notification shall be submitted electronically to the Commission and shall consist of the following: (a) a cover letter; (b) a technical dossier; (c) a summary of the dossier",
+          "confidence": 0.7
+        },
+        {
+          "regulation_id": "32017R2468",
+          "article_number": 4,
+          "article_title": "Structure, content and presentation of an application",
+          "requirement_summary": "Where duly reasoned safety objections have been raised against a traditional food notification, the applicant must submit an application electronically to the Commission including a cover letter, technical dossier, summary, the safety objections, and the applicant's response to those objections.",
+          "requirement_type": "documentation",
+          "priority": "before_launch",
+          "applicable_to": "applicants responding to safety objections on traditional food from a third country",
+          "conditions": "Only applies when duly reasoned safety objections have been raised under Article 15(2) of Regulation (EU) 2015/2283",
+          "cross_references": [
+            "32015R2283"
+          ],
+          "source_text_snippet": "An application shall be submitted electronically to the Commission and shall consist of the following: (a) a cover letter; (b) a technical dossier; (c) a summary of the dossier; (d) duly reasoned safety objections; (e) the applicant's response to duly reasoned safety objections",
+          "confidence": 0.6
+        },
+        {
+          "regulation_id": "32017R2470",
+          "article_number": 1,
+          "article_title": "Union list of authorised novel foods",
+          "requirement_summary": "Novel foods may only be placed on the EU market if they are included in the Union list established in the Annex to this Regulation, as required by Article 6(1) of Regulation (EU) 2015/2283.",
+          "requirement_type": "authorisation",
+          "priority": "before_launch",
+          "applicable_to": "food business operators placing novel foods on the EU market",
+          "conditions": "",
+          "cross_references": [
+            "32015R2283"
+          ],
+          "source_text_snippet": "The Union list of novel foods authorised to be placed on the market within the Union as referred to in Article 6(1) of Regulation (EU) 2015/2283 is hereby established",
+          "confidence": 0.92
+        },
+        {
+          "regulation_id": "32018R0456",
+          "article_number": 7,
+          "article_title": "Information on the novel food status and publication",
+          "requirement_summary": "When notifying the Commission of a novel food status determination, the notification must include the name and description of the food, a statement on whether it is novel, reasons justifying that statement, and the appropriate food category if the food is novel.",
+          "requirement_type": "notification",
+          "priority": "before_launch",
+          "applicable_to": "Member States or applicants notifying the Commission of novel food status determinations",
+          "conditions": "",
+          "cross_references": [
+            "32015R2283"
+          ],
+          "source_text_snippet": "The notification referred to in Article 6(5) of this Regulation shall include the following: (a) the name and description of the food concerned; (b) a statement indicating whether the food concerned is novel",
+          "confidence": 0.8
+        }
+      ],
+      "requirements_count": 15,
+      "articles_processed": 18
+    }
+  }
+}
