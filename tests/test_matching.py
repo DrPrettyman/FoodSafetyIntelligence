@@ -201,12 +201,13 @@ class TestMatchRequirements:
         """Exact matches should be resolved first, leaving partial for the rest."""
         gt = [
             _gt("NF-01", rtype="authorisation"),
-            _gt("NF-02", art=10, rtype="documentation"),
+            _gt("NF-02", art=10, rtype="documentation",
+                 desc="application submission documentation requirements for novel food"),
         ]
         extracted = [
             _ext(),  # exact match for NF-01
             _ext(art=10, rtype="general_obligation",
-                 summary="documentation application submission required"),  # partial for NF-02
+                 summary="documentation application submission required for novel food"),
         ]
         result = match_requirements(extracted, gt)
         assert len(result.true_positives) == 1

@@ -33,6 +33,17 @@
 | 2026-02-20 | 5 end-to-end evaluation scenarios + 2 quality metrics, all passing | Done |
 | 2026-02-20 | Tests: 94 total (all modules + evaluation), all passing | Done |
 | 2026-02-20 | **MVP COMPLETE**: ingestion → parsing → chunking → extraction → routing → vector search → evaluation | Done |
+| 2026-02-25 | schemas.py: Pydantic ComplianceRequirement + ExtractionResult models with typed enums | Done |
+| 2026-02-25 | llm_extractor.py: Anthropic tool_use extraction chain with few-shot example | Done |
+| 2026-02-25 | Tests: 119 total (25 new extraction tests with mocked API), all passing | Done |
+| 2026-02-25 | pipeline.py: end-to-end pipeline with build + query phases, CLI interface | Done |
+| 2026-02-25 | Serialization: entity index → JSON (defined_terms.json, cross_references.json, entity_stats.json) | Done |
+| 2026-02-25 | Build indexes: 33 regs, 881 arts, 1142 chunks, 324 terms, 361 xrefs in 14.2s | Done |
+| 2026-02-25 | Tests: 129 total (10 new pipeline/serialization tests), all passing | Done |
+| 2026-02-25 | Multi-provider extraction: refactored llm_extractor.py for anthropic/openai/claude-code providers | Done |
+| 2026-02-25 | Pipeline CLI: added --provider and --model args, openai as optional dep | Done |
+| 2026-02-25 | Tests: 143 total (39 extraction tests with provider mocks, 10 pipeline), all passing | Done |
+| 2026-02-26 | Live extraction via claude-code provider: 8 requirements from 5 articles, fully validated | Done |
 
 ## Data Notes
 
@@ -247,6 +258,61 @@ Quality metrics:
 - **Filtered vs unfiltered**: filtered search surfaces domain-relevant articles at least as well as unfiltered
 
 All 7 evaluation tests pass.
+
+### LLM Extraction Module (2026-02-25)
+
+**Pydantic schemas** (`src/extraction/schemas.py`):
+- `ComplianceRequirement`: 11 fields covering regulation ID, article, summary, type, priority, cross-references, confidence score
+- `RequirementType` enum: 11 categories (authorisation, notification, labelling, safety_assessment, max_limit, documentation, monitoring, traceability, hygiene, prohibition, general_obligation)
+- `Priority` enum: before_launch, ongoing, if_applicable
+- `ExtractionResult`: wraps list of requirements + metadata
+
+**LLM extractor** (`src/extraction/llm_extractor.py`):
+- Uses Anthropic `tool_use` (function calling) to force structured output matching the Pydantic schema
+- System prompt: regulatory compliance analyst persona with confidence calibration rules
+- Few-shot example: Novel Foods Art 7 (authorisation requirement) embedded in user message
+- `tool_choice={"type": "tool", "name": "submit_requirements"}` — forces the model to use the tool
+- Malformed requirements silently skipped (try/except on Pydantic validation)
+- Model: `claude-sonnet-4-20250514`, max_tokens=4096
+
+**Testing approach**: All 25 tests mock the Anthropic API (`unittest.mock.patch`) to test extraction logic without API calls. Tests cover: schema validation, enum coercion, message construction, tool schema consistency, error handling (missing key, malformed output), and API parameter verification.
+
+**Multi-provider support** (added 2026-02-25):
+- Refactored to support three providers: `anthropic` (API + tool_use), `openai` (API + function calling), `claude-code` (CLI `claude -p` subprocess)
+- Provider dispatch via `extract_requirements(..., provider="claude-code")`
+- OpenAI is a lazy import (optional dependency: `pip install .[openai]`)
+- Claude Code provider strips `CLAUDECODE` env var to allow running inside a Claude Code session (nested session workaround)
+- 39 tests with mocked providers (subprocess, API), all passing
+
+**Live extraction results** (2026-02-26, claude-code provider):
+- Query: "insect protein novel food authorisation labelling", product type: "novel food", 5 articles retrieved
+- 8 compliance requirements extracted, all valid `ComplianceRequirement` objects
+- Regulations covered: 32002R0178 (Traceability Art 18, 4 reqs), 32011R1169 (Nutrition claims Art 49, 1 req), 32015R2283 (Novel food authorisation Art 10, 2 reqs), 32018R0456 (Novel food status Art 7, 1 req)
+- Confidence scores range 0.6–0.95. Highest: traceability obligations (0.95), authorisation application (0.95). Lowest: nanomaterials requirement (0.6, correctly conditional)
+- Requirement types: traceability (3), labelling (2), authorisation (1), notification (1), documentation (1)
+- Cross-references extracted: 32006R1924, 32011R1169, 32015R2283
+- Quality assessment: all requirements map to explicit obligations in the source text, no hallucinated requirements observed
+
+### Pipeline & Serialization (2026-02-25)
+
+**End-to-end pipeline** (`src/pipeline.py`):
+- Two phases: `build` (offline, run once) and `query` (runtime)
+- Build: parse_corpus → chunk_corpus → extract_entities → save_entity_index → index_chunks (vector store)
+- Query: load_entity_index → RoutingTable.route → VectorStore.search → extract_requirements (LLM)
+- CLI: `python -m src.pipeline build` / `python -m src.pipeline query --product-type "novel food" --query "..."`
+- `--skip-extraction` flag for routing+retrieval without LLM (useful for testing without API key)
+
+**Serialization** (JSON-based):
+- `data/indexes/defined_terms.json` — 324 defined terms with metadata (100 KB)
+- `data/indexes/cross_references.json` — 361 cross-references (85 KB)
+- `data/indexes/entity_stats.json` — summary counts
+- `data/indexes/build_summary.json` — full build metrics
+- `data/vectorstore/` — embeddings.npy (1.7 MB) + metadata.json + texts.json
+- Round-trip tested: save → load → verify all fields preserved (including unicode)
+
+**Build performance**: 33 regulations → 881 articles → 1142 chunks → 324 terms → 361 xrefs → vector index, all in 14.2 seconds.
+
+**CLI query test**: "insect protein novel food authorisation" → routes to 8 regulations → retrieves 10 articles. Top results correctly include Novel Foods Art 7 (general conditions), Art 10 (authorisation procedure), Art 16 (traditional food application), and related implementing regulation articles.
 
 ## Open Questions
 
