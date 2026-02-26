@@ -214,14 +214,19 @@ class TestMatchRequirements:
         assert len(result.partial_matches) == 1
 
     def test_precision_recall_computation(self):
-        gt = [_gt(f"NF-{i}") for i in range(4)]
-        # 2 match, 1 FP, 2 FN
+        gt = [
+            _gt("NF-0", art=7, rtype="authorisation"),
+            _gt("NF-1", art=10, rtype="documentation", desc="submit dossier to EFSA"),
+            _gt("NF-2", art=18, reg="32002R0178", rtype="traceability", desc="establish traceability"),
+            _gt("NF-3", art=9, rtype="labelling", desc="specific labelling conditions"),
+        ]
+        # 1 exact match, 2 FP, 3 FN
         extracted = [
-            _ext(),  # matches NF-0
-            _ext(),  # duplicate → FP
+            _ext(art=7, rtype="authorisation"),  # matches NF-0
+            _ext(art=7, rtype="authorisation"),  # duplicate → FP (key already consumed)
             _ext(reg="XXXXX", art=99, rtype="labelling"),  # FP
         ]
-        result = match_requirements(extracted, gt)
+        result = match_requirements(extracted, gt, allow_partial=False)
         assert len(result.true_positives) == 1
         assert len(result.false_positives) == 2
         assert len(result.false_negatives) == 3
