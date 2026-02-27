@@ -52,6 +52,7 @@
 | 2026-02-26 | Re-evaluation: P=0.26 R=0.46 F1=0.33 (food supplements F1: 0.24→0.35, retrieval coverage 100%) | Done |
 | 2026-02-26 | Cross-reference resolution: maps human-readable reg numbers → CELEX IDs, 1-hop expansion after routing | Done |
 | 2026-02-26 | Tests: 195 total (18 new cross-reference tests), all passing | Done |
+| 2026-02-27 | Streamlit app: sidebar input form, 3-tab results (checklist/articles/routing), EUR-Lex links | Done |
 
 ## Data Notes
 
@@ -404,6 +405,21 @@ All 7 evaluation tests pass.
 - Uses `CORPUS.keys()` from `corpus.py` as the authoritative set of corpus CELEX IDs
 
 **Testing**: 18 unit tests covering mapping (old-style, new-style, directive, not-in-corpus, invalid format), index building (resolved/unresolved counts, self-reference exclusion), and expansion (single/multiple source, dedup, reasons). All synthetic data, no LLM needed.
+
+### Streamlit App (2026-02-27)
+
+**File**: `app.py` at project root. Run with `streamlit run app.py`.
+
+**Sidebar inputs**: Product category (selectbox), ingredients (multiselect), claims (multiselect), packaging (selectbox), additional keywords (free text), number of articles (slider 5-30), LLM extraction toggle with API key/provider fields.
+
+**Three result tabs**:
+1. **Compliance Checklist** — requirements grouped by priority (Before Launch / Ongoing / If Applicable), each in an expander with summary, type, confidence, source regulation + article linked to EUR-Lex, conditions, source text snippet
+2. **Retrieved Articles** — ranked list with regulation title, article number, title, relevance score; expandable to show article text
+3. **Routing** — regulations selected with reasons, cross-reference expansion diagnostics
+
+**Two modes**: Fast preview (routing + retrieval only, no API key needed) and full extraction (requires Anthropic/OpenAI API key, adds LLM-generated compliance checklist).
+
+**Verified**: app starts, serves HTTP 200, imports cleanly. All 195 existing tests still pass.
 
 ### Pipeline & Serialization (2026-02-25)
 
