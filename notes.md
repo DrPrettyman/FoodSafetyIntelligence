@@ -50,6 +50,8 @@
 | 2026-02-26 | Hybrid retrieval: per-regulation search + broad query merge for full regulation coverage | Done |
 | 2026-02-26 | Article-level deduplication: sub-requirements from matched articles excluded from FP | Done |
 | 2026-02-26 | Re-evaluation: P=0.26 R=0.46 F1=0.33 (food supplements F1: 0.24→0.35, retrieval coverage 100%) | Done |
+| 2026-02-26 | Cross-reference resolution: maps human-readable reg numbers → CELEX IDs, 1-hop expansion after routing | Done |
+| 2026-02-26 | Tests: 195 total (18 new cross-reference tests), all passing | Done |
 
 ## Data Notes
 
@@ -381,6 +383,27 @@ All 7 evaluation tests pass.
 - Expand ground truth to 15-20 items per scenario to better capture LLM's actual output quality
 - Tune extraction prompt for better article coverage (ensure LLM extracts from every provided article)
 - Add extraction temperature=0 for more deterministic results across runs
+
+### Cross-Reference Resolution (2026-02-26)
+
+**Problem**: The entity extractor captures 361 cross-references between regulations (e.g., Novel Foods Regulation referencing General Food Law), but they were never used. When regulation A references regulation B, retrieval should also include B's articles.
+
+**Solution** (`src/retrieval/cross_references.py`):
+
+1. **Regulation number mapping**: `regulation_number_to_celex()` maps human-readable numbers (e.g., "178/2002") to CELEX IDs (e.g., "32002R0178") by trying both number/year and year/number interpretations, plus R (Regulation) and L (Directive) prefixes, against the known corpus.
+
+2. **CrossReferenceIndex**: Built from extracted cross-references + corpus CELEX IDs. Provides `expand(celex_ids)` for 1-hop expansion — given routed regulations, returns additional CELEX IDs they reference.
+
+3. **Pipeline integration**: Expansion happens in `pipeline.query()` between routing and vector search. Uses existing `RoutingResult.add()` to append cross-referenced regulations with provenance tracking (e.g., "cross-referenced from 32015R2283").
+
+**Design decisions**:
+- 1-hop only (no transitive following: A→B→C does not add C when routing to A)
+- Self-references excluded (regulation referencing itself adds nothing)
+- Unresolved references tracked for diagnostics (references to regulations not in corpus)
+- Expansion in pipeline.py, not routing.py — keeps routing pure (structured input → regulations) and cross-ref expansion as separate post-routing enrichment
+- Uses `CORPUS.keys()` from `corpus.py` as the authoritative set of corpus CELEX IDs
+
+**Testing**: 18 unit tests covering mapping (old-style, new-style, directive, not-in-corpus, invalid format), index building (resolved/unresolved counts, self-reference exclusion), and expansion (single/multiple source, dedup, reasons). All synthetic data, no LLM needed.
 
 ### Pipeline & Serialization (2026-02-25)
 

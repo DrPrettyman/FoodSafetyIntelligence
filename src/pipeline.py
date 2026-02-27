@@ -34,8 +34,10 @@ from src.extraction.entity_extractor import (
 from src.extraction.llm_extractor import extract_requirements
 from src.extraction.schemas import ExtractionResult
 from src.indexing.vector_store import VectorStore
+from src.ingestion.corpus import CORPUS
 from src.ingestion.html_parser import parse_corpus
 from src.retrieval.chunking import chunk_corpus
+from src.retrieval.cross_references import CrossReferenceIndex
 from src.retrieval.routing import RoutingTable
 
 # Suppress BeautifulSoup warnings
@@ -218,6 +220,16 @@ def query(
         keywords=keywords,
     )
 
+    # Step 1b: Expand with cross-references (1-hop)
+    corpus_celex_ids = set(CORPUS.keys())
+    xref_index = CrossReferenceIndex.build(
+        entity_index.cross_references, corpus_celex_ids
+    )
+    xref_new_ids, xref_reasons = xref_index.expand(routing_result.celex_ids)
+    for cid in xref_new_ids:
+        for reason in xref_reasons[cid]:
+            routing_result.add(cid, reason)
+
     # Step 2: Semantic search within routed regulations
     if not query_text:
         # Build query from the input parameters
@@ -244,7 +256,6 @@ def query(
     )
 
     seen_chunk_ids = {r["chunk_id"] for r in search_results}
-    covered_celex = {r["metadata"]["celex_id"] for r in search_results}
     per_reg = max(2, n_results // len(routing_result.celex_ids)) if routing_result.celex_ids else 0
 
     for celex_id in routing_result.celex_ids:
@@ -266,6 +277,12 @@ def query(
             "celex_ids": routing_result.celex_ids,
             "reasons": routing_result.reasons,
             "regulation_count": len(routing_result.celex_ids),
+            "cross_references": {
+                "expanded_count": len(xref_new_ids),
+                "expanded_celex_ids": xref_new_ids,
+                "resolved_refs": xref_index.resolved_count,
+                "unresolved_refs": xref_index.unresolved_count,
+            },
         },
         "retrieval": {
             "query": query_text,
@@ -325,7 +342,9 @@ def _cli_query(args: argparse.Namespace) -> None:
 
     # Print routing
     routing = result["routing"]
-    print(f"\nRouting: {routing['regulation_count']} regulations")
+    xref = routing.get("cross_references", {})
+    print(f"\nRouting: {routing['regulation_count']} regulations "
+          f"({xref.get('expanded_count', 0)} added via cross-references)")
     for celex, reasons in routing["reasons"].items():
         print(f"  {celex}: {', '.join(reasons)}")
 
