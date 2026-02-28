@@ -53,6 +53,19 @@
 | 2026-02-26 | Cross-reference resolution: maps human-readable reg numbers → CELEX IDs, 1-hop expansion after routing | Done |
 | 2026-02-26 | Tests: 195 total (18 new cross-reference tests), all passing | Done |
 | 2026-02-27 | Streamlit app: sidebar input form, 3-tab results (checklist/articles/routing), EUR-Lex links | Done |
+| 2026-02-27 | eurlex_discovery.py: SPARQL-based corpus discovery, 243 regulations, 17 categories, 0 unclassified | Done |
+| 2026-02-27 | Discovery: two-tier exclusion (strong/weak), structural heuristic for amendments, \xa0 normalization | Done |
+| 2026-02-27 | Discovery: 168/243 have consolidated text, 33/33 original corpus covered, manual includes for 4 regs | Done |
+| 2026-02-27 | html_parser.py: CLG consolidated format parser (4th format variant) | Done |
+| 2026-02-27 | CLG parser: 81 articles from Reg 178/2002 (vs 65 original), +82% text content | Done |
+| 2026-02-27 | corpus.py: loads from discovery report (243 regs) with baseline fallback (33 regs) | Done |
+| 2026-02-27 | eurlex_downloader.py: consolidated download support, retry logic, --original flag | Done |
+| 2026-02-27 | Tests: 246 total (36 discovery, 24 parser, 11 downloader, 5 corpus, +others), all passing | Done |
+| 2026-02-27 | Corpus download: 243 regs, 178 consolidated + 85 originals (61 fallback, 24 stub fallback) | Done |
+| 2026-02-27 | Downloader: added fallback logic (404 consolidated → original), tested | Done |
+| 2026-02-27 | parse_corpus: fallback from unparseable consolidated to original, skip on total failure | Done |
+| 2026-02-27 | Pipeline rebuild: 224 regs, 2823 articles, 3714 chunks, 702 terms, 1032 xrefs in 28.1s | Done |
+| 2026-02-27 | Tests: 245 total (3 new fallback tests), all passing | Done |
 
 ## Data Notes
 
@@ -442,8 +455,97 @@ All 7 evaluation tests pass.
 
 **CLI query test**: "insect protein novel food authorisation" → routes to 8 regulations → retrieves 10 articles. Top results correctly include Novel Foods Art 7 (general conditions), Art 10 (authorisation procedure), Art 16 (traditional food application), and related implementing regulation articles.
 
+### Systematic Corpus Discovery (2026-02-27)
+
+**Problem**: Hand-curated corpus of 33 regulations was incomplete and downloaded as original (unamended) text. Many regulations have been heavily amended — Food Additives has 64 consolidated versions, General Food Law has 12 amendments.
+
+**Solution**: `src/ingestion/eurlex_discovery.py` — SPARQL-based discovery pipeline.
+
+**Discovery approach**:
+- Queries EUR-Lex SPARQL endpoint for regulations under directory codes `133014` (Foodstuffs) and `152030` (Protection of health)
+- Two-tier exclusion system: strong excludes (always filter: individual authorisations, biocidal products, emergency measures, etc.) and weak excludes (only filter amendment-only acts, not framework regulations)
+- Structural heuristic: framework regs have ", amending" or "and amending" (substantive content before the amending clause); amendment-only acts jump straight to "amending" after the date
+- Manual include list for 4 core regs under non-food directory codes (32004R0853, 32011R0016, 32013R1337, 32018R0848)
+- 130+ category classification rules mapping title patterns → categories
+
+**Results**: 243 regulations discovered (vs 33 hand-curated), 17 categories, 0 unclassified, 168 have consolidated text, 33/33 original corpus covered.
+
+**Non-breaking space bug**: EUR-Lex titles contain `\xa0` (non-breaking space) between `(EU)` and regulation numbers. Pattern matching requires whitespace normalization via `_normalize()`: `re.sub(r"\s+", " ", text).strip()`.
+
+**Output**: `data/discovery/discovery_report.json` — runnable via `python -m src.ingestion.eurlex_discovery`.
+
+### CLG Consolidated Format (2026-02-27)
+
+Fourth HTML format variant for consolidated (as-amended) text from EUR-Lex.
+
+**Detection**: `<p class="title-article-norm">` present (checked before `eli-container` since CLG also has that).
+
+**Key CSS classes**:
+- `title-article-norm` — Article headings ("Article 1", "Article 8a")
+- `stitle-article-norm` — Article subtitles, inside `<div class="eli-title">`
+- `norm` — Body text (both `<p>` and `<div>` tags)
+- `grid-container grid-list` — Numbered list items
+- `list` — Lettered list items
+- `title-division-1` — Used for both "CHAPTER X" and "SECTION X"
+- `title-division-2` — Descriptive subtitle for divisions
+- `title-doc-first` / `title-doc-last` — Document title (in `eli-main-title`, avoid copies in amendment history table)
+- `modref` / `arrow` — Amendment markers (skipped during parsing)
+
+**Article numbering**: Consolidated text includes amendment-inserted articles (8a, 32b, etc.). `article_number` field stores the base integer; downstream chunking handles duplicate numbers via occurrence suffixes.
+
+**Chapter/section tracking**: Walk all division headings and article headings in document order (via `find_all` which preserves order), building an `id(element) → (chapter, section)` map.
+
+**Comparison** (Reg 178/2002, General Food Law):
+
+| Metric | Original (html_legacy) | Consolidated (CLG) |
+|--------|----------------------|-------------------|
+| Articles | 65 | 81 (+16) |
+| Text chars | 79,269 | 144,160 (+82%) |
+| Format | html_legacy | clg |
+
+The 16 additional articles are amendment-inserted (8a-c, 32a-d, 39a-g, 57a, 61a).
+
+### Corpus Loading (2026-02-27)
+
+`corpus.py` now loads from `data/discovery/discovery_report.json` if it exists, falling back to the hand-curated `_BASELINE_CORPUS` (33 regulations). The `CORPUS` dict and `get_consolidated_celex()` function are the authoritative interfaces consumed by routing, extraction, and display code.
+
+`parse_corpus()` in `html_parser.py` handles consolidated filenames by converting `0YYYYTNNNN-YYYYMMDD` back to base CELEX `3YYYYTNNNN` so downstream code sees consistent identifiers.
+
+### Expanded Corpus Build Results (2026-02-27)
+
+**Corpus download**: 243 regulations from discovery, downloaded using consolidated-preferred strategy.
+- 105 consolidated versions downloaded successfully (CLG format)
+- 22 consolidated stubs (repealed regulations, no actual content — only metadata page with "Repealed by" notice)
+- 3 old inline-styled consolidated files (pre-CSS era, inline `style="font-family: 'Arial Unicode MS'"`)
+- 61 original-version fallbacks (consolidated CELEX returned 404)
+- 24 original-version fallbacks (consolidated was stub or unparseable format)
+- Total HTML files: 296 (some regs have both consolidated and original)
+
+**Fallback logic in downloader**: When `prefer_consolidated=True` and the consolidated CELEX returns an error (e.g., HTTP 404), the downloader now automatically falls back to the original CELEX ID. This handles the ~60 old regulations where EUR-Lex has SPARQL metadata for consolidated text but the actual document doesn't exist.
+
+**Fallback logic in parser**: `parse_corpus()` now tries consolidated file first. If it fails to parse (unknown format) or yields 0 articles (repealed stub), falls back to the original file. If both fail, the regulation is skipped with a warning. This handles:
+- 22 repealed stubs (consolidated CLG with `clg.css` but no articles, just a "Repealed by" notice)
+- 3 old inline-styled files (pre-2003 consolidated text without CSS classes)
+- 4 old directives where even the original yields 0 articles (no `TexteOnly` div or `eli-container`)
+
+**Parse results**: 224 of 243 regulations parsed successfully (92%). 19 skipped (mostly pre-1995 repealed directives).
+
+**Pipeline build comparison** (old → new):
+
+| Metric | 33-reg corpus | 224-reg corpus | Change |
+|--------|--------------|----------------|--------|
+| Regulations | 33 | 224 | +579% |
+| Articles | 881 | 2,823 | +220% |
+| Chunks | 1,142 | 3,714 | +225% |
+| Defined terms | 324 (272 unique) | 702 (475 unique) | +116% |
+| Cross-references | 361 | 1,032 | +186% |
+| Build time | 14.2s | 28.1s | +98% |
+
 ## Open Questions
 
 - How do annexes appear in the HTML structure? Annexes contain the actual regulated substance lists (E-numbers, Union List, etc.) and may need special parsing. The parser currently stops at article boundaries and doesn't extract annex content.
 - Cross-reference links in the HTML — are they `<a>` tags pointing to other CELEX numbers? If so, we can build the dependency graph from the HTML itself.
 - Legacy format title detection is heuristic-based and sometimes picks up body text as title (e.g., 32002L0046 Art 2, Art 3). Acceptable for now but could be improved.
+- 19 regulations skipped during parse (old repealed directives). Worth investigating if any are still-referenced by other corpus regulations.
+- Evaluation scenarios should be re-run with expanded corpus — expect better retrieval coverage and potentially higher recall.
+- Routing table scales automatically (uses CORPUS dict), but the 3 new categories (feed, food_irradiation, product_standards) may need keywords added to `CATEGORY_ROUTING` in routing.py for query-time routing.

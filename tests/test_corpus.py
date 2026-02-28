@@ -9,7 +9,6 @@ def test_every_entry_has_required_fields():
     for celex_id, entry in CORPUS.items():
         assert "category" in entry, f"{celex_id} missing 'category'"
         assert "title" in entry, f"{celex_id} missing 'title'"
-        assert "description" in entry, f"{celex_id} missing 'description'"
 
 
 def test_all_categories_are_defined():

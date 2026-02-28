@@ -1,0 +1,2238 @@
+{
+  "total_sparql_results": 2681,
+  "after_filtering": 243,
+  "with_consolidated": 168,
+  "by_category": {
+    "contaminants": 22,
+    "flavourings": 8,
+    "food_additives": 17,
+    "food_contact_materials": 27,
+    "food_enzymes": 1,
+    "food_irradiation": 2,
+    "food_specific_groups": 18,
+    "food_supplements": 1,
+    "fortification": 3,
+    "general_food_law": 9,
+    "gmo": 7,
+    "labelling_fic": 9,
+    "novel_food": 6,
+    "nutrition_health_claims": 5,
+    "official_controls": 82,
+    "organic": 3,
+    "product_standards": 23
+  },
+  "regulations": [
+    {
+      "celex": "31970L0357",
+      "title": "Council Directive 70/357/EEC of 13 July 1970 on the approximation of the laws of the Member States concerning the antioxidants authorized for use in foodstuffs intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_additives"
+    },
+    {
+      "celex": "31973L0241",
+      "title": "Council Directive 73/241/EEC of 24 July 1973 on the approximation of the laws of the Member States relating to cocoa and chocolate products intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01973L0241-19730801",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31973L0437",
+      "title": "Council Directive 73/437/EEC of 11 December 1973 on the approximation of the laws of the Member States concerning certain sugars intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01973L0437-19731213",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31974L0329",
+      "title": "Council Directive 74/329/EEC of 18 June 1974 on the approximation of the laws of the Member States relating to emulsifiers, stabilizers, thickeners and gelling agents for use in foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_additives"
+    },
+    {
+      "celex": "31974L0409",
+      "title": "Council Directive 74/409/EEC of 22 July 1974 on the harmonization of the laws of the Member States relating to honey",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01974L0409-19860101",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31975L0726",
+      "title": "Council Directive 75/726/EEC of 17 November 1975 on the approximation of the laws of the Member States concerning fruit juices and certain similar products",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "product_standards"
+    },
+    {
+      "celex": "31976L0118",
+      "title": "Council Directive 76/118/EEC of 18 December 1975 on the approximation of the laws of the Member States relating to certain partly or wholly dehydrated preserved milk for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01976L0118-19950101",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31976L0621",
+      "title": "Council Directive 76/621/EEC of 20 July 1976 relating to the fixing of the maximum level of erucic acid in oils and fats intended as such for human consumption and in foodstuffs containing added oils or fats",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01976L0621-19760728",
+      "category": "contaminants"
+    },
+    {
+      "celex": "31976L0893",
+      "title": "Council Directive 76/893/EEC of 23 November 1976 on the approximation of the laws of the Member States relating to materials and articles intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31977L0094",
+      "title": "Council Directive 77/94/EEC of 21 December 1976 on the approximation of the laws of the Member States relating to foodstuffs for particular nutritional uses",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "31977L0436",
+      "title": "Council Directive 77/436/EEC of 27 June 1977 on the approximation of the laws of the Member States relating to coffee extracts and chicory extracts",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "product_standards"
+    },
+    {
+      "celex": "31978L0142",
+      "title": "Council Directive 78/142/EEC of 30 January 1978 on the approximation of the laws of the Member States relating to materials and articles which contain vinyl chloride monomer and are intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01978L0142-19780201",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31978L0663",
+      "title": "Council Directive 78/663/EEC of 25 July 1978 laying down specific criteria of purity for emulsifiers, stabilizers, thickeners and gelling agents for use in foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01978L0663-19920229",
+      "category": "food_additives"
+    },
+    {
+      "celex": "31978L0664",
+      "title": "Council Directive 78/664/EEC of 25 July 1978 laying down specific criteria of purity for antioxidants which may be used in foodstuffs intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_additives"
+    },
+    {
+      "celex": "31979L0693",
+      "title": "Council Directive 79/693/EEC of 24 July 1979 on the approximation of the laws of the Member States relating to fruit jams, jellies and marmalades and chestnut purée",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01979L0693-19810101",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31979L0796",
+      "title": "First Commission Directive 79/796/EEC of 26 July 1979 laying down Community methods of analysis for testing certain sugars intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01979L0796-19790922",
+      "category": "official_controls"
+    },
+    {
+      "celex": "31979L1066",
+      "title": "First Commission Directive 79/1066/EEC of 13 November 1979 laying down Community methods of analysis for testing coffee extracts and chicory extracts",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31979L1067",
+      "title": "First Commission Directive 79/1067/EEC of 13 November 1979 laying down Community methods of analysis for testing certain partly or wholly dehydrated preserved milk for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31980L0590",
+      "title": "Commission Directive 80/590/EEC of 9 June 1980 determining the symbol that may accompany materials and articles intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01980L0590-20040501",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31980L0766",
+      "title": "Commission Directive 80/766/EEC of 8 July 1980 laying down the Community method of analysis for the official control of the vinyl chloride monomer level in materials and articles which are intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31980L0777",
+      "title": "Council Directive 80/777/EEC of 15 July 1980 on the approximation of the laws of the Member States relating to the exploitation and marketing of natural mineral waters",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01980L0777-20090716",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31980L0891",
+      "title": "Commission Directive 80/891/EEC of 25 July 1980 relating to the Community method of analysis for determining the erucic acid content in oils and fats intended to be used as such for human consumption and foodstuffs containing added oils or fats",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "31981L0432",
+      "title": "Commission Directive 81/432/EEC of 29 April 1981 laying down the Community method of analysis for the official control of vinyl chloride released by materials and articles into foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31981L0712",
+      "title": "First Commission Directive 81/712/EEC of 28 July 1981 laying down Community methods of analysis for verifying that certain additives used in foodstuffs satisfy criteria of purity",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31982L0711",
+      "title": "Council Directive 82/711/EEC of 18 October 1982 laying down the basic rules necessary for testing migration of the constituents of plastic materials and articles intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01982L0711-19821104",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31983L0229",
+      "title": "Council Directive 83/229/EEC of 25 April 1983 on the approximation of the laws of the Member States relating to materials and articles made of regenerated cellulose film intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31983L0417",
+      "title": "Council Directive 83/417/EEC of 25 July 1983 on the approximation of the laws of the Member States relating to certain lactoproteins (caseins and caseinates) intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01983L0417-20161222",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31983L0463",
+      "title": "Commission Directive 83/463/EEC of 22 July 1983 introducing temporary measures for the designation of certain ingredients in the labelling of foodstuffs for sale to the ultimate consumer",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "31984L0500",
+      "title": "Council Directive 84/500/EEC of 15 October 1984 on the approximation of the laws of the Member States relating to ceramic articles intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01984L0500-19841017",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31985L0503",
+      "title": "First Commission Directive 85/503/EEC of 25 October 1985 on methods of analysis for edible caseins and caseinates",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31985L0572",
+      "title": "Council Directive 85/572/EEC of 19 December 1985 laying down the list of simulants to be used for testing migration of constituents of plastic materials and articles intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01985L0572-20121231",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31985L0591",
+      "title": "Council Directive 85/591/EEC of 20 December 1985 concerning the introduction of Community methods of sampling and analysis for the monitoring of foodstuffs intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01985L0591-20060101",
+      "category": "official_controls"
+    },
+    {
+      "celex": "31986L0424",
+      "title": "First Commission Directive 86/424/EEC of 15 July 1986 laying down methods of sampling for chemical analysis of edible caseins and caseinates",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31987L0524",
+      "title": "First Commission Directive 87/524/EEC of 6 October 1987 laying down Community methods of sampling for chemical analysis for the monitoring of preserved milk products",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31987R3954",
+      "title": "Council Regulation (Euratom) No 3954/87 of 22 December 1987 laying down maximum permitted levels of radioactive contamination of foodstuffs and of feedingstuffs following a nuclear accident or any other case of radiological emergency",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "01987R3954-19880102",
+      "category": "contaminants"
+    },
+    {
+      "celex": "31988L0344",
+      "title": "Council Directive 88/344/EEC of 13 June 1988 on the approximation of the laws of the Member States on extraction solvents used in the production of foodstuffs and food ingredients",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01988L0344-20090626",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31988L0388",
+      "title": "Council Directive 88/388/EEC of 22 June 1988 on the approximation of the laws of the Member States relating to flavourings for use in foodstuffs and to source materials for their production",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01988L0388-19910207",
+      "category": "flavourings"
+    },
+    {
+      "celex": "31989L0107",
+      "title": "Council Directive 89/107/EEC of 21 December 1988 on the approximation of the laws of the Member States concerning food additives authorized for use in foodstuffs intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01989L0107-19940910",
+      "category": "food_additives"
+    },
+    {
+      "celex": "31989L0109",
+      "title": "Council Directive 89/109/EEC of 21 December 1988 on the approximation of the laws of the Member States relating to materials and articles intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01989L0109-19890110",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31989L0396",
+      "title": "Council Directive 89/396/EEC of 14 June 1989 on indications or marks identifying the lot to which a foodstuff belongs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01989L0396-20120105",
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "31989L0397",
+      "title": "Council Directive 89/397/EEC of 14 June 1989 on the official control of foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31989L0398",
+      "title": "Council Directive 89/398/EEC of 3 May 1989 on the approximation of the laws of the Member States relating to foodstuffs intended for particular nutritional uses",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01989L0398-19970311",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "31989R0944",
+      "title": "Commission Regulation (Euratom) No 944/89 of 12 April 1989 laying down maximum permitted levels of radioactive contamination in minor foodstuffs following a nuclear accident or any other case of radiological emergency",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "31989R2219",
+      "title": "Council Regulation (EEC) No 2219/89 of 18 July 1989 on the special conditions for exporting foodstuffs and feedingstuffs following a nuclear accident or any other case of radiological emergency",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "31990L0128",
+      "title": "Commission Directive 90/128/EEC of 23 February 1990 relating to plastic materials and articles intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01990L0128-20010906",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31990L0496",
+      "title": "Council Directive 90/496/EEC of 24 September 1990 on nutrition labelling for foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01990L0496-20081118",
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "31991L0071",
+      "title": "Commission Directive 91/71/EEC of 16 January 1991 completing Council Directive 88/388/EEC on the approximation of the laws of the Member States relating to flavourings for use in foodstuffs and to source materials for their production",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "flavourings"
+    },
+    {
+      "celex": "31991L0321",
+      "title": "Commission Directive 91/321/EEC of 14 May 1991 on infant formulae and follow-on formulae",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01991L0321-19990622",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "31992L0001",
+      "title": "Commission Directive 92/1/EEC of 13 January 1992 on the monitoring of temperatures in the means of transport, warehousing and storage of quick-frozen foodstuffs intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "31992L0002",
+      "title": "Commission Directive 92/2/EEC of 13 January 1992 laying down the sampling procedure and the Community method of analysis for the official control of the temperatures of quick-frozen foods intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01992L0002-19920211",
+      "category": "official_controls"
+    },
+    {
+      "celex": "31992L0052",
+      "title": "Council Directive 92/52/EEC of 18 June 1992 on infant formulae and follow-on formulae intended for export to third countries",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "31993L0010",
+      "title": "Commission Directive 93/10/EEC of 15 March 1993 relating to materials and articles made of regenerated cellulose film intended to come into contact with foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01993L0010-20070720",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31993L0011",
+      "title": "Commission Directive 93/11/EEC of 15 March 1993 concerning the release of the N-nitrosamines and N- nitrosatable substances from elastomer or rubber teats and soothers",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "01993L0011-19930324",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "31993L0043",
+      "title": "Council Directive 93/43/EEC of 14 June 1993 on the hygiene of foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01993L0043-20060101",
+      "category": "general_food_law"
+    },
+    {
+      "celex": "31993L0077",
+      "title": "Council Directive 93/77/EEC of 21 September 1993 relating to fruit juices and certain similar products",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01993L0077-19950101",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31993L0099",
+      "title": "Council Directive 93/99/EEC of 29 October 1993 on the subject of additional measures concerning the official control of foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01993L0099-20060101",
+      "category": "official_controls"
+    },
+    {
+      "celex": "31993R0315",
+      "title": "Council Regulation (EEC) No 315/93 of 8 February 1993 laying down Community procedures for contaminants in food",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "01993R0315-20090807",
+      "category": "contaminants"
+    },
+    {
+      "celex": "31994L0035",
+      "title": "European Parliament and Council Directive 94/35/EC of 30 June 1994 on sweeteners for use in foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01994L0035-20100112",
+      "category": "food_additives"
+    },
+    {
+      "celex": "31994L0036",
+      "title": "European Parliament and Council Directive 94/36/EC of 30 June 1994 on colours for use in foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_additives"
+    },
+    {
+      "celex": "31995L0002",
+      "title": "European Parliament and Council Directive No 95/2/EC of 20 February 1995 on food additives other than colours and sweeteners",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01995L0002-20031120",
+      "category": "food_additives"
+    },
+    {
+      "celex": "31995L0031",
+      "title": "Commission Directive 95/31/EC of 5 July 1995 laying down specific criteria of purity concerning sweeteners for use in foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01995L0031-20080708",
+      "category": "food_additives"
+    },
+    {
+      "celex": "31996L0005",
+      "title": "Commission Directive 96/5/EC, Euratom of 16 February 1996 on processed cereal-based foods and baby foods for infants and young children (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01996L0005-20030306",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "31996L0008",
+      "title": "Commission Directive 96/8/EC of 26 February 1996 on foods intended for use in energy-restricted diets for weight reduction (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01996L0008-20070620",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "31996L0077",
+      "title": "Commission Directive 96/77/EC of 2 December 1996 laying down specific purity criteria on food additives other than colours and sweeteners (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01996L0077-19981229",
+      "category": "food_additives"
+    },
+    {
+      "celex": "31996R2232",
+      "title": "Regulation (EC) No 2232/96 of the European Parliament and of the Council of 28 October 1996 laying down a Community procedure for flavouring substances used or intended for use in or on foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01996R2232-20031120",
+      "category": "flavourings"
+    },
+    {
+      "celex": "31997R0194",
+      "title": "Commission Regulation (EC) No 194/97 of 31 January 1997 setting maximum levels for certain contaminants in foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "01997R0194-19970215",
+      "category": "contaminants"
+    },
+    {
+      "celex": "31997R0258",
+      "title": "Regulation (EC) No 258/97 of the European Parliament and of the Council of 27 January 1997 concerning novel foods and novel food ingredients",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01997R0258-20090120",
+      "category": "novel_food"
+    },
+    {
+      "celex": "31997R1813",
+      "title": "Commission Regulation (EC) No 1813/97 of 19 September 1997 concerning the compulsory indication on the labelling of certain foodstuffs produced from genetically modified organisms of particulars other than those provided for in Directive 79/112/EEC (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "31998L0053",
+      "title": "Commission Directive 98/53/EC of 16 July 1998 laying down the sampling methods and the methods of analysis for the official control of the levels for certain contaminants in foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "01998L0053-20060701",
+      "category": "contaminants"
+    },
+    {
+      "celex": "31998R1139",
+      "title": "Council Regulation (EC) No 1139/98 of 26 May 1998 concerning the compulsory indication of the labelling of certain foodstuffs produced from genetically modified organisms of particulars other than those provided for in Directive 79/112/EEC",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01998R1139-19980901",
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "31999L0002",
+      "title": "Directive 1999/2/EC of the European Parliament and of the Council of 22 February 1999 on the approximation of the laws of the Member States concerning foods and food ingredients treated with ionising radiation",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01999L0002-20241127",
+      "category": "food_irradiation"
+    },
+    {
+      "celex": "31999L0003",
+      "title": "Directive 1999/3/EC of the European Parliament and of the Council of 22 February 1999 on the establishment of a Community list of foods and food ingredients treated with ionising radiation",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01999L0003-19990313",
+      "category": "food_irradiation"
+    },
+    {
+      "celex": "31999L0004",
+      "title": "Directive 1999/4/EC of the European Parliament and of the Council of 22 February 1999 relating to coffee extracts and chicory extracts",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01999L0004-20081211",
+      "category": "product_standards"
+    },
+    {
+      "celex": "31999L0021",
+      "title": "Commission Directive 1999/21/EC of 25 March 1999 on dietary foods for special medical purposes (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "01999L0021-19990427",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32000L0036",
+      "title": "Directive 2000/36/EC of the European Parliament and of the Council of 23 June 2000 relating to cocoa and chocolate products intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02000L0036-20040501",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32000R0050",
+      "title": "Commission Regulation (EC) No 50/2000 of 10 January 2000 on the labelling of foodstuffs and food ingredients containing additives and flavourings that have been genetically modified or have been produced from genetically modified organisms",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02000R0050-20000410",
+      "category": "flavourings"
+    },
+    {
+      "celex": "32001L0015",
+      "title": "Commission Directive 2001/15/EC of 15 February 2001 on substances that may be added for specific nutritional purposes in foods for particular nutritional uses (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02001L0015-20060411",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32001L0022",
+      "title": "Commission Directive 2001/22/EC of 8 March 2001 laying down the sampling methods and the methods of analysis for the official control of the levels of lead, cadmium, mercury and 3-MCPD in foodstuffs (Text with EEA relevance.)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02001L0022-20050210",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32001L0061",
+      "title": "Commission Directive 2001/61/EC of 8 August 2001 on the use of certain epoxy derivatives in materials and articles intended to come into contact with foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32001L0110",
+      "title": "Council Directive 2001/110/EC of 20 December 2001 relating to honey",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02001L0110-20140623",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32001L0111",
+      "title": "Council Directive 2001/111/EC of 20 December 2001 relating to certain sugars intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02001L0111-20131118",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32001L0112",
+      "title": "Council Directive 2001/112/EC of 20 December 2001 relating to fruit juices and certain similar products intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02001L0112-20120427",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32001L0113",
+      "title": "Council Directive 2001/113/EC of 20 December 2001 relating to fruit jams, jellies and marmalades and sweetened chestnut purée intended for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02001L0113-20040712",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32001L0114",
+      "title": "Council Directive 2001/114/EC of 20 December 2001 relating to certain partly or wholly dehydrated preserved milk for human consumption",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02001L0114-20131118",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32001R0466",
+      "title": "Commission Regulation (EC) No 466/2001 of 8 March 2001 setting maximum levels for certain contaminants in foodstuffs (Text with EEA relevance.)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02001R0466-20070301",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32002L0016",
+      "title": "Commission Directive 2002/16/EC of 20 February 2002 on the use of certain epoxy derivatives in materials and articles intended to come into contact with foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02002L0016-20040219",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32002L0026",
+      "title": "Commission Directive 2002/26/EC of 13 March 2002 laying down the sampling methods and the methods of analysis for the official control of the levels of ochratoxin A in foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02002L0026-20040510",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32002L0046",
+      "title": "Directive 2002/46/EC of the European Parliament and of the Council of 10 June 2002 on the approximation of the laws of the Member States relating to food supplements (Text with EEA relevance)",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02002L0046-20251126",
+      "category": "food_supplements"
+    },
+    {
+      "celex": "32002L0069",
+      "title": "Commission Directive 2002/69/EC of 26 July 2002 laying down the sampling methods and the methods of analysis for the official control of dioxins and the determination of dioxin-like PCBs in foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02002L0069-20020826",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32002L0072",
+      "title": "Commission Directive 2002/72/EC of 6 August 2002 relating to plastic materials and articles intended to come into contact with foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02002L0072-20080327",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32002R0178",
+      "title": "Regulation (EC) No 178/2002 of the European Parliament and of the Council of 28 January 2002 laying down the general principles and requirements of food law, establishing the European Food Safety Authority and laying down procedures in matters of food safety",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02002R0178-20260101",
+      "category": "general_food_law"
+    },
+    {
+      "celex": "32002R0622",
+      "title": "Commission Regulation (EC) No 622/2002 of 11 April 2002 establishing deadlines for the submission of information for the evaluation of chemically defined flavouring substances used in or on foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02002R0622-20020419",
+      "category": "flavourings"
+    },
+    {
+      "celex": "32003L0040",
+      "title": "Commission Directive 2003/40/EC of 16 May 2003 establishing the list, concentration limits and labelling requirements for the constituents of natural mineral waters and the conditions for using ozone-enriched air for the treatment of natural mineral waters and spring waters",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "product_standards"
+    },
+    {
+      "celex": "32003L0078",
+      "title": "Commission Directive 2003/78/EC of 11 August 2003 laying down the sampling methods and the methods of analysis for the official control of the levels of patulin in foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32003R1304",
+      "title": "Commission Regulation (EC) No 1304/2003 of 11 July 2003 on the procedure applied by the European Food Safety Authority to requests for scientific opinions referred to it (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02003R1304-20030813",
+      "category": "general_food_law"
+    },
+    {
+      "celex": "32003R1829",
+      "title": "Regulation (EC) No 1829/2003 of the European Parliament and of the Council of 22 September 2003 on genetically modified food and feed (Text with EEA relevance)",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02003R1829-20210327",
+      "category": "gmo"
+    },
+    {
+      "celex": "32003R1830",
+      "title": "Regulation (EC) No 1830/2003 of the European Parliament and of the Council of 22 September 2003 concerning the traceability and labelling of genetically modified organisms and the traceability of food and feed products produced from genetically modified organisms and amending Directive 2001/18/EC",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02003R1830-20190726",
+      "category": "gmo"
+    },
+    {
+      "celex": "32003R1946",
+      "title": "Regulation (EC) No 1946/2003 of the European Parliament and of the Council of 15 July 2003 on transboundary movements of genetically modified organisms (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "gmo"
+    },
+    {
+      "celex": "32003R2065",
+      "title": "Regulation (EC) No 2065/2003 of the European Parliament and of the Council of 10 November 2003 on smoke flavourings used or intended for use in or on foods",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02003R2065-20210327",
+      "category": "flavourings"
+    },
+    {
+      "celex": "32004L0016",
+      "title": "Commission Directive 2004/16/EC of 12 February 2004 laying down the sampling methods and the methods of analysis for the official control of the levels of tin in canned foods (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32004R0065",
+      "title": "Commission Regulation (EC) No 65/2004 of 14 January 2004 establishing a system for the development and assignment of unique identifiers for genetically modified organisms",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02004R0065-20040116",
+      "category": "gmo"
+    },
+    {
+      "celex": "32004R0641",
+      "title": "Commission Regulation (EC) No 641/2004 of 6 April 2004 on detailed rules for the implementation of Regulation (EC) No 1829/2003 of the European Parliament and of the Council as regards the application for the authorisation of new genetically modified food and feed, the notification of existing products and adventitious or technically unavoidable presence of genetically modified material which has benefited from a favourable risk evaluation (Text with EEA relevance)",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02004R0641-20040407",
+      "category": "gmo"
+    },
+    {
+      "celex": "32004R0852",
+      "title": "Regulation (EC) No 852/2004 of the European Parliament and of the Council of 29 April 2004 on the hygiene of foodstuffs",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02004R0852-20210324",
+      "category": "general_food_law"
+    },
+    {
+      "celex": "32004R0854",
+      "title": "Regulation (EC) No 854/2004 of the European Parliament and of the Council of 29 April 2004 laying down specific rules for the organisation of official controls on products of animal origin intended for human consumption",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02004R0854-20191214",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32004R0882",
+      "title": "Regulation (EC) No 882/2004 of the European Parliament and of the Council of 29 April 2004 on official controls performed to ensure the verification of compliance with feed and food law, animal health and animal welfare rules",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02004R0882-20191214",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32004R1935",
+      "title": "Regulation (EC) No 1935/2004 of the European Parliament and of the Council of 27 October 2004 on materials and articles intended to come into contact with food and repealing Directives 80/590/EEC and 89/109/EEC",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02004R1935-20210327",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32004R2230",
+      "title": "Commission Regulation (EC) No 2230/2004 of 23 December 2004 laying down detailed rules for the implementation of European Parliament and Council Regulation (EC) No 178/2002 with regard to the network of organisations operating in the fields within the European Food Safety Authority’s missionText with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "general_food_law"
+    },
+    {
+      "celex": "32005L0010",
+      "title": "Commission Directive 2005/10/EC of 4 February 2005 laying down the sampling methods and the methods of analysis for the official control of the levels of benzo(a)pyrene in foodstuffsText with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32005L0038",
+      "title": "Commission Directive 2005/38/EC of 6 June 2005 laying down the sampling methods and the methods of analysis for the official control of the levels of Fusarium toxins in foodstuffs   (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32005R0037",
+      "title": "Commission Regulation (EC) No 37/2005 of 12 January 2005 on the monitoring of temperatures in the means of transport, warehousing and storage of quick-frozen foodstuffs intended for human consumptionText with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02005R0037-20050202",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32005R0396",
+      "title": "Regulation (EC) No 396/2005 of the European Parliament and of the Council of 23 February 2005 on maximum residue levels of pesticides in or on food and feed of plant and animal origin and amending Council Directive 91/414/EEC Text with EEA relevance.",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02005R0396-20250824",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32005R1895",
+      "title": "Commission Regulation (EC) No 1895/2005 of 18 November 2005 on the restriction of use of certain epoxy derivatives in materials and articles intended to come into contact with food   (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32005R2073",
+      "title": "Commission Regulation (EC) No 2073/2005 of  15 November 2005  on microbiological criteria for foodstuffs   (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02005R2073-20200308",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32005R2074",
+      "title": "Commission Regulation (EC) No 2074/2005 of  5 December 2005  laying down implementing measures for certain products under Regulation (EC) No 853/2004 of the European Parliament and of the Council and for the organisation of official controls under Regulation (EC) No 854/2004 of the European Parliament and of the Council and Regulation (EC) No 882/2004 of the European Parliament and of the Council, derogating from Regulation (EC) No 852/2004 of the European Parliament and of the Council and amending Regulations (EC) No 853/2004 and (EC) No 854/2004   (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02005R2074-20191214",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32005R2075",
+      "title": "Commission Regulation (EC) No 2075/2005 of  5 December 2005  laying down specific rules on official controls for  Trichinella  in meat   (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02005R2075-20141111",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32006L0082",
+      "title": "Commission Directive 2006/82/EC of 23 October 2006 adapting Directive 91/321/EEC on infant formulae and follow-on formulae and Directive 1999/21/EC on dietary foods for special medical purposes, by reason of the accession of Bulgaria and Romania",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32006L0125",
+      "title": "Commission Directive 2006/125/EC of 5 December 2006 on processed cereal-based foods and baby foods for infants and young children (Codified version)   (Text with EEA relevance)",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02006L0125-20061226",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32006L0141",
+      "title": "Commission Directive 2006/141/EC of 22 December 2006 on infant formulae and follow-on formulae and amending Directive 1999/21/EC Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02006L0141-20130701",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32006R0401",
+      "title": "Commission Regulation (EC) No 401/2006 of  23 February 2006  laying down the methods of sampling and analysis for the official control of the levels of mycotoxins in foodstuffs   (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02006R0401-20100313",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32006R0627",
+      "title": "Commission Regulation (EC) No 627/2006 of  21 April 2006  implementing Regulation (EC) No 2065/2003 of the European Parliament and of the Council as regards quality criteria for validated analytical methods for sampling, identification and characterisation of primary smoke products",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "flavourings"
+    },
+    {
+      "celex": "32006R1881",
+      "title": "Commission Regulation (EC) No 1881/2006 of 19 December 2006 setting maximum levels for certain contaminants in foodstuffs   (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02006R1881-20230525",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32006R1882",
+      "title": "Commission Regulation (EC) No 1882/2006 of 19 December 2006 laying down methods of sampling and analysis for the official control of the levels of nitrates in certain foodstuffs   (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "32006R1883",
+      "title": "Commission Regulation (EC) No 1883/2006 of 19 December 2006 laying down methods of sampling and analysis for the official control of levels of dioxins and dioxin-like PCBs in certain foodstuffs   (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32006R1924",
+      "title": "Regulation (EC) No 1924/2006 of the European Parliament and of the Council of 20 December 2006 on nutrition and health claims made on foods",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02006R1924-20121129",
+      "category": "nutrition_health_claims"
+    },
+    {
+      "celex": "32006R1925",
+      "title": "Regulation (EC) No 1925/2006 of the European Parliament and of the Council of 20 December 2006 on the addition of vitamins and minerals and of certain other substances to foods",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02006R1925-20251126",
+      "category": "fortification"
+    },
+    {
+      "celex": "32006R1981",
+      "title": "Commission Regulation (EC) No 1981/2006 of 22 December 2006 on detailed rules for the implementation of Article 32 of Regulation (EC) No 1829/2003 of the European Parliament and of the Council as regards the Community reference laboratory for genetically modified organisms   (Text with EEA relevance)",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02006R1981-20140228",
+      "category": "gmo"
+    },
+    {
+      "celex": "32006R2023",
+      "title": "Commission Regulation (EC) No 2023/2006 of 22 December 2006 on good manufacturing practice for materials and articles intended to come into contact with food   (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02006R2023-20250316",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32007L0042",
+      "title": "Commission Directive 2007/42/EC of 29 June 2007 relating to materials and articles made of regenerated cellulose film intended to come into contact with foodstuffs (Codified version) (Text with EEA relevance)",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32007R0333",
+      "title": "Commission Regulation (EC) No 333/2007 of 28 March 2007 laying down the methods of sampling and analysis for the official control of the levels of lead, cadmium, mercury, inorganic tin, 3-MCPD and benzo(a)pyrene in foodstuffs (Text with EEA relevance )",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02007R0333-20240430",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32008L0060",
+      "title": "Commission Directive 2008/60/EC of 17 June 2008 laying down specific purity criteria concerning sweeteners for use in foodstuffs (Codified version) (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02008L0060-20080708",
+      "category": "food_additives"
+    },
+    {
+      "celex": "32008L0084",
+      "title": "Commission Directive 2008/84/EC of 27 August 2008 laying down specific purity criteria on food additives other than colours and sweeteners (Codified version) (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02008L0084-20101110",
+      "category": "food_additives"
+    },
+    {
+      "celex": "32008R0282",
+      "title": "Commission Regulation (EC) No 282/2008 of 27 March 2008 on recycled plastic materials and articles intended to come into contact with foods and amending Regulation (EC) No 2023/2006 (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02008R0282-20221010",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32008R0353",
+      "title": "Commission Regulation (EC) No 353/2008 of 18 April 2008 establishing implementing rules for applications for authorisation of health claims as provided for in Article 15 of Regulation (EC) No 1924/2006 of the European Parliament and of the Council (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02008R0353-20091221",
+      "category": "nutrition_health_claims"
+    },
+    {
+      "celex": "32008R0605",
+      "title": "Commission Regulation (EC) No 605/2008 of 20 June 2008 laying down detailed rules for implementing the provisions concerning the certificate of inspection for imports from third countries under Article 11 of Council Regulation (EEC) No 2092/91 on organic production of agricultural products and indications referring thereto on agricultural products and foodstuffs (Codified version) (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "organic"
+    },
+    {
+      "celex": "32008R1213",
+      "title": "Commission Regulation (EC) No 1213/2008 of 5 December 2008 concerning a coordinated multiannual Community control programme for 2009, 2010 and 2011 to ensure compliance with maximum levels of and to assess the consumer exposure to pesticide residues in and on food of plant and animal origin (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "32008R1331",
+      "title": "Regulation (EC) No 1331/2008 of the European Parliament and of the Council of 16 December 2008 establishing a common authorisation procedure for food additives, food enzymes and food flavourings (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02008R1331-20210327",
+      "category": "food_additives"
+    },
+    {
+      "celex": "32008R1332",
+      "title": "Regulation (EC) No 1332/2008 of the European Parliament and of the Council of 16 December 2008 on food enzymes and amending Council Directive 83/417/EEC, Council Regulation (EC) No 1493/1999, Directive 2000/13/EC, Council Directive 2001/112/EC and Regulation (EC) No 258/97 (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02008R1332-20121203",
+      "category": "food_enzymes"
+    },
+    {
+      "celex": "32008R1333",
+      "title": "Regulation (EC) No 1333/2008 of the European Parliament and of the Council of 16 December 2008 on food additives (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02008R1333-20251109",
+      "category": "food_additives"
+    },
+    {
+      "celex": "32008R1334",
+      "title": "Regulation (EC) No 1334/2008 of the European Parliament and of the Council of 16 December 2008 on flavourings and certain food ingredients with flavouring properties for use in and on foods and amending Council Regulation (EEC) No 1601/91, Regulations (EC) No 2232/96 and (EC) No 110/2008 and Directive 2000/13/EC (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02008R1334-20250625",
+      "category": "flavourings"
+    },
+    {
+      "celex": "32009L0032",
+      "title": "Directive 2009/32/EC of the European Parliament and of the Council of 23 April 2009 on the approximation of the laws of the Member States on extraction solvents used in the production of foodstuffs and food ingredients (Recast) (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02009L0032-20230216",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32009L0039",
+      "title": "Directive 2009/39/EC of the European Parliament and of the Council of 6 May 2009 on foodstuffs intended for particular nutritional uses (recast) (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32009L0054",
+      "title": "Directive 2009/54/EC of the European Parliament and of the Council of 18 June 2009 on the exploitation and marketing of natural mineral waters (Recast) (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02009L0054-20090716",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32009R0041",
+      "title": "Commission Regulation (EC) No 41/2009 of 20 January 2009 concerning the composition and labelling of foodstuffs suitable for people intolerant to gluten (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02009R0041-20090210",
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "32009R0450",
+      "title": "Commission Regulation (EC) No 450/2009 of 29 May 2009 on active and intelligent materials and articles intended to come into contact with food (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02009R0450-20090619",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32009R0669",
+      "title": "Commission Regulation (EC) No 669/2009 of 24 July 2009 implementing Regulation (EC) No 882/2004 of the European Parliament and of the Council as regards the increased level of official controls on imports of certain feed and food of non-animal origin and amending Decision 2006/504/EC (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02009R0669-20191214",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32009R0901",
+      "title": "Commission Regulation (EC) No 901/2009 of 28 September 2009 concerning a coordinated multiannual Community control programme for 2010, 2011 and 2012 to ensure compliance with maximum levels of and to assess the consumer exposure to pesticide residues in and on food of plant and animal origin (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "32009R0953",
+      "title": "Commission Regulation (EC) No 953/2009 of 13 October 2009 on substances that may be added for specific nutritional purposes in foods for particular nutritional uses (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02009R0953-20160720",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32010R0115",
+      "title": "Commission Regulation (EU) No 115/2010 of 9 February 2010 laying down the conditions for use of activated alumina for the removal of fluoride from natural mineral waters and spring waters (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02010R0115-20100302",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32010R0257",
+      "title": "Commission Regulation (EU) No 257/2010 of 25 March 2010 setting up a programme for the re-evaluation of approved food additives in accordance with Regulation (EC) No 1333/2008 of the European Parliament and of the Council on food additives (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02010R0257-20210327",
+      "category": "food_additives"
+    },
+    {
+      "celex": "32010R0258",
+      "title": "Commission Regulation (EU) No 258/2010 of 25 March 2010 imposing special conditions on the imports of guar gum originating in or consigned from India due to contamination risks by pentachlorophenol and dioxins, and repealing Decision 2008/352/EC (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02010R0258-20150226",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32010R0605",
+      "title": "Commission Regulation (EU) No 605/2010 of 2 July 2010 laying down animal and public health and veterinary certification conditions for the introduction into the European Union of raw milk and dairy products intended for human consumption  (Text with EEA relevance )",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02010R0605-20210510",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32011L0091",
+      "title": "Directive 2011/91/EU of the European Parliament and of the Council of 13 December 2011 on indications or marks identifying the lot to which a foodstuff belongs (codification) Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "32011R0010",
+      "title": "Commission Regulation (EU) No 10/2011 of 14 January 2011 on plastic materials and articles intended to come into contact with food  Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02011R0010-20250316",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32011R0234",
+      "title": "Commission Regulation (EU) No 234/2011 of 10 March 2011 implementing Regulation (EC) No 1331/2008 of the European Parliament and of the Council establishing a common authorisation procedure for food additives, food enzymes and food flavourings  Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02011R0234-20210327",
+      "category": "food_additives"
+    },
+    {
+      "celex": "32011R0517",
+      "title": "Commission Regulation (EU) No 517/2011 of 25 May 2011 implementing Regulation (EC) No 2160/2003 of the European Parliament and of the Council as regards a Union target for the reduction of the prevalence of certain Salmonella serotypes in laying hens of Gallus gallus and amending Regulation (EC) No 2160/2003 and Commission Regulation (EU) No 200/2010  Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02011R0517-20190310",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32011R0931",
+      "title": "Commission Implementing Regulation (EU) No 931/2011 of 19 September 2011 on the traceability requirements set by Regulation (EC) No 178/2002 of the European Parliament and of the Council for food of animal origin  Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02011R0931-20111010",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32011R1169",
+      "title": "Regulation (EU) No 1169/2011 of the European Parliament and of the Council of 25 October 2011 on the provision of food information to consumers, amending Regulations (EC) No 1924/2006 and (EC) No 1925/2006 of the European Parliament and of the Council, and repealing Commission Directive 87/250/EEC, Council Directive 90/496/EEC, Commission Directive 1999/10/EC, Directive 2000/13/EC of the European Parliament and of the Council, Commission Directives 2002/67/EC and 2008/5/EC and Commission Regulation (EC) No 608/2004 Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02011R1169-20250401",
+      "category": "labelling_fic"
+    },
+    {
+      "celex": "32012R0126",
+      "title": "Commission Implementing Regulation (EU) No 126/2012 of 14 February 2012 amending Regulation (EC) No 889/2008 as regards documentary evidence and amending Regulation (EC) No 1235/2008 as regards the arrangements for imports of organic products from the United States of America  Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "organic"
+    },
+    {
+      "celex": "32012R0200",
+      "title": "Commission Regulation (EU) No 200/2012 of 8 March 2012 concerning a Union target for the reduction of Salmonella enteritidis and Salmonella typhimurium in flocks of broilers, as provided for in Regulation (EC) No 2160/2003 of the European Parliament and of the Council  Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02012R0200-20190310",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32012R0231",
+      "title": "Commission Regulation (EU) No 231/2012 of 9 March 2012 laying down specifications for food additives listed in Annexes II and III to Regulation (EC) No 1333/2008 of the European Parliament and of the Council  Text with EEA relevance",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02012R0231-20251027",
+      "category": "food_additives"
+    },
+    {
+      "celex": "32012R0252",
+      "title": "Commission Regulation (EU) No 252/2012 of 21 March 2012 laying down methods of sampling and analysis for the official control of levels of dioxins, dioxin-like PCBs and non-dioxin-like PCBs in certain foodstuffs and repealing Regulation (EC) No 1883/2006  Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32012R0307",
+      "title": "Commission Implementing Regulation (EU) No 307/2012 of 11 April 2012 establishing implementing rules for the application of Article 8 of Regulation (EC) No 1925/2006 of the European Parliament and of the Council on the addition of vitamins and minerals and of certain other substances to foods",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02012R0307-20230409",
+      "category": "fortification"
+    },
+    {
+      "celex": "32012R0432",
+      "title": "Commission Regulation (EU) No 432/2012 of 16 May 2012 establishing a list of permitted health claims made on foods, other than those referring to the reduction of disease risk and to children’s development and health  Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02012R0432-20250820",
+      "category": "nutrition_health_claims"
+    },
+    {
+      "celex": "32012R0489",
+      "title": "Commission Implementing Regulation (EU) No 489/2012 of 8 June 2012 establishing implementing rules for the application of Article 16 of Regulation (EC) No 1925/2006 of the European Parliament and of the Council on the addition of vitamins and minerals and of certain other substances to foods  Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "fortification"
+    },
+    {
+      "celex": "32012R0899",
+      "title": "Commission Regulation (EU) No 899/2012 of 21 September 2012 amending Annexes II and III to Regulation (EC) No 396/2005 of the European Parliament and of the Council as regards maximum residue levels for acephate, alachlor, anilazine, azocyclotin, benfuracarb, butylate, captafol, carbaryl, carbofuran, carbosulfan, chlorfenapyr, chlorthal-dimethyl, chlorthiamid, cyhexatin, diazinon, dichlobenil, dicofol, dimethipin, diniconazole, disulfoton, fenitrothion, flufenzin, furathiocarb, hexaconazole, lactofen, mepronil, methamidophos, methoprene, monocrotophos, monuron, oxycarboxin, oxydemeton-methyl, parathion-methyl, phorate, phosalone, procymidone, profenofos, propachlor, quinclorac, quintozene, tolylfluanid, trichlorfon, tridemorph and trifluralin in or on certain products and amending that Regulation by establishing Annex V listing default values  Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02012R0899-20121026",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32012R1190",
+      "title": "Commission Regulation (EU) No 1190/2012 of 12 December 2012 concerning a Union target for the reduction of Salmonella Enteritidis and Salmonella Typhimurium in flocks of turkeys, as provided for in Regulation (EC) No 2160/2003 of the European Parliament and of the Council Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02012R1190-20190310",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32013R0208",
+      "title": "Commission Implementing Regulation (EU) No 208/2013 of 11 March 2013 on traceability requirements for sprouts and seeds intended for the production of sprouts  Text with EEA relevance",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02013R0208-20130401",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32013R0210",
+      "title": "Commission Regulation (EU) No 210/2013 of 11 March 2013 on the approval of establishments producing sprouts pursuant to Regulation (EC) No 852/2004 of the European Parliament and of the Council  Text with EEA relevance",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02013R0210-20130312",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32013R0211",
+      "title": "Commission Regulation (EU) No 211/2013 of 11 March 2013 on certification requirements for imports into the Union of sprouts and seeds intended for the production of sprouts  Text with EEA relevance",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02013R0211-20191214",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32013R0503",
+      "title": "Commission Implementing Regulation (EU) No 503/2013 of 3 April 2013 on applications for authorisation of genetically modified food and feed in accordance with Regulation (EC) No 1829/2003 of the European Parliament and of the Council and amending Commission Regulations (EC) No 641/2004 and (EC) No 1981/2006  Text with EEA relevance",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02013R0503-20130608",
+      "category": "gmo"
+    },
+    {
+      "celex": "32013R0609",
+      "title": "Regulation (EU) No 609/2013 of the European Parliament and of the Council of 12 June 2013 on food intended for infants and young children, food for special medical purposes, and total diet replacement for weight control and repealing Council Directive 92/52/EEC, Commission Directives 96/8/EC, 1999/21/EC, 2006/125/EC and 2006/141/EC, Directive 2009/39/EC of the European Parliament and of the Council and Commission Regulations (EC) No 41/2009 and (EC) No 953/2009  Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02013R0609-20250901",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32013R0907",
+      "title": "Commission Regulation (EU) No 907/2013 of 20 September 2013 setting the rules for applications concerning the use of generic descriptors (denominations)  Text with EEA relevance",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "nutrition_health_claims"
+    },
+    {
+      "celex": "32014R0589",
+      "title": "Commission Regulation (EU) No 589/2014 of 2 June 2014 laying down methods of sampling and analysis for the control of levels of dioxins, dioxin-like PCBs and non-dioxin-like PCBs in certain foodstuffs and repealing Regulation (EU) No 252/2012  Text with EEA relevance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02014R0589-20140623",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32014R0652",
+      "title": "Regulation (EU) No 652/2014 of the European Parliament and of the Council of 15 May 2014 laying down provisions for the management of expenditure relating to the food chain, animal health and animal welfare, and relating to plant health and plant reproductive material, amending Council Directives 98/56/EC, 2000/29/EC and 2008/90/EC, Regulations (EC) No 178/2002, (EC) No 882/2004 and (EC) No 396/2005 of the European Parliament and of the Council, Directive 2009/128/EC of the European Parliament and of the Council and Regulation (EC) No 1107/2009 of the European Parliament and of the Council and repealing Council Decisions 66/399/EEC, 76/894/EEC and 2009/470/EC",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02014R0652-20210101",
+      "category": "general_food_law"
+    },
+    {
+      "celex": "32015L2203",
+      "title": "Directive (EU) 2015/2203 of the European Parliament and of the Council of 25 November 2015 on the approximation of the laws of the Member States relating to caseins and caseinates intended for human consumption and repealing Council Directive 83/417/EEC",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02015L2203-20151201",
+      "category": "product_standards"
+    },
+    {
+      "celex": "32015R0705",
+      "title": "Commission Regulation (EU) 2015/705 of 30 April 2015 laying down methods of sampling and performance criteria for the methods of analysis for the official control of the levels of erucic acid in foodstuffs and repealing Commission Directive 80/891/EEC (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02015R0705-20150501",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32015R1375",
+      "title": "Commission Implementing Regulation (EU) 2015/1375 of 10 August 2015 laying down specific rules on official controls for Trichinella in meat (codification) (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02015R1375-20250409",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32015R1474",
+      "title": "Commission Regulation (EU) 2015/1474 of 27 August 2015 concerning the use of recycled hot water to remove microbiological surface contamination from carcases (Text with EEA relevance)",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02015R1474-20150828",
+      "category": "general_food_law"
+    },
+    {
+      "celex": "32015R2283",
+      "title": "Regulation (EU) 2015/2283 of the European Parliament and of the Council of 25 November 2015 on novel foods, amending Regulation (EU) No 1169/2011 of the European Parliament and of the Council and repealing Regulation (EC) No 258/97 of the European Parliament and of the Council and Commission Regulation (EC) No 1852/2001 (Text with EEA relevance)",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02015R2283-20210327",
+      "category": "novel_food"
+    },
+    {
+      "celex": "32016R0052",
+      "title": "Council Regulation (Euratom) 2016/52 of 15 January 2016 laying down maximum permitted levels of radioactive contamination of food and feed following a nuclear accident or any other case of radiological emergency, and repealing Regulation (Euratom) No 3954/87 and Commission Regulations (Euratom) No 944/89 and (Euratom) No 770/90",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "32016R0127",
+      "title": "Commission Delegated Regulation (EU) 2016/127 of 25 September 2015 supplementing Regulation (EU) No 609/2013 of the European Parliament and of the Council as regards the specific compositional and information requirements for infant formula and follow-on formula and as regards requirements on information relating to infant and young child feeding (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02016R0127-20260101",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32016R0128",
+      "title": "Commission Delegated Regulation (EU) 2016/128 of 25 September 2015 supplementing Regulation (EU) No 609/2013 of the European Parliament and of the Council as regards the specific compositional and information requirements for food for special medical purposes (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02016R0128-20210715",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32016R0854",
+      "title": "Commission Implementing Regulation (EU) 2016/854 of 30 May 2016 authorising certain health claims made on foods, other than those referring to the reduction of disease risk and to children's development and health and amending Regulation (EU) No 432/2012 (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "nutrition_health_claims"
+    },
+    {
+      "celex": "32017R0186",
+      "title": "Commission Implementing Regulation (EU) 2017/186 of 2 February 2017 laying down specific conditions applicable to the introduction into the Union of consignments from certain third countries due to microbiological contamination and amending Regulation (EC) No 669/2009 (Text with EEA relevance. )",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02017R0186-20191214",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32017R0625",
+      "title": "Regulation (EU) 2017/625 of the European Parliament and of the Council of 15 March 2017 on official controls and other official activities performed to ensure the application of food and feed law, rules on animal health and welfare, plant health and plant protection products, amending Regulations (EC) No 999/2001, (EC) No 396/2005, (EC) No 1069/2009, (EC) No 1107/2009, (EU) No 1151/2012, (EU) No 652/2014, (EU) 2016/429 and (EU) 2016/2031 of the European Parliament and of the Council, Council Regulations (EC) No 1/2005 and (EC) No 1099/2009 and Council Directives 98/58/EC, 1999/74/EC, 2007/43/EC, 2008/119/EC and 2008/120/EC, and repealing Regulations (EC) No 854/2004 and (EC) No 882/2004 of the European Parliament and of the Council, Council Directives 89/608/EEC, 89/662/EEC, 90/425/EEC, 91/496/EEC, 96/23/EC, 96/93/EC and 97/78/EC and Council Decision 92/438/EEC (Official Controls Regulation) (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02017R0625-20250105",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32017R0644",
+      "title": "Commission Regulation (EU) 2017/644 of 5 April 2017 laying down methods of sampling and analysis for the control of levels of dioxins, dioxin-like PCBs and non-dioxin-like PCBs in certain foodstuffs and repealing Regulation (EU) No 589/2014 (Text with EEA relevance. )",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32017R1522",
+      "title": "Commission Delegated Regulation (EU) 2017/1522 of 2 June 2017 supplementing Regulation (EU) No 609/2013 of the European Parliament and of the Council as regards the specific compositional and information requirements for total diet replacement for weight control (Text with EEA relevance. )",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32017R1798",
+      "title": "Commission Delegated Regulation (EU) 2017/1798 of 2 June 2017 supplementing Regulation (EU) No 609/2013 of the European Parliament and of the Council as regards the specific compositional and information requirements for total diet replacement for weight control (Text with EEA relevance. )",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02017R1798-20221129",
+      "category": "food_specific_groups"
+    },
+    {
+      "celex": "32017R2158",
+      "title": "Commission Regulation (EU) 2017/2158 of 20 November 2017 establishing mitigation measures and benchmark levels for the reduction of the presence of acrylamide in food (Text with EEA relevance. )",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "32017R2468",
+      "title": "Commission Implementing Regulation (EU) 2017/2468 of 20 December 2017 laying down administrative and scientific requirements concerning traditional foods from third countries in accordance with Regulation (EU) 2015/2283 of the European Parliament and of the Council on novel foods (Text with EEA relevance. )",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02017R2468-20210327",
+      "category": "novel_food"
+    },
+    {
+      "celex": "32017R2469",
+      "title": "Commission Implementing Regulation (EU) 2017/2469 of 20 December 2017 laying down administrative and scientific requirements for applications referred to in Article 10 of Regulation (EU) 2015/2283 of the European Parliament and of the Council on novel foods (Text with EEA relevance. )",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02017R2469-20210327",
+      "category": "novel_food"
+    },
+    {
+      "celex": "32017R2470",
+      "title": "Commission Implementing Regulation (EU) 2017/2470 of 20 December 2017 establishing the Union list of novel foods in accordance with Regulation (EU) 2015/2283 of the European Parliament and of the Council on novel foods (Text with EEA relevance. )",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02017R2470-20251130",
+      "category": "novel_food"
+    },
+    {
+      "celex": "32018R0213",
+      "title": "Commission Regulation (EU) 2018/213 of 12 February 2018 on the use of bisphenol A in varnishes and coatings intended to come into contact with food and amending Regulation (EU) No 10/2011 as regards the use of that substance in plastic food contact materials (Text with EEA relevance. )",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32018R0307",
+      "title": "Commission Implementing Regulation (EU) 2018/307 of 28 February 2018 extending the special guarantees concerning Salmonella spp. laid down in Regulation (EC) No 853/2004 of the European Parliament and of the Council to meat derived from broilers (Gallus gallus) intended for Denmark (Text with EEA relevance. )",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32018R0456",
+      "title": "Commission Implementing Regulation (EU) 2018/456 of 19 March 2018 on the procedural steps of the consultation process for determination of novel food status in accordance with Regulation (EU) 2015/2283 of the European Parliament and of the Council on novel foods (Text with EEA relevance. )",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "novel_food"
+    },
+    {
+      "celex": "32019R0625",
+      "title": "Commission Delegated Regulation (EU) 2019/625 of 4 March 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council with regard to requirements for the entry into the Union of consignments of certain animals and goods intended for human consumption (Text with EEA relevance.)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02019R0625-20221215",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R0626",
+      "title": "Commission Implementing Regulation (EU) 2019/626 of 5 March 2019 concerning lists of third countries or regions thereof authorised for the entry into the European Union of certain animals and goods intended for human consumption, amending Implementing Regulation (EU) 2016/759 as regards these lists (Text with EEA relevance.)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02019R0626-20210421",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R0627",
+      "title": "Commission Implementing Regulation (EU) 2019/627 of 15 March 2019 laying down uniform practical arrangements for the performance of official controls on products of animal origin intended for human consumption in accordance with Regulation (EU) 2017/625 of the European Parliament and of the Council and amending Commission Regulation (EC) No 2074/2005 as regards official controls (Text with EEA relevance.)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02019R0627-20251126",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R0723",
+      "title": "Commission Implementing Regulation (EU) 2019/723 of 2 May 2019 laying down rules for the application of Regulation (EU) 2017/625 of the European Parliament and of the Council as regards the standard model form to be used in the annual reports submitted by Member States (Text with EEA relevance.)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R0723-20211130",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R1012",
+      "title": "Commission Delegated Regulation (EU) 2019/1012 of 12 March 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council by derogating from the rules on the designation of control points and from the minimum requirements for border control posts (Text with EEA relevance.)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R1012-20190621",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R1013",
+      "title": "Commission Implementing Regulation (EU) 2019/1013 of 16 April 2019 on prior notification of consignments of certain categories of animals and goods entering the Union (Text with EEA relevance.)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R1014",
+      "title": "Commission Implementing Regulation (EU) 2019/1014 of 12 June 2019 to lay down detailed rules on minimum requirements for border control posts, including inspection centres, and for the format, categories and abbreviations to use for listing border control posts and control points (Text with EEA relevance.)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R1014-20250609",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R1381",
+      "title": "Regulation (EU) 2019/1381 of the European Parliament and of the Council of 20 June 2019 on the transparency and sustainability of the EU risk assessment in the food chain and amending Regulations (EC) No 178/2002, (EC) No 1829/2003, (EC) No 1831/2003, (EC) No 2065/2003, (EC) No 1935/2004, (EC) No 1331/2008, (EC) No 1107/2009, (EU) 2015/2283 and Directive 2001/18/EC (Text with EEA relevance.)",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "general_food_law"
+    },
+    {
+      "celex": "32019R1602",
+      "title": "Commission Delegated Regulation (EU) 2019/1602 of 23 April 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council concerning the Common Health Entry Document accompanying consignments of animals and goods to their destination (Text with EEA relevance.)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R1602-20240415",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R1715",
+      "title": "Commission Implementing Regulation (EU) 2019/1715 of 30 September 2019 laying down rules for the functioning of the information management system for official controls and its system components (the IMSOC Regulation) (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02019R1715-20211201",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R1873",
+      "title": "Commission Implementing Regulation (EU) 2019/1873 of 7 November 2019 on the procedures at border control posts for a coordinated performance by competent authorities of intensified official controls on products of animal origin, germinal products, animal by-products and composite products (Text with EEA relevance)",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02019R1873-20191108",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2122",
+      "title": "Commission Delegated Regulation (EU) 2019/2122 of 10 October 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards certain categories of animals and goods exempted from official controls at border control posts, specific controls on passengers’ personal luggage and on small consignments of goods sent to natural persons which are not intended to be placed on the market and amending Commission Regulation (EU) No 142/2011 (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R2122-20230921",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2123",
+      "title": "Commission Delegated Regulation (EU) 2019/2123 of 10 October 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards rules for the cases where and the conditions under which identity checks and physical checks on certain goods may be performed at control points and documentary checks may be performed at distance from border control posts (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R2123-20250203",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2124",
+      "title": "Commission Delegated Regulation (EU) 2019/2124 of 10 October 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards rules for official controls of consignments of animals and goods in transit, transhipment and onward transportation through the Union, and amending Commission Regulations (EC) No 798/2008, (EC) No 1251/2008, (EC) No 119/2009, (EU) No 206/2010, (EU) No 605/2010, (EU) No 142/2011, (EU) No 28/2012, Commission Implementing Regulation (EU) 2016/759 and Commission Decision 2007/777/EC (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R2124-20220101",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2125",
+      "title": "Commission Delegated Regulation (EU) 2019/2125 of 10 October 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards rules concerning the performance of specific official controls of wood packaging material, notification of certain consignments and measures to be taken in cases of non-compliance",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2126",
+      "title": "Commission Delegated Regulation (EU) 2019/2126 of 10 October 2019 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards rules for specific official controls for certain categories of animals and goods, measures to be taken following the performance of such controls and certain categories of animals and goods exempted from official controls at border control posts (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R2126-20191212",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2128",
+      "title": "Commission Implementing Regulation (EU) 2019/2128 of 12 November 2019 establishing the model official certificate and rules for issuing official certificates for goods which are delivered to vessels leaving the Union and intended for ship supply or consumption by the crew and passengers, or to NATO or a United States’ military base (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R2128-20191212",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2129",
+      "title": "Commission Implementing Regulation (EU) 2019/2129 of 25 November 2019 establishing rules for the uniform application of frequency rates for identity checks and physical checks on certain consignments of animals and goods entering the Union (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R2129-20211226",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32019R2130",
+      "title": "Commission Implementing Regulation (EU) 2019/2130 of 25 November 2019 establishing detailed rules on the operations to be carried out during and after documentary checks, identity checks and physical checks on animals and goods subject to official controls at border control posts (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02019R2130-20191212",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32021R0405",
+      "title": "Commission Implementing Regulation (EU) 2021/405 of 24 March 2021 laying down the lists of third countries or regions thereof authorised for the entry into the Union of certain animals and goods intended for human consumption in accordance with Regulation (EU) 2017/625 of the European Parliament and of the Council (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02021R0405-20250316",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32021R0630",
+      "title": "Commission Delegated Regulation (EU) 2021/630 of 16 February 2021 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards certain categories of goods exempted from official controls at border control posts and amending Commission Decision 2007/275/EC (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02021R0630-20231218",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32021R1353",
+      "title": "Commission Delegated Regulation (EU) 2021/1353 of 17 May 2021 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council with regard to the cases and conditions under which competent authorities may designate official laboratories which do not fulfil the conditions in relation to all the methods they use for official controls or other official activities (Text with EEA relevance)",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02021R1353-20210813",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32021R2089",
+      "title": "Commission Delegated Regulation (EU) 2021/2089 of 21 September 2021 amending Delegated Regulation (EU) 2019/2122 as regards certain categories of goods posing low risk, goods that form part of passengers’ personal luggage and pet animals exempted from official controls at border control posts and amending that Delegated Regulation and Delegated Regulation (EU) 2019/2074 as regards references to certain repealed legislation (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32021R2156",
+      "title": "Commission Delegated Regulation (EU) 2021/2156 of 17 September 2021 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council by establishing the European Union reference laboratory for Rift Valley fever (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02021R2156-20211207",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32021R2305",
+      "title": "Commission Delegated Regulation (EU) 2021/2305 of 21 October 2021 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council with rules on the cases where and conditions under which organic products and in-conversion products are exempted from official controls at border control posts, the place of official controls for such products and amending Commission Delegated Regulations (EU) 2019/2123 and (EU) 2019/2124 (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32022R0034",
+      "title": "Commission Implementing Regulation (EU) 2022/34 of 22 December 2021 amending Annexes III, VIII, IX and XI to Implementing Regulation (EU) 2021/405 as regards the lists of third countries or regions thereof authorised for the entry into the Union of certain wild game birds intended for human consumption, of consignments of certain bivalve molluscs, echinoderms, tunicates and marine gastropods, of certain fishery products, and of frogs’ legs and snails, and repealing Decision 2007/82/EC (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32022R0671",
+      "title": "Commission Delegated Regulation (EU) 2022/671 of 4 February 2022 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards specific rules on official controls performed by the competent authorities on animals, products of animal origin and germinal products, follow-up action to be taken by the competent authority in case of non-compliance with identification and registration rules for bovine, ovine and caprine animals or of non-compliance during transit through the Union of certain bovine animals, and repealing Commission Regulation (EC) No 494/98 (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32022R0887",
+      "title": "Commission Delegated Regulation (EU) 2022/887 of 28 March 2022 amending Delegated Regulation (EU) 2019/625 as regards Combined Nomenclature and Harmonised System codes and import conditions of certain composite products, amending Delegated Regulation (EU) 2019/2122 as regards certain goods and pet birds exempted from official controls at border control posts and amending Delegated Regulation (EU) 2021/630 as regards requirements for composite products exempted from official controls at border control posts (Text with EEA relevance)",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32022R0931",
+      "title": "Commission Delegated Regulation (EU) 2022/931 of 23 March 2022 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council by laying down rules for the performance of official controls as regards contaminants in food (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "contaminants"
+    },
+    {
+      "celex": "32022R0932",
+      "title": "Commission Implementing Regulation (EU) 2022/932 of 9 June 2022 on uniform practical arrangements for the performance of official controls as regards contaminants in food, on specific additional content of multi-annual national control plans and specific additional arrangements for their preparation (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02022R0932-20260101",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32022R1428",
+      "title": "Commission Implementing Regulation (EU) 2022/1428 of 24 August 2022 laying down methods of sampling and analysis for the control of perfluoroalkyl substances in certain foodstuffs (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32022R1616",
+      "title": "Commission Regulation (EU) 2022/1616 of 15 September 2022 on recycled plastic materials and articles intended to come into contact with foods, and repealing Regulation (EC) No 282/2008 (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": "02022R1616-20251203",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32022R2292",
+      "title": "Commission Delegated Regulation (EU) 2022/2292 of 6 September 2022 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council with regard to requirements for the entry into the Union of consignments of food-producing animals and certain goods intended for human consumption (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02022R2292-20250519",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32023R0842",
+      "title": "Commission Delegated Regulation (EU) 2023/842 of 17 February 2023 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards rules for the performance of official controls to verify compliance with animal welfare requirements for the transport of animals by livestock vessels (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32023R0915",
+      "title": "Commission Regulation (EU) 2023/915 of 25 April 2023 on maximum levels for certain contaminants in food and repealing Regulation (EC) No 1881/2006 (Text with EEA relevance)",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": "02023R0915-20251008",
+      "category": "contaminants"
+    },
+    {
+      "celex": "32023R1674",
+      "title": "Commission Delegated Regulation (EU) 2023/1674 of 19 June 2023 amending Delegated Regulation (EU) 2021/630 as regards the inclusion of certain spreads and preparations for making beverages containing cocoa, certain prepared foods obtained from cereals or cereal products, certain prepared foods obtained from rice and other cereals, certain chips and crisps, and certain sauces and condiments in the list of composite products exempted from official controls at border control posts and amending Annexes I and III to Delegated Regulation (EU) 2019/2122 (Text with EEA relevance)",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32023R2782",
+      "title": "Commission Implementing Regulation (EU) 2023/2782 of 14 December 2023 laying down the methods of sampling and analysis for the control of the levels of mycotoxins in food and repealing Regulation (EC) No 401/2006",
+      "directory_codes": [
+        "152030",
+        "133014"
+      ],
+      "consolidated_celex": "02023R2782-20240324",
+      "category": "official_controls"
+    },
+    {
+      "celex": "32023R2783",
+      "title": "Commission Implementing Regulation (EU) 2023/2783 of 14 December 2023 laying down the methods of sampling and analysis for the control of the levels of plant toxins in food and repealing Regulation (EU) 2015/705",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32024R1004",
+      "title": "Commission Delegated Regulation (EU) 2024/1004 of 22 January 2024 supplementing Regulation (EU) 2017/625 of the European Parliament and the Council by establishing the European Union reference laboratory for food improvement agents",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32024R1045",
+      "title": "Commission Implementing Regulation (EU) 2024/1045 of 9 April 2024 amending Regulation (EC) No 333/2007 as regards the methods of sampling and analysis for the control of levels of nickel in foodstuffs and amending certain references",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32024R2104",
+      "title": "Commission Delegated Regulation (EU) 2024/2104 of 27 June 2024 supplementing Regulation (EU) 2017/625 of the European Parliament and of the Council as regards the cases where and the conditions under which competent authorities may request operators to notify the arrival of certain goods entering the Union",
+      "directory_codes": [
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32024R2463",
+      "title": "Commission Implementing Regulation (EU) 2024/2463 of 12 September 2024 laying down analytical methods applicable to official controls performed for the verification of compliance of food business operators with Regulation (EC) No 2073/2005",
+      "directory_codes": [
+        "133014"
+      ],
+      "consolidated_celex": null,
+      "category": "official_controls"
+    },
+    {
+      "celex": "32024R3190",
+      "title": "Commission Regulation (EU) 2024/3190 of 19 December 2024 on the use of bisphenol A (BPA) and other bisphenols and bisphenol derivatives with harmonised classification for specific hazardous properties in certain materials and articles intended to come into contact with food, amending Regulation (EU) No 10/2011 and repealing Regulation (EU) 2018/213",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": "02024R3190-20241231",
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32025R0351",
+      "title": "Commission Regulation (EU) 2025/351 of 21 February 2025 amending Regulation (EU) No 10/2011 on plastic materials and articles intended to come into contact with food, amending Regulation (EU) 2022/1616 on recycled plastic materials and articles intended to come into contact with foods, and repealing Regulation (EC) No 282/2008, and amending Regulation (EC) No 2023/2006 on good manufacturing practice for materials and articles intended to come into contact with food as regards recycled plastic and other matters related to quality control and manufacturing of plastic materials and articles intended to come into contact with food",
+      "directory_codes": [
+        "133014",
+        "152030"
+      ],
+      "consolidated_celex": null,
+      "category": "food_contact_materials"
+    },
+    {
+      "celex": "32004R0853",
+      "title": "Regulation (EC) No 853/2004 of the European Parliament and of the Council of 29 April 2004 laying down specific hygiene rules for food of animal origin",
+      "directory_codes": [],
+      "category": "general_food_law",
+      "consolidated_celex": "02004R0853-20251118"
+    },
+    {
+      "celex": "32011R0016",
+      "title": "Commission Regulation (EU) No 16/2011 of 10 January 2011 laying down implementing measures for the Rapid alert system for food and feed  Text with EEA relevance",
+      "directory_codes": [],
+      "category": "official_controls",
+      "consolidated_celex": "02011R0016-20191214"
+    },
+    {
+      "celex": "32013R1337",
+      "title": "Commission Implementing Regulation (EU) No 1337/2013 of 13 December 2013 laying down rules for the application of Regulation (EU) No 1169/2011 of the European Parliament and of the Council as regards the indication of the country of origin or place of provenance for fresh, chilled and frozen meat of swine, sheep, goats and poultry",
+      "directory_codes": [],
+      "category": "labelling_fic",
+      "consolidated_celex": "02013R1337-20131217"
+    },
+    {
+      "celex": "32018R0848",
+      "title": "Regulation (EU) 2018/848 of the European Parliament and of the Council of 30 May 2018 on organic production and labelling of organic products and repealing Council Regulation (EC) No 834/2007",
+      "directory_codes": [],
+      "category": "organic",
+      "consolidated_celex": "02018R0848-20250325"
+    }
+  ]
+}

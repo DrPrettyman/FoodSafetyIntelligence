@@ -1,7 +1,8 @@
 """
 Parse EUR-Lex HTML/XHTML into structured article data.
 
-Handles three format variants:
+Handles four format variants:
+- CLG consolidated (post-2004): CSS classes .title-article-norm, .norm, .eli-container
 - Newer XHTML (post-~2013): CSS classes .oj-ti-art, .oj-sti-art, .eli-container
 - Mid-era XHTML (~2004-2012): same classes without "oj-" prefix (.ti-art, .sti-art)
 - Older HTML (pre-~2004): bare <p> tags inside <div id="TexteOnly"> / <TXT_TE>
@@ -10,12 +11,15 @@ Output: list of Article dicts, each with celex_id, article_number, title, text,
 chapter, section.
 """
 
+import logging
 import re
 import warnings
 from dataclasses import dataclass, field
 from pathlib import Path
 
 from bs4 import BeautifulSoup, Tag, XMLParsedAsHTMLWarning
+
+logger = logging.getLogger(__name__)
 
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
@@ -36,11 +40,14 @@ class ParsedRegulation:
     title: str
     articles: list[Article] = field(default_factory=list)
     preamble_text: str = ""
-    format_type: str = ""  # "xhtml" or "html_legacy"
+    format_type: str = ""  # "clg", "xhtml", "xhtml_mid", or "html_legacy"
 
 
 def detect_format(soup: BeautifulSoup) -> str:
-    """Detect whether this is newer XHTML, mid-era XHTML, or older HTML format."""
+    """Detect whether this is CLG consolidated, newer XHTML, mid-era XHTML, or older HTML."""
+    # CLG consolidated uses title-article-norm within eli-container
+    if soup.find(class_="title-article-norm"):
+        return "clg"
     if soup.find(class_="eli-container"):
         return "xhtml"
     if soup.find(class_="ti-art"):
@@ -48,6 +55,129 @@ def detect_format(soup: BeautifulSoup) -> str:
     if soup.find("div", id="TexteOnly"):
         return "html_legacy"
     raise ValueError("Unknown EUR-Lex HTML format: no eli-container, ti-art, or TexteOnly div found")
+
+
+def _parse_clg(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
+    """Parse CLG consolidated format.
+
+    Structure: eli-container > eli-subdivision (chapter) > div > eli-subdivision (article).
+    Each article eli-subdivision contains:
+      - <p class="title-article-norm"> — "Article N" or "Article Na" (amendment inserts)
+      - <div class="eli-title"> wrapping <p class="stitle-article-norm"> — subtitle
+      - <p|div class="norm"> — body paragraphs
+      - <div class="grid-container grid-list"> — numbered list items
+      - <p class="list"> — lettered list items
+    Chapter/section context from title-division-1/title-division-2 paragraphs.
+    Division-1 may be "CHAPTER X" or "SECTION X"; division-2 is descriptive subtitle.
+    """
+    # Extract document title from eli-main-title (avoid amendment history table)
+    title_parts = []
+    main_title_div = soup.find("div", class_="eli-main-title")
+    if main_title_div:
+        for p in main_title_div.find_all("p", class_="title-doc-first"):
+            text = p.get_text(strip=True)
+            if text and not text.startswith("of "):
+                title_parts.append(text)
+        for p in main_title_div.find_all("p", class_="title-doc-last"):
+            text = p.get_text(strip=True)
+            if text:
+                title_parts.append(text)
+    doc_title = " — ".join(title_parts[:2]) if title_parts else celex_id
+
+    # Map each article subdivision to its chapter/section context.
+    # Walk all title-division-1 and title-article-norm elements in document order
+    # to build context. BeautifulSoup's find_all preserves document order.
+    landmark_classes = {"title-division-1", "title-division-2", "title-article-norm"}
+    landmarks = soup.find_all(
+        lambda tag: isinstance(tag, Tag)
+        and bool(set(tag.get("class", [])) & landmark_classes)
+    )
+
+    current_chapter = ""
+    current_section = ""
+    art_context: dict[int, tuple[str, str]] = {}  # id(element) → (chapter, section)
+
+    for el in landmarks:
+        el_classes = set(el.get("class", []))
+        if "title-division-1" in el_classes:
+            d1_text = el.get_text(strip=True)
+            # Find paired div-2 (next sibling)
+            d2 = el.find_next_sibling("p", class_="title-division-2")
+            d2_text = d2.get_text(strip=True) if d2 else ""
+            label = f"{d1_text} — {d2_text}" if d2_text else d1_text
+            if d1_text.startswith("CHAPTER"):
+                current_chapter = label
+                current_section = ""
+            else:
+                current_section = label
+        elif "title-article-norm" in el_classes:
+            art_context[id(el)] = (current_chapter, current_section)
+
+    articles: list[Article] = []
+
+    for subdivision in soup.find_all("div", class_="eli-subdivision"):
+        art_heading = subdivision.find("p", class_="title-article-norm", recursive=False)
+        if not art_heading:
+            continue
+
+        heading_text = art_heading.get_text(strip=True)
+        # Match "Article 8", "Article 8a", "Article 32b" etc.
+        art_match = re.match(r"Article\s+(\d+[a-z]*)", heading_text, re.IGNORECASE)
+        if not art_match:
+            continue
+
+        art_id = art_match.group(1)  # e.g. "8", "8a", "32b"
+        art_num = int(re.match(r"\d+", art_id).group())
+
+        # Article subtitle from eli-title > stitle-article-norm
+        art_title = ""
+        eli_title = subdivision.find("div", class_="eli-title", recursive=False)
+        if eli_title:
+            stitle = eli_title.find("p", class_="stitle-article-norm")
+            if stitle:
+                art_title = stitle.get_text(strip=True)
+
+        chapter, section = art_context.get(id(art_heading), ("", ""))
+
+        # Collect body text from norm, list, and grid-list elements
+        body_parts = []
+        skip_classes = {"title-article-norm", "stitle-article-norm", "eli-title",
+                        "modref", "arrow", "footnote", "title-fam-member-star"}
+
+        for child in subdivision.descendants:
+            if not isinstance(child, Tag):
+                continue
+            child_classes = set(child.get("class", []))
+            if child_classes & skip_classes:
+                continue
+            if "norm" in child_classes or "list" in child_classes:
+                # Only collect text from leaf norm/list elements (avoid double-counting
+                # when a div.norm contains nested elements)
+                if not child.find(class_="norm"):
+                    text = child.get_text(strip=True)
+                    if text:
+                        body_parts.append(text)
+            elif "grid-container" in child_classes:
+                text = child.get_text(strip=True)
+                if text:
+                    body_parts.append(text)
+
+        article = Article(
+            celex_id=celex_id,
+            article_number=art_num,
+            title=art_title,
+            text="\n".join(body_parts),
+            chapter=chapter,
+            section=section,
+        )
+        articles.append(article)
+
+    return ParsedRegulation(
+        celex_id=celex_id,
+        title=doc_title,
+        articles=articles,
+        format_type="clg",
+    )
 
 
 def _parse_xhtml(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
@@ -305,7 +435,9 @@ def parse_regulation(html_path: Path | str, celex_id: str) -> ParsedRegulation:
 
     fmt = detect_format(soup)
 
-    if fmt == "xhtml":
+    if fmt == "clg":
+        return _parse_clg(soup, celex_id)
+    elif fmt == "xhtml":
         return _parse_xhtml(soup, celex_id)
     elif fmt == "xhtml_mid":
         return _parse_xhtml_mid(soup, celex_id)
@@ -313,18 +445,75 @@ def parse_regulation(html_path: Path | str, celex_id: str) -> ParsedRegulation:
         return _parse_html_legacy(soup, celex_id)
 
 
+def _consolidated_to_base_celex(filename_stem: str) -> str:
+    """Convert a consolidated CELEX (e.g. 02002R0178-20260101) to base CELEX (32002R0178).
+
+    Consolidated CELEX IDs start with '0' and have a date suffix.
+    Base CELEX IDs start with '3' (sector 3 = legislation).
+    If the filename is already a base CELEX, return it unchanged.
+    """
+    if re.match(r"^0\d{4}[RL]\d{4}-\d{8}$", filename_stem):
+        return "3" + filename_stem[1:10]
+    return filename_stem
+
+
 def parse_corpus(html_dir: Path | str = "data/raw/html") -> list[ParsedRegulation]:
     """Parse all downloaded HTML files in a directory.
+
+    Handles both original (3YYYYTNNNN) and consolidated (0YYYYTNNNN-YYYYMMDD)
+    filenames. Consolidated files are mapped to their base CELEX ID so the
+    rest of the pipeline sees consistent identifiers.
+
+    When both original and consolidated files exist for the same base CELEX ID,
+    the consolidated version is tried first (more complete, includes amendments).
+    Falls back to original if consolidated fails to parse or yields 0 articles
+    (e.g. repealed regulation stubs).
 
     Returns:
         List of ParsedRegulation objects.
     """
     html_dir = Path(html_dir)
-    results = []
 
+    # Collect all files per base CELEX, tracking consolidated vs original
+    celex_files: dict[str, dict[str, Path]] = {}  # {base_celex: {"consolidated": path, "original": path}}
     for html_file in sorted(html_dir.glob("*.html")):
-        celex_id = html_file.stem
-        regulation = parse_regulation(html_file, celex_id)
-        results.append(regulation)
+        base_celex = _consolidated_to_base_celex(html_file.stem)
+        is_consolidated = html_file.stem != base_celex
+        if base_celex not in celex_files:
+            celex_files[base_celex] = {}
+        key = "consolidated" if is_consolidated else "original"
+        celex_files[base_celex][key] = html_file
+
+    results = []
+    for celex_id, files in sorted(celex_files.items()):
+        # Try consolidated first, then original
+        candidates = []
+        if "consolidated" in files:
+            candidates.append(("consolidated", files["consolidated"]))
+        if "original" in files:
+            candidates.append(("original", files["original"]))
+
+        parsed = None
+        for variant, html_file in candidates:
+            try:
+                regulation = parse_regulation(html_file, celex_id)
+                if regulation.articles:
+                    parsed = regulation
+                    break
+                else:
+                    logger.warning(
+                        f"No articles extracted from {variant} {html_file.name} "
+                        f"for {celex_id}, trying next variant"
+                    )
+            except (ValueError, Exception) as e:
+                logger.warning(
+                    f"Failed to parse {variant} {html_file.name} "
+                    f"for {celex_id}: {e}, trying next variant"
+                )
+
+        if parsed:
+            results.append(parsed)
+        else:
+            logger.warning(f"Skipping {celex_id}: no parseable file found")
 
     return results

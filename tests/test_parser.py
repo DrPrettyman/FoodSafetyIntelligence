@@ -9,6 +9,7 @@ warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 from src.ingestion.html_parser import (
     Article,
     ParsedRegulation,
+    _consolidated_to_base_celex,
     detect_format,
     parse_regulation,
 )
@@ -92,6 +93,124 @@ def legacy_html_doc():
     </TXT_TE>
     </div>
     </body></html>"""
+
+
+@pytest.fixture
+def clg_doc():
+    """Minimal CLG consolidated HTML mimicking EUR-Lex consolidated text format."""
+    return """<html><body>
+    <div class="eli-container">
+        <div class="eli-main-title">
+            <p class="title-doc-first">REGULATION (EC) No 999/2099 OF THE COUNCIL</p>
+            <p class="title-doc-first">of 1 January 2099</p>
+            <p class="title-doc-last">on test food safety rules</p>
+        </div>
+        <div class="eli-subdivision">
+            <div>
+                <p class="title-division-1">CHAPTER I</p>
+                <p class="title-division-2">GENERAL PROVISIONS</p>
+                <div class="eli-subdivision">
+                    <p class="title-article-norm">Article 1</p>
+                    <div class="eli-title">
+                        <p class="stitle-article-norm">Subject matter</p>
+                    </div>
+                    <p class="norm">This regulation lays down food safety rules.</p>
+                    <div class="norm">
+                        <span class="no-parag">1.</span>It applies to all food.
+                    </div>
+                </div>
+                <div class="eli-subdivision">
+                    <p class="title-article-norm">Article 2</p>
+                    <div class="eli-title">
+                        <p class="stitle-article-norm">Definitions</p>
+                    </div>
+                    <p class="norm">For the purposes of this Regulation:</p>
+                    <div class="grid-container grid-list">
+                        <div class="grid-list-column-1">1.</div>
+                        <div class="grid-list-column-2">'food' means any substance.</div>
+                    </div>
+                    <div class="grid-container grid-list">
+                        <div class="grid-list-column-1">2.</div>
+                        <div class="grid-list-column-2">'feed' means any substance for animals.</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="title-division-1">CHAPTER II</p>
+                <p class="title-division-2">REQUIREMENTS</p>
+                <div class="eli-subdivision">
+                    <p class="title-article-norm">Article 3</p>
+                    <div class="eli-title">
+                        <p class="stitle-article-norm">General requirements</p>
+                    </div>
+                    <p class="norm">Food shall be safe for consumption.</p>
+                    <p class="modref">\u25bcM1</p>
+                    <p class="norm">Operators shall ensure compliance.</p>
+                </div>
+                <div class="eli-subdivision">
+                    <p class="title-article-norm">Article 3a</p>
+                    <div class="eli-title">
+                        <p class="stitle-article-norm">Additional requirements</p>
+                    </div>
+                    <p class="norm">This article was inserted by amendment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body></html>"""
+
+
+def test_detect_clg_format(clg_doc):
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(clg_doc, "lxml")
+    assert detect_format(soup) == "clg"
+
+
+def test_parse_clg_articles(clg_doc, tmp_path):
+    html_file = tmp_path / "02099R0999-20990101.html"
+    html_file.write_text(clg_doc)
+
+    result = parse_regulation(html_file, "02099R0999-20990101")
+
+    assert result.format_type == "clg"
+    assert result.celex_id == "02099R0999-20990101"
+    assert len(result.articles) == 4
+
+    # Article 1
+    assert result.articles[0].article_number == 1
+    assert result.articles[0].title == "Subject matter"
+    assert "food safety rules" in result.articles[0].text
+    assert result.articles[0].chapter == "CHAPTER I \u2014 GENERAL PROVISIONS"
+
+    # Article 2 — check grid-list content is collected
+    assert result.articles[1].article_number == 2
+    assert result.articles[1].title == "Definitions"
+    assert "'food' means" in result.articles[1].text
+
+    # Article 3 — chapter II, modref marker skipped
+    assert result.articles[2].article_number == 3
+    assert result.articles[2].title == "General requirements"
+    assert result.articles[2].chapter == "CHAPTER II \u2014 REQUIREMENTS"
+    assert "Operators shall ensure" in result.articles[2].text
+    # modref markers should not appear in text
+    assert "\u25bc" not in result.articles[2].text
+
+    # Article 3a — amendment-inserted article
+    assert result.articles[3].article_number == 3
+    assert result.articles[3].title == "Additional requirements"
+    assert "inserted by amendment" in result.articles[3].text
+
+
+def test_clg_document_title(clg_doc, tmp_path):
+    html_file = tmp_path / "02099R0999-20990101.html"
+    html_file.write_text(clg_doc)
+
+    result = parse_regulation(html_file, "02099R0999-20990101")
+    assert "REGULATION (EC) No 999/2099" in result.title
+    assert "on test food safety rules" in result.title
+    # Date line ("of 1 January 2099") should be excluded
+    assert "of 1 January" not in result.title
 
 
 def test_detect_xhtml_format(xhtml_doc, tmp_path):
@@ -235,3 +354,104 @@ class TestLiveFiles:
                 assert len(art.text) > 100, (
                     f"{celex} Art {art.article_number} definitions too short: {len(art.text)} chars"
                 )
+
+
+# --- Consolidated CELEX mapping ---
+
+
+class TestConsolidatedToBaseCelex:
+    def test_consolidated_regulation(self):
+        assert _consolidated_to_base_celex("02002R0178-20260101") == "32002R0178"
+
+    def test_consolidated_directive(self):
+        assert _consolidated_to_base_celex("02002L0046-20211012") == "32002L0046"
+
+    def test_base_celex_unchanged(self):
+        assert _consolidated_to_base_celex("32002R0178") == "32002R0178"
+
+    def test_directive_base_unchanged(self):
+        assert _consolidated_to_base_celex("32002L0046") == "32002L0046"
+
+
+CLG_SAMPLE = Path("data/sample_clg.html")
+has_clg_sample = CLG_SAMPLE.exists()
+
+
+@pytest.mark.skipif(not has_clg_sample, reason="No CLG sample downloaded")
+class TestLiveCLGFiles:
+    def test_parse_general_food_law_clg(self):
+        result = parse_regulation(CLG_SAMPLE, "02002R0178-20260101")
+        assert result.format_type == "clg"
+        assert len(result.articles) == 81  # 65 original + 16 amendment-inserted
+        assert result.articles[0].article_number == 1
+        assert result.articles[0].title == "Aim and scope"
+        assert result.articles[-1].article_number == 65
+
+    def test_clg_has_more_content_than_original(self):
+        """Consolidated version should have more content than original."""
+        orig_path = SAMPLE_DIR / "32002R0178.html"
+        if not orig_path.exists():
+            pytest.skip("Original file not downloaded")
+        orig = parse_regulation(orig_path, "32002R0178")
+        consol = parse_regulation(CLG_SAMPLE, "02002R0178-20260101")
+        orig_chars = sum(len(a.text) for a in orig.articles)
+        consol_chars = sum(len(a.text) for a in consol.articles)
+        assert consol_chars > orig_chars, "Consolidated should have more content"
+        assert len(consol.articles) > len(orig.articles), "Consolidated should have more articles"
+
+    def test_clg_chapter_section_tracking(self):
+        result = parse_regulation(CLG_SAMPLE, "02002R0178-20260101")
+        # Article 1 should be in Chapter I
+        art1 = result.articles[0]
+        assert "CHAPTER I" in art1.chapter
+        # Find first article in Chapter III (should be Art 22)
+        ch3_articles = [a for a in result.articles if "CHAPTER III" in a.chapter]
+        assert len(ch3_articles) > 0, "Should have Chapter III articles"
+        assert ch3_articles[0].article_number == 22
+
+    def test_clg_amendment_inserted_articles(self):
+        """Amendment-inserted articles (8a, 32a, etc.) should be parsed."""
+        result = parse_regulation(CLG_SAMPLE, "02002R0178-20260101")
+        # Articles 8, 8a, 8b, 8c should all be present (all as article_number=8)
+        art8s = [a for a in result.articles if a.article_number == 8]
+        assert len(art8s) == 4, f"Expected 4 Art 8 variants, got {len(art8s)}"
+        titles = {a.title for a in art8s}
+        assert "Objectives of risk communication" in titles
+
+
+class TestParseCorpusFallback:
+    """Test that parse_corpus falls back from unparseable consolidated to original."""
+
+    def test_fallback_from_unparseable_consolidated(self, tmp_path):
+        """When consolidated file can't be parsed, should fall back to original."""
+        from src.ingestion.html_parser import parse_corpus
+
+        # Write an unparseable consolidated file (stub with no articles)
+        (tmp_path / "02002R0178-20260101.html").write_text(
+            "<html><body><p>stub</p></body></html>"
+        )
+        # Write a parseable original file (xhtml format)
+        (tmp_path / "32002R0178.html").write_text("""<?xml version="1.0" encoding="UTF-8"?>
+        <html xmlns="http://www.w3.org/1999/xhtml"><body>
+        <div class="eli-container">
+            <div class="eli-main-title"><p class="oj-doc-ti">TEST REG</p></div>
+            <div class="eli-subdivision" id="art_1">
+                <p class="oj-ti-art">Article 1</p>
+                <p class="oj-normal">Test text.</p>
+            </div>
+        </div></body></html>""")
+
+        results = parse_corpus(html_dir=tmp_path)
+        assert len(results) == 1
+        assert results[0].celex_id == "32002R0178"
+        assert len(results[0].articles) == 1
+
+    def test_skips_when_no_parseable_file(self, tmp_path):
+        """When no file can be parsed, regulation is skipped."""
+        from src.ingestion.html_parser import parse_corpus
+
+        (tmp_path / "32999R9999.html").write_text(
+            "<html><body><p>no articles here</p></body></html>"
+        )
+        results = parse_corpus(html_dir=tmp_path)
+        assert len(results) == 0
