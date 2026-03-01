@@ -14,7 +14,7 @@ celex_id, article_number, chapter, section, chunk_index, char_count.
 
 from dataclasses import dataclass, field
 
-from src.ingestion.html_parser import Article, ParsedRegulation
+from src.ingestion.html_parser import AnnexSection, Article, ParsedRegulation
 
 # Articles longer than this get sub-chunked at paragraph boundaries
 MAX_CHUNK_CHARS = 2000
@@ -34,6 +34,8 @@ class ArticleChunk:
     chunk_index: int = 0  # 0 = whole article or first sub-chunk
     total_chunks: int = 1
     char_count: int = 0
+    content_type: str = "article"  # "article" or "annex"
+    annex_number: str = ""  # "I", "II", etc. (only for content_type="annex")
 
     def __post_init__(self):
         self.char_count = len(self.text)
@@ -41,7 +43,14 @@ class ArticleChunk:
     @property
     def chunk_id(self) -> str:
         """Unique identifier for this chunk."""
-        base = f"{self.celex_id}_art{self.article_number}"
+        if self.content_type == "annex":
+            base = f"{self.celex_id}_annex{self.annex_number}"
+            if self.article_title:
+                # Include part info to disambiguate sections within an annex
+                safe_part = self.article_title[:20].replace(" ", "_")
+                base += f"_{safe_part}"
+        else:
+            base = f"{self.celex_id}_art{self.article_number}"
         # Occurrence suffix for duplicate article numbers (amending regulations)
         occ = getattr(self, "_occurrence", 0)
         if occ > 0:
@@ -54,13 +63,18 @@ class ArticleChunk:
     def context_header(self) -> str:
         """Human-readable context prefix for the chunk."""
         parts = [f"[{self.celex_id}]"]
-        if self.chapter:
-            parts.append(self.chapter)
-        if self.section:
-            parts.append(self.section)
-        parts.append(f"Article {self.article_number}")
-        if self.article_title:
-            parts.append(f"— {self.article_title}")
+        if self.content_type == "annex":
+            parts.append(f"ANNEX {self.annex_number}")
+            if self.article_title:
+                parts.append(f"— {self.article_title}")
+        else:
+            if self.chapter:
+                parts.append(self.chapter)
+            if self.section:
+                parts.append(self.section)
+            parts.append(f"Article {self.article_number}")
+            if self.article_title:
+                parts.append(f"— {self.article_title}")
         if self.total_chunks > 1:
             parts.append(f"(part {self.chunk_index + 1}/{self.total_chunks})")
         return " ".join(parts)
@@ -73,7 +87,7 @@ class ArticleChunk:
     @property
     def metadata(self) -> dict:
         """Metadata dict for vector store."""
-        return {
+        meta = {
             "celex_id": self.celex_id,
             "article_number": self.article_number,
             "article_title": self.article_title,
@@ -83,7 +97,11 @@ class ArticleChunk:
             "total_chunks": self.total_chunks,
             "chunk_id": self.chunk_id,
             "char_count": self.char_count,
+            "content_type": self.content_type,
         }
+        if self.content_type == "annex":
+            meta["annex_number"] = self.annex_number
+        return meta
 
 
 def chunk_article(article: Article, max_chars: int = MAX_CHUNK_CHARS) -> list[ArticleChunk]:
@@ -158,8 +176,76 @@ def chunk_article(article: Article, max_chars: int = MAX_CHUNK_CHARS) -> list[Ar
     ]
 
 
+def chunk_annex_section(annex: AnnexSection, max_chars: int = MAX_CHUNK_CHARS) -> list[ArticleChunk]:
+    """Chunk an annex section into one or more chunks.
+
+    Reuses ArticleChunk with content_type="annex" to avoid modifying the
+    vector store interface. Annex prose is chunked at paragraph boundaries
+    just like articles.
+    """
+    if not annex.text.strip():
+        return []
+
+    # Build a label for the part/section within the annex
+    part_label = annex.part or annex.annex_title or ""
+
+    paragraphs = annex.text.split("\n")
+
+    if len(annex.text) <= max_chars:
+        return [
+            ArticleChunk(
+                celex_id=annex.celex_id,
+                article_number=0,
+                article_title=part_label,
+                text=annex.text,
+                chunk_index=0,
+                total_chunks=1,
+                content_type="annex",
+                annex_number=annex.annex_number,
+            )
+        ]
+
+    # Sub-chunk at paragraph boundaries
+    chunks_text: list[str] = []
+    current_parts: list[str] = []
+    current_len = 0
+
+    for para in paragraphs:
+        para = para.strip()
+        if not para:
+            continue
+        if current_len + len(para) > max_chars and current_len >= MIN_CHUNK_CHARS:
+            chunks_text.append("\n".join(current_parts))
+            current_parts = [para]
+            current_len = len(para)
+        else:
+            current_parts.append(para)
+            current_len += len(para)
+
+    if current_parts:
+        if len(chunks_text) > 0 and current_len < MIN_CHUNK_CHARS:
+            chunks_text[-1] += "\n" + "\n".join(current_parts)
+        else:
+            chunks_text.append("\n".join(current_parts))
+
+    total = len(chunks_text)
+    return [
+        ArticleChunk(
+            celex_id=annex.celex_id,
+            article_number=0,
+            article_title=part_label,
+            text=text,
+            chunk_index=i,
+            total_chunks=total,
+            content_type="annex",
+            annex_number=annex.annex_number,
+        )
+        for i, text in enumerate(chunks_text)
+    ]
+
+
 def chunk_regulation(regulation: ParsedRegulation, max_chars: int = MAX_CHUNK_CHARS) -> list[ArticleChunk]:
-    """Chunk all articles in a regulation.
+    """Chunk all articles and annexes in a regulation.
 
     Amending regulations can contain multiple articles with the same number
     (e.g. inserting Art 8, 8a, 8b into a target regulation). When duplicate
@@ -169,6 +255,9 @@ def chunk_regulation(regulation: ParsedRegulation, max_chars: int = MAX_CHUNK_CH
     chunks = []
     for article in regulation.articles:
         chunks.extend(chunk_article(article, max_chars))
+
+    for annex in regulation.annexes:
+        chunks.extend(chunk_annex_section(annex, max_chars))
 
     # Deduplicate chunk IDs: track occurrences and rename duplicates
     seen: dict[str, int] = {}

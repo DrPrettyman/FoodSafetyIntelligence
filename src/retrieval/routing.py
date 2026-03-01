@@ -53,6 +53,28 @@ CATEGORY_ROUTING: dict[str, list[str]] = {
     # Safety
     "contaminant": ["contaminants"],
     "official control": ["official_controls"],
+    # Feed
+    "animal feed": ["feed"],
+    "feed": ["feed"],
+    # Food irradiation
+    "irradiated food": ["food_irradiation"],
+    "irradiation": ["food_irradiation"],
+    "ionising radiation": ["food_irradiation"],
+    # Product standards (commodity-specific)
+    "honey": ["product_standards"],
+    "cocoa": ["product_standards"],
+    "chocolate": ["product_standards"],
+    "sugar": ["product_standards"],
+    "fruit juice": ["product_standards"],
+    "jam": ["product_standards"],
+    "marmalade": ["product_standards"],
+    "coffee": ["product_standards"],
+    "mineral water": ["product_standards"],
+    "casein": ["product_standards"],
+    "quick-frozen": ["product_standards"],
+    "frozen food": ["product_standards"],
+    "dehydrated milk": ["product_standards"],
+    "extraction solvent": ["product_standards"],
 }
 
 
