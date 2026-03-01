@@ -1,0 +1,462 @@
+{
+  "timestamp": "2026-03-01T00:10:12.833447+00:00",
+  "scenario_count": 3,
+  "summary": {
+    "total_fn": 13,
+    "total_fp": 27,
+    "fn_by_category": {
+      "entity_extraction_gap": 0,
+      "routing_miss": 0,
+      "retrieval_failure": 13,
+      "extraction_failure": 0,
+      "cross_reference_miss": 0
+    },
+    "fp_by_category": {
+      "tangential_cross_ref": 25,
+      "scope_error": 0,
+      "over_extraction": 2,
+      "hallucination": 0
+    }
+  },
+  "per_scenario": {
+    "fic_labelling_general": {
+      "scenario_id": "fic_labelling_general",
+      "fn_count": 4,
+      "fp_count": 11,
+      "fn_by_category": {
+        "entity_extraction_gap": 0,
+        "routing_miss": 0,
+        "retrieval_failure": 4,
+        "extraction_failure": 0,
+        "cross_reference_miss": 0
+      },
+      "fp_by_category": {
+        "tangential_cross_ref": 11,
+        "scope_error": 0,
+        "over_extraction": 0,
+        "hallucination": 0
+      },
+      "fn_details": [
+        {
+          "requirement_id": "FIC-04",
+          "regulation_id": "32011R1169",
+          "article_number": 7,
+          "requirement_type": "general_obligation",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32011R1169 Art 7 not in retrieved articles; regulation has Arts [1, 9, 12, 16, 21, 22, 36, 49] retrieved"
+        },
+        {
+          "requirement_id": "FIC-06",
+          "regulation_id": "32011R1169",
+          "article_number": 13,
+          "requirement_type": "labelling",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32011R1169 Art 13 not in retrieved articles; regulation has Arts [1, 9, 12, 16, 21, 22, 36, 49] retrieved"
+        },
+        {
+          "requirement_id": "FIC-07",
+          "regulation_id": "32011R1169",
+          "article_number": 26,
+          "requirement_type": "labelling",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32011R1169 Art 26 not in retrieved articles; regulation has Arts [1, 9, 12, 16, 21, 22, 36, 49] retrieved"
+        },
+        {
+          "requirement_id": "FIC-08",
+          "regulation_id": "32011R1169",
+          "article_number": 17,
+          "requirement_type": "labelling",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32011R1169 Art 17 not in retrieved articles; regulation has Arts [1, 9, 12, 16, 21, 22, 36, 49] retrieved"
+        }
+      ],
+      "fp_details": [
+        {
+          "regulation_id": "32008R1332",
+          "article_number": 12,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.65,
+          "explanation": "32008R1332 Art 12 added via cross-reference from 32011R1169, 32018R0848 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 7,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.8,
+          "explanation": "32006R1925 Art 7 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 15,
+          "requirement_type": "notification",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.7,
+          "explanation": "32006R1925 Art 15 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32015R2283",
+          "article_number": 14,
+          "requirement_type": "notification",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.6,
+          "explanation": "32015R2283 Art 14 added via cross-reference from 32011R1169, 32018R0848 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32015R2283",
+          "article_number": 25,
+          "requirement_type": "notification",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.75,
+          "explanation": "32015R2283 Art 25 added via cross-reference from 32011R1169, 32018R0848 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32004R0853",
+          "article_number": 5,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.7,
+          "explanation": "32004R0853 Art 5 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32004R0852",
+          "article_number": 10,
+          "requirement_type": "hygiene",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.8,
+          "explanation": "32004R0852 Art 10 added via cross-reference from 32011R1169, 32018R0848 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32003R1830",
+          "article_number": 5,
+          "requirement_type": "traceability",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.7,
+          "explanation": "32003R1830 Art 5 added via cross-reference from 32018R0848 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32003R1830",
+          "article_number": 4,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.7,
+          "explanation": "32003R1830 Art 4 added via cross-reference from 32018R0848 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32004R0852",
+          "article_number": 11,
+          "requirement_type": "hygiene",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.8,
+          "explanation": "32004R0852 Art 11 added via cross-reference from 32011R1169, 32018R0848 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32004R0853",
+          "article_number": 3,
+          "requirement_type": "hygiene",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.7,
+          "explanation": "32004R0853 Art 3 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        }
+      ]
+    },
+    "food_supplement_vitamin_d": {
+      "scenario_id": "food_supplement_vitamin_d",
+      "fn_count": 4,
+      "fp_count": 4,
+      "fn_by_category": {
+        "entity_extraction_gap": 0,
+        "routing_miss": 0,
+        "retrieval_failure": 4,
+        "extraction_failure": 0,
+        "cross_reference_miss": 0
+      },
+      "fp_by_category": {
+        "tangential_cross_ref": 2,
+        "scope_error": 0,
+        "over_extraction": 2,
+        "hallucination": 0
+      },
+      "fn_details": [
+        {
+          "requirement_id": "FS-01",
+          "regulation_id": "32002L0046",
+          "article_number": 3,
+          "requirement_type": "general_obligation",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32002L0046 Art 3 not in retrieved articles; regulation has Arts [2, 5, 6, 7, 8] retrieved"
+        },
+        {
+          "requirement_id": "FS-04",
+          "regulation_id": "32006R1924",
+          "article_number": 3,
+          "requirement_type": "general_obligation",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32006R1924 Art 3 not in retrieved articles; regulation has Arts [7, 10] retrieved"
+        },
+        {
+          "requirement_id": "FS-07",
+          "regulation_id": "32006R1925",
+          "article_number": 3,
+          "requirement_type": "general_obligation",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32006R1925 Art 3 not in retrieved articles; regulation has Arts [6, 7] retrieved"
+        },
+        {
+          "requirement_id": "FS-08",
+          "regulation_id": "32002R0178",
+          "article_number": 18,
+          "requirement_type": "traceability",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32002R0178 Art 18 not in retrieved articles; regulation has Arts [14, 21] retrieved"
+        }
+      ],
+      "fp_details": [
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 50,
+          "requirement_type": "labelling",
+          "fp_category": "over_extraction",
+          "is_cross_ref_expansion": false,
+          "confidence": 0.85,
+          "explanation": "32011R1169 Art 50 labelling: valid extraction not covered by ground truth (conf=0.85)"
+        },
+        {
+          "regulation_id": "32008R0353",
+          "article_number": 6,
+          "requirement_type": "documentation",
+          "fp_category": "over_extraction",
+          "is_cross_ref_expansion": false,
+          "confidence": 0.8,
+          "explanation": "32008R0353 Art 6 documentation: valid extraction not covered by ground truth (conf=0.80)"
+        },
+        {
+          "regulation_id": "32015R2283",
+          "article_number": 7,
+          "requirement_type": "authorisation",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.75,
+          "explanation": "32015R2283 Art 7 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32008R1333",
+          "article_number": 24,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.7,
+          "explanation": "32008R1333 Art 24 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        }
+      ]
+    },
+    "novel_food_insect_protein": {
+      "scenario_id": "novel_food_insect_protein",
+      "fn_count": 5,
+      "fp_count": 12,
+      "fn_by_category": {
+        "entity_extraction_gap": 0,
+        "routing_miss": 0,
+        "retrieval_failure": 5,
+        "extraction_failure": 0,
+        "cross_reference_miss": 0
+      },
+      "fp_by_category": {
+        "tangential_cross_ref": 12,
+        "scope_error": 0,
+        "over_extraction": 0,
+        "hallucination": 0
+      },
+      "fn_details": [
+        {
+          "requirement_id": "NF-01",
+          "regulation_id": "32015R2283",
+          "article_number": 6,
+          "requirement_type": "authorisation",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32015R2283 Art 6 not in retrieved articles; regulation has Arts [10, 25] retrieved"
+        },
+        {
+          "requirement_id": "NF-02",
+          "regulation_id": "32015R2283",
+          "article_number": 7,
+          "requirement_type": "safety_assessment",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32015R2283 Art 7 not in retrieved articles; regulation has Arts [10, 25] retrieved"
+        },
+        {
+          "requirement_id": "NF-04",
+          "regulation_id": "32015R2283",
+          "article_number": 9,
+          "requirement_type": "labelling",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32015R2283 Art 9 not in retrieved articles; regulation has Arts [10, 25] retrieved"
+        },
+        {
+          "requirement_id": "NF-07",
+          "regulation_id": "32002R0178",
+          "article_number": 14,
+          "requirement_type": "general_obligation",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32002R0178 Art 14 not in retrieved articles; regulation has Arts [16, 18] retrieved"
+        },
+        {
+          "requirement_id": "NF-08",
+          "regulation_id": "32011R1169",
+          "article_number": 9,
+          "requirement_type": "labelling",
+          "error_category": "retrieval_failure",
+          "was_routed": true,
+          "was_retrieved": false,
+          "explanation": "32011R1169 Art 9 not in retrieved articles; regulation has Arts [1, 6] retrieved"
+        }
+      ],
+      "fp_details": [
+        {
+          "regulation_id": "32008R1332",
+          "article_number": 11,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.35,
+          "explanation": "32008R1332 Art 11 added via cross-reference from 32011R1169, 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32008R1332",
+          "article_number": 12,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.3,
+          "explanation": "32008R1332 Art 12 added via cross-reference from 32011R1169, 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32003R1829",
+          "article_number": 13,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.45,
+          "explanation": "32003R1829 Art 13 added via cross-reference from 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32003R1829",
+          "article_number": 25,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.15,
+          "explanation": "32003R1829 Art 25 added via cross-reference from 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32008R1332",
+          "article_number": 10,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.3,
+          "explanation": "32008R1332 Art 10 added via cross-reference from 32011R1169, 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32003R1829",
+          "article_number": 4,
+          "requirement_type": "authorisation",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.4,
+          "explanation": "32003R1829 Art 4 added via cross-reference from 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32008R1333",
+          "article_number": 24,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.55,
+          "explanation": "32008R1333 Art 24 added via cross-reference from 32011R1169, 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32006R1924",
+          "article_number": 25,
+          "requirement_type": "notification",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.55,
+          "explanation": "32006R1924 Art 25 added via cross-reference from 32011R1169, 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 7,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.6,
+          "explanation": "32006R1925 Art 7 added via cross-reference from 32011R1169, 32015R2283 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32004R0853",
+          "article_number": 5,
+          "requirement_type": "labelling",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.45,
+          "explanation": "32004R0853 Art 5 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32004R0853",
+          "article_number": 7,
+          "requirement_type": "documentation",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.4,
+          "explanation": "32004R0853 Art 7 added via cross-reference from 32011R1169 \u2014 valid extraction but tangential to scenario"
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 15,
+          "requirement_type": "notification",
+          "fp_category": "tangential_cross_ref",
+          "is_cross_ref_expansion": true,
+          "confidence": 0.5,
+          "explanation": "32006R1925 Art 15 added via cross-reference from 32011R1169, 32015R2283 \u2014 valid extraction but tangential to scenario"
+        }
+      ]
+    }
+  }
+}
