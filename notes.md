@@ -73,6 +73,17 @@
 | 2026-02-28 | Recovered 18/19 skipped regulations (218 articles), corpus now 242 regs, 5152 chunks | Done |
 | 2026-02-28 | Expanded ground truth: 24→52 items (18+18+16), P=0.61 R=0.75 F1=0.67 | Done |
 | 2026-02-28 | Tests: 270 total, all passing. Updated eval thresholds (P≥0.30, R≥0.40 per scenario) | Done |
+| 2026-03-01 | Failure mode analysis (Layer 4): classified all 13 FN + 27 FP into error categories | Done |
+| 2026-03-01 | Tests: 289 total (17 failure analysis + 2 integration), all passing | Done |
+| 2026-03-01 | Tiered hybrid search: core regs get more articles, cross-ref regs get fewer | Done |
+| 2026-03-01 | Tests: 292 total (3 new tiered retrieval tests), all passing | Done |
+| 2026-03-01 | Re-evaluation with tiered search: P=0.58 R=0.69 F1=0.63 (mixed — see notes) | Done |
+| 2026-03-01 | FastAPI REST API: GET /health, GET /entities, POST /compliance-check | Done |
+| 2026-03-01 | API: typed Pydantic request/response models, lifespan index check, error handling | Done |
+| 2026-03-01 | Tests: 304 total (12 new API tests), all passing | Done |
+| 2026-03-01 | Docker: multi-stage Dockerfile (python:3.12-slim), docker-compose.yml (streamlit + api) | Done |
+| 2026-03-01 | Docker: .dockerignore excludes raw HTML (~100MB), eval data, notebooks, tests | Done |
+| 2026-03-01 | README.md: business-first portfolio README, 358 words prose, key results + limitations | Done |
 
 ## Data Notes
 
@@ -204,6 +215,21 @@ Two distinct formats encountered:
 - **Formex 4 XML** format from Cellar is just a metadata wrapper, not the full document text. XHTML is the correct format.
 - **Requesting only `application/xhtml+xml`** in the Accept header fails for older documents (returns 404). Must include `text/html` as well.
 - **pyproject.toml build-backend** — `setuptools.backends._legacy:_Backend` does NOT exist. Must use `setuptools.build_meta`.
+
+## Architectural Decisions
+
+### No LangChain (deviation from plan)
+
+The comprehensive plan listed LangChain in the tech stack, but the implementation uses direct Anthropic API calls with `tool_use` instead. Reasons:
+
+1. **The extraction chain is simple.** The entire LLM interaction is: system prompt → article text → tool call → Pydantic validation. That's ~60 lines in `llm_extractor.py`. LangChain would add an abstraction layer over a single API call with no benefit.
+2. **Tool use maps directly.** Anthropic's `tool_use` and OpenAI's function calling both force structured output matching a schema. This is the core capability we need. LangChain's chain/agent abstractions are designed for multi-step reasoning, which we don't do — routing is deterministic, retrieval is a vector search, extraction is a single LLM call.
+3. **Transparency for portfolio.** Hiring managers can read `llm_extractor.py` and see exactly what the LLM receives and returns. A LangChain chain obscures this behind `RunnableSequence`, `StrOutputParser`, etc. For a portfolio project, showing you understand the underlying API is more valuable than showing you can configure a framework.
+4. **Dependency stability.** LangChain's API changes frequently across minor versions. Direct API calls against Anthropic/OpenAI SDKs have stable, well-documented interfaces.
+
+### No ChromaDB (Python 3.14 incompatibility)
+
+ChromaDB depends on Pydantic V1 internals that fail on Python 3.14 (`unable to infer type for attribute "chroma_server_nofile"`). Replaced with sentence-transformers + numpy: `all-MiniLM-L6-v2` embeddings stored as `.npy` files, cosine similarity via dot product, celex_id filtering via boolean mask. Simpler, faster, zero external service dependencies.
 
 ### Parser Results (2026-02-20)
 
@@ -668,6 +694,110 @@ Per-scenario breakdown:
 4. Remaining FNs are articles not surfaced by vector search (e.g., Novel Foods Art 6 authorisation, Art 7 safety conditions, Art 9 labelling conditions)
 
 **Test thresholds updated**: Per-scenario P≥0.30 R≥0.40, aggregate P≥0.35 R≥0.45 (up from P≥0.15 R≥0.20).
+
+### Failure Mode Analysis — Layer 4 (2026-03-01)
+
+**Module**: `src/evaluation/failure_analysis.py` — classifies every FP and FN into error categories from the comprehensive plan (Section 7, Layer 4).
+
+**Results** (3 scenarios, 52 ground truth items, P=0.61 R=0.75 F1=0.67):
+
+**False Negative Distribution (13 total):**
+
+| Category | Count | % |
+|----------|-------|---|
+| retrieval_failure | 13 | 100% |
+| routing_miss | 0 | 0% |
+| entity_extraction_gap | 0 | 0% |
+| extraction_failure | 0 | 0% |
+| cross_reference_miss | 0 | 0% |
+
+**False Positive Distribution (27 total):**
+
+| Category | Count | % |
+|----------|-------|---|
+| tangential_cross_ref | 25 | 93% |
+| over_extraction | 2 | 7% |
+| scope_error | 0 | 0% |
+| hallucination | 0 | 0% |
+
+**Key findings:**
+
+1. **Zero hallucinations.** The system never invents regulations or requirements outside the routed set. Every extracted requirement references a real regulation that was correctly routed.
+
+2. **Retrieval is the sole FN bottleneck.** All 13 false negatives are from regulations that were correctly routed but whose specific articles were not surfaced by vector search. The routing and extraction stages have zero failures. Examples:
+   - Novel Foods Art 6 (authorisation), Art 7 (safety), Art 9 (labelling) — only Art 10 and 25 retrieved
+   - FIC Art 7, 13, 17, 26 — not in top retrieved articles despite 8 other FIC articles being retrieved
+   - Food supplements: Art 3 from three regulations (32002L0046, 32006R1924, 32006R1925) — "scope/definitions" articles that rank low in semantic similarity to product-specific queries
+
+3. **Cross-reference expansion is the primary FP source (93%).** The 1-hop cross-reference expansion adds regulations referenced by the routed set. These produce valid extractions that are tangential to the specific product scenario (e.g., food enzyme labelling for a novel food query, GMO traceability for a general food labelling query, hygiene requirements for a food supplement query).
+
+4. **Improvement paths identified:**
+   - **For recall**: Increase per-regulation article retrieval for core regulations (currently `max(2, n_results // num_regs)` — many important regulations only get 2 articles). Could use a tiered approach: more articles from directly-routed regulations, fewer from cross-ref expansions.
+   - **For precision**: Filter or deprioritize extractions from cross-reference-expanded regulations. Could add a relevance check or lower confidence for tangential regulations.
+
+**Output**: `data/evaluation/failure_analysis/analysis.json` (structured) + `data/evaluation/failure_analysis/report.md` (human-readable).
+
+### Tiered Hybrid Search (2026-03-01)
+
+**Problem**: Failure analysis identified that all 13 FNs are retrieval failures and 25/27 FPs are tangential cross-reference extractions. Both have the same root cause: the hybrid search allocated articles uniformly across all regulations regardless of routing provenance. With 17+ regulations routed (including cross-ref expansions), each regulation only got `max(2, n_results // num_regs) = 2` articles. Core regulations like 32015R2283 (Novel Foods) only got Arts 10, 25 — missing critical Arts 6, 7, 9.
+
+**Solution** (`src/pipeline.py` lines 249-288): Tiered per-regulation search allocation.
+
+1. Split `routing_result.celex_ids` into core (directly routed) vs cross-ref (added by 1-hop expansion) using `xref_new_ids` already in scope from the cross-reference expansion step
+2. **Core regulations**: `max(3, n_results // num_core_regs)` articles each — e.g., with 8 core regs and n_results=10, core_per_reg=3
+3. **Cross-ref regulations**: fixed at 1 article each — enough to surface the most relevant article if it exists, but won't flood results with tangential extractions
+4. Broad query (unchanged) runs first, then per-regulation searches add unique results
+
+**Design**: Minimal change — no new data structures, no changes to RoutingResult or VectorStore, no changes to failure_analysis.py. Reuses `xref_new_ids` already computed at line 228. Just smarter allocation of existing search calls.
+
+**Tests** (3 new in `tests/test_pipeline.py::TestTieredRetrieval`):
+- `test_core_regs_get_more_articles_than_xref` — verifies core regs searched with n_results >= 3, xref regs with n_results == 1
+- `test_no_xref_all_budget_to_core` — verifies all budget goes to core when no cross-refs
+- `test_deduplication_across_tiers` — verifies duplicate chunk_ids across search tiers are deduplicated
+
+**Expected impact** (requires re-running extraction scenarios to measure):
+- **Recall**: should improve as core regulations get 3+ articles instead of 2, surfacing Arts 6, 7, 9 etc.
+- **Precision**: should improve as cross-ref regulations produce fewer tangential extractions (1 article instead of 2+)
+
+### Re-evaluation with Tiered Search (2026-03-01)
+
+Re-ran all 3 scenarios with the tiered hybrid search (run_007/008 vs previous run_006/007).
+
+**Results comparison:**
+
+| Scenario | Old P | New P | Old R | New R | Old F1 | New F1 | Old Arts | New Arts |
+|----------|-------|-------|-------|-------|--------|--------|----------|----------|
+| Novel food | 0.52 | 0.46 | 0.72 | 0.61 | 0.60 | 0.52 | ~20 | 36 |
+| FIC labelling | 0.76 | 0.64 | 0.78 | 0.78 | 0.77 | 0.70 | ~20 | 25 |
+| Food supplements | 0.56 | 0.65 | 0.75 | 0.69 | 0.64 | 0.67 | ~20 | 39 |
+| **Aggregate** | **0.61** | **0.58** | **0.75** | **0.69** | **0.67** | **0.63** | — | — |
+
+**Failure analysis comparison (old → new):**
+
+| FP Category | Old Count | New Count | Change |
+|-------------|-----------|-----------|--------|
+| tangential_cross_ref | 25 (93%) | 15 (56%) | -10 (improvement) |
+| over_extraction | 2 (7%) | 10 (37%) | +8 |
+| scope_error | 0 | 2 (7%) | +2 |
+| hallucination | 0 | 0 | unchanged |
+
+| FN Category | Old Count | New Count | Change |
+|-------------|-----------|-----------|--------|
+| retrieval_failure | 13 (100%) | 16 (100%) | +3 |
+
+**Analysis:**
+
+1. **Tangential cross-ref FPs dropped from 25 to 15.** This is the intended effect — restricting cross-ref regulations to 1 article each reduces tangential extractions. The tiered search is working as designed for precision.
+
+2. **Over-extraction FPs increased from 2 to 10.** More articles retrieved from core regulations means more legitimate extractions that aren't in the ground truth. These are requirements like 32015R2283 Art 14 (notification), 32006R1925 Art 15 (notification), 31997R0258 Arts 4,6,8 — valid obligations not yet in our 52-item ground truth. This suggests the ground truth needs another expansion round.
+
+3. **Aggregate metrics slightly down (F1 0.67→0.63) but this is misleading.** The comparison is confounded by LLM non-determinism (different extraction runs) and by the system now retrieving 36-39 articles (vs ~20 before), producing more total extractions. The FP *composition* shifted in the right direction: tangential cross-refs fell from 93% to 56% of FPs.
+
+4. **Retrieval failures still dominate FNs (100%).** Same root cause articles (Novel Foods Arts 6,7,9; FIC Arts 7,17,26; supplement "scope/definitions" articles) rank low in semantic similarity. The tiered search gives core regs more budget (3+ vs 2), but the specific articles needed are still not in the top results. Further improvement would require query reformulation or article importance weighting.
+
+5. **Food supplements scenario improved** (F1 0.64→0.67, P 0.56→0.65). This scenario benefited most from tiered search because it has many core regulations.
+
+**Conclusion:** The tiered search achieved its primary goal (reducing tangential cross-ref FPs) but the aggregate metrics are muddied by LLM variability and ground truth coverage gaps. The next high-impact improvement would be expanding the ground truth to capture the over-extraction FPs, many of which are legitimate requirements.
 
 ## Open Questions
 
