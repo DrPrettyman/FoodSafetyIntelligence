@@ -264,3 +264,197 @@ class TestQuery:
                     vectorstore_dir=vs_dir,
                     index_dir=idx_dir,
                 )
+
+
+# --- Tiered retrieval tests ---
+
+
+class TestTieredRetrieval:
+    """Verify that core regulations get more search budget than cross-ref expansions."""
+
+    def _make_hit(self, celex_id: str, art: int, score: float = 0.5) -> dict:
+        """Build a synthetic search result."""
+        return {
+            "chunk_id": f"{celex_id}_art{art}_chunk0",
+            "text": f"Article {art} text...",
+            "metadata": {
+                "celex_id": celex_id,
+                "article_number": art,
+                "article_title": f"Article {art}",
+                "chapter": "",
+                "section": "",
+                "chunk_index": 0,
+                "total_chunks": 1,
+            },
+            "score": score,
+        }
+
+    @patch("src.pipeline.CrossReferenceIndex")
+    @patch("src.pipeline.RoutingTable")
+    @patch("src.pipeline.VectorStore")
+    @patch("src.pipeline.load_entity_index")
+    def test_core_regs_get_more_articles_than_xref(
+        self, mock_load_idx, mock_vs_cls, mock_rt_cls, mock_xref_cls
+    ):
+        """Core regulations should be searched with higher n_results than xref regs."""
+        # Setup entity index
+        mock_load_idx.return_value = EntityIndex()
+
+        # Setup routing: returns 3 core regulations
+        from src.retrieval.routing import RoutingResult
+
+        routing_result = RoutingResult(celex_ids=[])
+        routing_result.add("32015R2283", "product type: novel food")
+        routing_result.add("32002R0178", "always included (General Food Law)")
+        routing_result.add("32011R1169", "keyword: labelling")
+        mock_rt_cls.return_value.route.return_value = routing_result
+
+        # Setup cross-reference expansion: adds 2 xref regulations
+        xref_new_ids = ["32008R1332", "32003R1829"]
+        xref_reasons = {
+            "32008R1332": ["cross-referenced from 32015R2283"],
+            "32003R1829": ["cross-referenced from 32015R2283"],
+        }
+        mock_xref_build = MagicMock()
+        mock_xref_build.expand.return_value = (xref_new_ids, xref_reasons)
+        mock_xref_cls.build.return_value = mock_xref_build
+
+        # Setup vector store — return different hits for each search call
+        mock_store = MagicMock()
+        mock_store.count = 100
+
+        call_log = []
+
+        def mock_search(query, celex_ids, n_results):
+            call_log.append({"celex_ids": celex_ids, "n_results": n_results})
+            # Return one unique hit per call
+            cid = celex_ids[0] if len(celex_ids) == 1 else "broad"
+            return [self._make_hit(cid, n_results, score=0.5)]
+
+        mock_store.search.side_effect = mock_search
+        mock_vs_cls.return_value = mock_store
+
+        # Run query
+        result = query(
+            product_type="novel food",
+            query_text="novel food requirements",
+            n_results=10,
+            skip_extraction=True,
+            vectorstore_dir=Path("/tmp/fake_vs"),
+            index_dir=Path("/tmp/fake_idx"),
+        )
+
+        # Verify call pattern:
+        # call_log[0] = broad search (all 5 celex_ids)
+        # call_log[1..3] = core per-reg searches (3 core regs)
+        # call_log[4..5] = xref per-reg searches (2 xref regs)
+        assert len(call_log) == 6  # 1 broad + 3 core + 2 xref
+
+        broad_call = call_log[0]
+        assert len(broad_call["celex_ids"]) == 5  # all regulations
+
+        # Core calls should have n_results >= 3
+        core_calls = call_log[1:4]
+        for call in core_calls:
+            assert len(call["celex_ids"]) == 1
+            assert call["celex_ids"][0] not in xref_new_ids
+            assert call["n_results"] >= 3
+
+        # Xref calls should have n_results == 1
+        xref_calls = call_log[4:6]
+        for call in xref_calls:
+            assert len(call["celex_ids"]) == 1
+            assert call["celex_ids"][0] in xref_new_ids
+            assert call["n_results"] == 1
+
+    @patch("src.pipeline.CrossReferenceIndex")
+    @patch("src.pipeline.RoutingTable")
+    @patch("src.pipeline.VectorStore")
+    @patch("src.pipeline.load_entity_index")
+    def test_no_xref_all_budget_to_core(
+        self, mock_load_idx, mock_vs_cls, mock_rt_cls, mock_xref_cls
+    ):
+        """When there are no cross-ref expansions, all budget goes to core regs."""
+        mock_load_idx.return_value = EntityIndex()
+
+        from src.retrieval.routing import RoutingResult
+
+        routing_result = RoutingResult(celex_ids=[])
+        routing_result.add("32015R2283", "product type: novel food")
+        routing_result.add("32002R0178", "always included")
+        mock_rt_cls.return_value.route.return_value = routing_result
+
+        # No cross-ref expansion
+        mock_xref_build = MagicMock()
+        mock_xref_build.expand.return_value = ([], {})
+        mock_xref_cls.build.return_value = mock_xref_build
+
+        mock_store = MagicMock()
+        mock_store.count = 100
+        call_log = []
+
+        def mock_search(query, celex_ids, n_results):
+            call_log.append({"celex_ids": celex_ids, "n_results": n_results})
+            cid = celex_ids[0] if len(celex_ids) == 1 else "broad"
+            return [self._make_hit(cid, n_results, score=0.5)]
+
+        mock_store.search.side_effect = mock_search
+        mock_vs_cls.return_value = mock_store
+
+        result = query(
+            product_type="novel food",
+            query_text="novel food requirements",
+            n_results=10,
+            skip_extraction=True,
+            vectorstore_dir=Path("/tmp/fake_vs"),
+            index_dir=Path("/tmp/fake_idx"),
+        )
+
+        # 1 broad + 2 core + 0 xref = 3 calls
+        assert len(call_log) == 3
+
+        # Core regs should get n_results // 2 = 5, or at least 3
+        core_calls = call_log[1:3]
+        for call in core_calls:
+            assert call["n_results"] == 5  # 10 // 2 = 5
+
+    @patch("src.pipeline.CrossReferenceIndex")
+    @patch("src.pipeline.RoutingTable")
+    @patch("src.pipeline.VectorStore")
+    @patch("src.pipeline.load_entity_index")
+    def test_deduplication_across_tiers(
+        self, mock_load_idx, mock_vs_cls, mock_rt_cls, mock_xref_cls
+    ):
+        """Duplicate chunk_ids across broad and per-reg searches should be deduplicated."""
+        mock_load_idx.return_value = EntityIndex()
+
+        from src.retrieval.routing import RoutingResult
+
+        routing_result = RoutingResult(celex_ids=[])
+        routing_result.add("32015R2283", "product type: novel food")
+        mock_rt_cls.return_value.route.return_value = routing_result
+
+        mock_xref_build = MagicMock()
+        mock_xref_build.expand.return_value = ([], {})
+        mock_xref_cls.build.return_value = mock_xref_build
+
+        mock_store = MagicMock()
+        mock_store.count = 100
+
+        # Every search returns the same hit — should appear only once in results
+        shared_hit = self._make_hit("32015R2283", 7, score=0.9)
+        mock_store.search.return_value = [shared_hit]
+        mock_vs_cls.return_value = mock_store
+
+        result = query(
+            product_type="novel food",
+            query_text="novel food requirements",
+            skip_extraction=True,
+            vectorstore_dir=Path("/tmp/fake_vs"),
+            index_dir=Path("/tmp/fake_idx"),
+        )
+
+        # Despite multiple search calls returning the same hit, it should appear once
+        articles = result["retrieval"]["articles"]
+        chunk_ids = [a["chunk_id"] for a in articles]
+        assert len(chunk_ids) == len(set(chunk_ids))
