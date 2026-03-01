@@ -35,10 +35,27 @@ class Article:
 
 
 @dataclass
+class AnnexSection:
+    """Prose content extracted from a regulation annex.
+
+    Tables (substance lists, E-number tables, maximum levels) are skipped
+    as they don't work well for vector search. Only textual/prose content
+    (definitions, conditions of use, general provisions) is extracted.
+    """
+
+    celex_id: str
+    annex_number: str  # "I", "II", "III", etc.
+    annex_title: str  # e.g. "Union list of food additives..."
+    text: str  # prose content only (tables excluded)
+    part: str = ""  # e.g. "PART A", "Section 1"
+
+
+@dataclass
 class ParsedRegulation:
     celex_id: str
     title: str
     articles: list[Article] = field(default_factory=list)
+    annexes: list[AnnexSection] = field(default_factory=list)
     preamble_text: str = ""
     format_type: str = ""  # "clg", "xhtml", "xhtml_mid", or "html_legacy"
 
@@ -115,6 +132,7 @@ def _parse_clg(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
 
     articles: list[Article] = []
 
+    # Try structured CLG (eli-subdivision wrappers around articles)
     for subdivision in soup.find_all("div", class_="eli-subdivision"):
         art_heading = subdivision.find("p", class_="title-article-norm", recursive=False)
         if not art_heading:
@@ -172,12 +190,193 @@ def _parse_clg(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
         )
         articles.append(article)
 
+    # Fallback: "bare CLG" — title-article-norm elements exist but not inside
+    # eli-subdivision divs (older consolidated texts, ~1990-2010). Walk siblings.
+    if not articles:
+        articles = _parse_clg_bare(soup, celex_id, art_context)
+
+    annexes = _parse_clg_annexes(soup, celex_id)
+
     return ParsedRegulation(
         celex_id=celex_id,
         title=doc_title,
         articles=articles,
+        annexes=annexes,
         format_type="clg",
     )
+
+
+def _parse_clg_bare(
+    soup: BeautifulSoup, celex_id: str, art_context: dict[int, tuple[str, str]]
+) -> list[Article]:
+    """Parse "bare CLG" format where title-article-norm elements are direct
+    children of <body> without eli-subdivision wrappers.
+
+    Walks next siblings from each article heading, collecting norm/list/grid-list
+    text until the next article heading or annex boundary.
+    """
+    articles: list[Article] = []
+    skip_classes = {"modref", "arrow", "footnote", "title-fam-member-star",
+                    "title-division-1", "title-division-2", "title-annex-1"}
+
+    art_headings = soup.find_all("p", class_="title-article-norm")
+
+    for heading in art_headings:
+        heading_text = heading.get_text(strip=True)
+        art_match = re.match(r"Article\s+(\d+[a-z]*)", heading_text, re.IGNORECASE)
+        if not art_match:
+            continue
+
+        art_id = art_match.group(1)
+        art_num = int(re.match(r"\d+", art_id).group())
+
+        # Look for subtitle in next sibling
+        art_title = ""
+        next_el = heading.find_next_sibling()
+        if next_el and isinstance(next_el, Tag):
+            el_classes = set(next_el.get("class", []))
+            if "stitle-article-norm" in el_classes:
+                art_title = next_el.get_text(strip=True)
+
+        chapter, section = art_context.get(id(heading), ("", ""))
+
+        # Collect body text by walking siblings
+        body_parts = []
+        sibling = heading.find_next_sibling()
+        while sibling:
+            if not isinstance(sibling, Tag):
+                sibling = sibling.next_sibling
+                continue
+
+            sib_classes = set(sibling.get("class", []))
+
+            # Stop at next article or annex boundary
+            if "title-article-norm" in sib_classes:
+                break
+            if "title-annex-1" in sib_classes:
+                break
+
+            if sib_classes & skip_classes:
+                sibling = sibling.find_next_sibling()
+                continue
+
+            if "norm" in sib_classes or "list" in sib_classes:
+                if not sibling.find(class_="norm"):
+                    text = sibling.get_text(strip=True)
+                    if text:
+                        body_parts.append(text)
+            elif "grid-container" in sib_classes:
+                text = sibling.get_text(strip=True)
+                if text:
+                    body_parts.append(text)
+
+            sibling = sibling.find_next_sibling()
+
+        articles.append(Article(
+            celex_id=celex_id,
+            article_number=art_num,
+            title=art_title,
+            text="\n".join(body_parts),
+            chapter=chapter,
+            section=section,
+        ))
+
+    return articles
+
+
+def _parse_clg_annexes(soup: BeautifulSoup, celex_id: str) -> list[AnnexSection]:
+    """Extract prose content from annexes in CLG consolidated format.
+
+    Finds annex titles (title-annex-1), collects prose text (norm, list,
+    grid-list) within each annex, and skips table elements. Complex annexes
+    with multiple parts are split into separate AnnexSection objects per part.
+    """
+    annex_titles = soup.find_all("p", class_="title-annex-1")
+    if not annex_titles:
+        return []
+
+    annexes: list[AnnexSection] = []
+
+    for i, title_el in enumerate(annex_titles):
+        annex_num = title_el.get_text(strip=True).replace("ANNEX", "").strip()
+        if not annex_num:
+            annex_num = str(i + 1)
+
+        # Find annex subtitle (title-annex-2, usually the next relevant element)
+        annex_subtitle = ""
+        next_el = title_el.find_next_sibling()
+        while next_el and isinstance(next_el, Tag):
+            el_classes = set(next_el.get("class", []))
+            if "title-annex-2" in el_classes:
+                annex_subtitle = next_el.get_text(strip=True)
+                break
+            if "title-annex-1" in el_classes:
+                break  # next annex, no subtitle found
+            if "norm" in el_classes or "title-gr-seq-level-1" in el_classes:
+                break  # content started
+            next_el = next_el.find_next_sibling()
+
+        # Determine boundary: next annex title or end of document
+        boundary = annex_titles[i + 1] if i + 1 < len(annex_titles) else None
+
+        # Collect prose, tracking part headings
+        current_part = ""
+        prose_parts: list[str] = []
+
+        def _flush_part():
+            """Save accumulated prose as an AnnexSection."""
+            if prose_parts:
+                annexes.append(AnnexSection(
+                    celex_id=celex_id,
+                    annex_number=annex_num,
+                    annex_title=annex_subtitle,
+                    text="\n".join(prose_parts),
+                    part=current_part,
+                ))
+
+        el = title_el.find_next_sibling()
+        while el:
+            if el is boundary:
+                break
+            if not isinstance(el, Tag):
+                el = el.find_next_sibling()
+                continue
+
+            el_classes = set(el.get("class", []))
+
+            # Part/section headings split the annex into sections
+            if "title-gr-seq-level-2" in el_classes:
+                _flush_part()
+                prose_parts = []
+                current_part = el.get_text(strip=True)
+            elif "title-gr-seq-level-1" in el_classes:
+                _flush_part()
+                prose_parts = []
+                current_part = el.get_text(strip=True)
+
+            # Skip elements that contain actual data tables
+            elif el.name == "table" or el.find("table"):
+                pass  # skip tables entirely
+
+            # Collect prose text
+            elif "norm" in el_classes or "list" in el_classes:
+                # Avoid double-counting nested norm elements
+                if not el.find(class_="norm"):
+                    text = el.get_text(strip=True)
+                    if text:
+                        prose_parts.append(text)
+            elif "grid-container" in el_classes:
+                # Grid lists that aren't wrapping tables
+                if not el.find("table"):
+                    text = el.get_text(strip=True)
+                    if text:
+                        prose_parts.append(text)
+
+            el = el.find_next_sibling()
+
+        _flush_part()
+
+    return annexes
 
 
 def _parse_xhtml(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
@@ -238,12 +437,89 @@ def _parse_xhtml(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
         )
         articles.append(article)
 
+    annexes = _parse_xhtml_annexes(soup, celex_id)
+
     return ParsedRegulation(
         celex_id=celex_id,
         title=doc_title,
         articles=articles,
+        annexes=annexes,
         format_type="xhtml",
     )
+
+
+def _parse_xhtml_annexes(soup: BeautifulSoup, celex_id: str) -> list[AnnexSection]:
+    """Extract prose content from annexes in XHTML original format.
+
+    Annexes are marked by <p class="oj-doc-ti"> containing "ANNEX".
+    Prose content uses <p class="oj-normal">. Data tables have class="oj-table".
+    """
+    # Find all annex title elements
+    annex_title_els = []
+    for p in soup.find_all("p", class_="oj-doc-ti"):
+        text = p.get_text(strip=True)
+        if re.match(r"^ANNEX\b", text):
+            annex_title_els.append(p)
+
+    if not annex_title_els:
+        return []
+
+    annexes: list[AnnexSection] = []
+
+    for i, title_el in enumerate(annex_title_els):
+        title_text = title_el.get_text(strip=True)
+        # Extract annex number: "ANNEX I", "ANNEX II", "ANNEX" (single annex)
+        num_match = re.match(r"ANNEX\s*(.*)", title_text)
+        annex_num = num_match.group(1).strip() if num_match else str(i + 1)
+        if not annex_num:
+            annex_num = str(i + 1)
+
+        # Look for subtitle in following oj-doc-ti that isn't another ANNEX
+        annex_subtitle = ""
+        next_title = title_el.find_next("p", class_="oj-doc-ti")
+        if next_title:
+            next_text = next_title.get_text(strip=True)
+            if not re.match(r"^ANNEX\b", next_text):
+                annex_subtitle = next_text
+
+        # Find the container div (eli-container with id="anx_*")
+        container = title_el.find_parent("div", class_="eli-container")
+        if not container:
+            # Try the parent div
+            container = title_el.parent
+
+        if not container:
+            continue
+
+        # Determine boundary: next annex's container
+        boundary_container = None
+        if i + 1 < len(annex_title_els):
+            boundary_container = annex_title_els[i + 1].find_parent("div", class_="eli-container")
+
+        # Collect prose text, skipping tables
+        prose_parts: list[str] = []
+
+        # Walk elements after the annex title within this container and subsequent containers
+        for p in container.find_all("p", class_="oj-normal"):
+            # Check this p isn't inside an oj-table
+            if p.find_parent("table", class_="oj-table"):
+                continue
+            # Check we haven't crossed into the next annex's container
+            if boundary_container and p.find_parent("div", class_="eli-container") is boundary_container:
+                break
+            text = p.get_text(strip=True)
+            if text:
+                prose_parts.append(text)
+
+        if prose_parts:
+            annexes.append(AnnexSection(
+                celex_id=celex_id,
+                annex_number=annex_num,
+                annex_title=annex_subtitle,
+                text="\n".join(prose_parts),
+            ))
+
+    return annexes
 
 
 def _find_chapter_section_xhtml(element: Tag) -> tuple[str, str]:
@@ -362,8 +638,9 @@ def _parse_html_legacy(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
     # Extract title from first few paragraphs
     doc_title = paragraphs[0] if paragraphs else celex_id
 
-    # Find article boundaries by regex
-    article_pattern = re.compile(r"^Article\s+(\d+)$")
+    # Find article boundaries by regex (case-insensitive for pre-1990 docs
+    # that use "ARTICLE 1" instead of "Article 1")
+    article_pattern = re.compile(r"^Article\s+(\d+)$", re.IGNORECASE)
     articles: list[Article] = []
 
     i = 0
@@ -382,7 +659,7 @@ def _parse_html_legacy(soup: BeautifulSoup, celex_id: str) -> ParsedRegulation:
                 if (
                     len(next_text) < 200
                     and not re.match(r"^\d+\.", next_text)
-                    and not re.match(r"^Article\s+\d+", next_text)
+                    and not re.match(r"^Article\s+\d+", next_text, re.IGNORECASE)
                     and not next_text.startswith("(")
                 ):
                     art_title = next_text
