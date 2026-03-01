@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+.gitignore
+.claude/
+.env
+
+# Raw corpus HTML — only needed for offline build, not runtime
+data/raw/
+# Evaluation data — dev/test only
+data/evaluation/
+
+notebooks/
+scripts/
+tests/
+planning/
+notes.md
