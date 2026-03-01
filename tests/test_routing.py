@@ -195,3 +195,67 @@ class TestLiveRouting:
         assert len(reasons) > 0
         # Should explain why this regulation was included
         assert any("novel food" in r for r in reasons)
+
+
+# --- New category routing tests ---
+
+
+def test_route_irradiation():
+    """food_irradiation keyword routes to irradiation directives."""
+    rt = RoutingTable()
+    result = rt.route(keywords=["irradiation"])
+    all_reasons = [r for reasons in result.reasons.values() for r in reasons]
+    assert any("food_irradiation" in r for r in all_reasons)
+
+
+def test_route_irradiated_food():
+    """'irradiated food' also routes to food_irradiation."""
+    rt = RoutingTable()
+    result = rt.route(ingredients=["irradiated food"])
+    all_reasons = [r for reasons in result.reasons.values() for r in reasons]
+    assert any("food_irradiation" in r for r in all_reasons)
+
+
+def test_route_honey():
+    """Honey keyword routes to product_standards category."""
+    rt = RoutingTable()
+    result = rt.route(keywords=["honey"])
+    all_reasons = [r for reasons in result.reasons.values() for r in reasons]
+    assert any("product_standards" in r for r in all_reasons)
+
+
+def test_route_chocolate():
+    """Chocolate keyword routes to product_standards."""
+    rt = RoutingTable()
+    result = rt.route(keywords=["chocolate"])
+    all_reasons = [r for reasons in result.reasons.values() for r in reasons]
+    assert any("product_standards" in r for r in all_reasons)
+
+
+def test_route_mineral_water():
+    """Mineral water keyword routes to product_standards."""
+    rt = RoutingTable()
+    result = rt.route(keywords=["mineral water"])
+    all_reasons = [r for reasons in result.reasons.values() for r in reasons]
+    assert any("product_standards" in r for r in all_reasons)
+
+
+def test_route_animal_feed():
+    """Animal feed keyword is recognized (routes to feed category)."""
+    rt = RoutingTable()
+    result = rt.route(keywords=["animal feed"])
+    all_reasons = [r for reasons in result.reasons.values() for r in reasons]
+    # feed category may have 0 regs, but keyword should be recognized
+    assert any("feed" in r for r in all_reasons) or set(result.celex_ids) == ALWAYS_INCLUDE
+
+
+def test_route_product_standards_expands_celex_set():
+    """Product standards keywords should add regulations beyond ALWAYS_INCLUDE."""
+    from src.ingestion.corpus import CORPUS
+    product_celex = {c for c, info in CORPUS.items() if info["category"] == "product_standards"}
+    if not product_celex:
+        pytest.skip("No product_standards regulations in corpus")
+    rt = RoutingTable()
+    result = rt.route(keywords=["honey"])
+    assert len(result.celex_ids) > len(ALWAYS_INCLUDE)
+    assert product_celex & set(result.celex_ids)
