@@ -1,0 +1,1052 @@
+{
+  "scenario_id": "food_supplement_vitamin_d",
+  "run_id": "run_008",
+  "timestamp": "2026-03-01T19:34:39.964346+00:00",
+  "provider": "claude-code",
+  "model": null,
+  "pipeline_output": {
+    "routing": {
+      "celex_ids": [
+        "32002R0178",
+        "32011R1169",
+        "32002L0046",
+        "32006R1925",
+        "32012R0489",
+        "32012R0307",
+        "32012R0432",
+        "32006R1924",
+        "32016R0854",
+        "32008R0353",
+        "32013R0907",
+        "32008R1332",
+        "32015R2283",
+        "32008R1333",
+        "32004R0852",
+        "32004R0853",
+        "32008R1334"
+      ],
+      "reasons": {
+        "32002R0178": [
+          "always included (Regulation (EC) No 178/2002 of the European Parliament and of the Council of 28 January 2002 laying down the general principles and requirements of food law, establishing the European Food Safety Authority and laying down procedures in matters of food safety)"
+        ],
+        "32011R1169": [
+          "always included (Regulation (EU) No\u00a01169/2011 of the European Parliament and of the Council of 25\u00a0October 2011 on the provision of food information to consumers, amending Regulations (EC) No\u00a01924/2006 and (EC) No\u00a01925/2006 of the European Parliament and of the Council, and repealing Commission Directive 87/250/EEC, Council Directive 90/496/EEC, Commission Directive 1999/10/EC, Directive 2000/13/EC of the European Parliament and of the Council, Commission Directives 2002/67/EC and 2008/5/EC and Commission Regulation (EC) No\u00a0608/2004 Text with EEA relevance)"
+        ],
+        "32002L0046": [
+          "product type: \"food supplement\" \u2192 category food_supplements",
+          "ingredient: \"vitamin\" \u2192 category food_supplements"
+        ],
+        "32006R1925": [
+          "ingredient: \"vitamin\" \u2192 category fortification"
+        ],
+        "32012R0489": [
+          "ingredient: \"vitamin\" \u2192 category fortification"
+        ],
+        "32012R0307": [
+          "ingredient: \"vitamin\" \u2192 category fortification"
+        ],
+        "32012R0432": [
+          "claim: \"health claim\" \u2192 category nutrition_health_claims"
+        ],
+        "32006R1924": [
+          "claim: \"health claim\" \u2192 category nutrition_health_claims"
+        ],
+        "32016R0854": [
+          "claim: \"health claim\" \u2192 category nutrition_health_claims"
+        ],
+        "32008R0353": [
+          "claim: \"health claim\" \u2192 category nutrition_health_claims"
+        ],
+        "32013R0907": [
+          "claim: \"health claim\" \u2192 category nutrition_health_claims"
+        ],
+        "32008R1332": [
+          "cross-referenced from 32011R1169"
+        ],
+        "32015R2283": [
+          "cross-referenced from 32011R1169"
+        ],
+        "32008R1333": [
+          "cross-referenced from 32011R1169"
+        ],
+        "32004R0852": [
+          "cross-referenced from 32011R1169"
+        ],
+        "32004R0853": [
+          "cross-referenced from 32011R1169"
+        ],
+        "32008R1334": [
+          "cross-referenced from 32011R1169"
+        ]
+      },
+      "regulation_count": 17,
+      "cross_references": {
+        "expanded_count": 6,
+        "expanded_celex_ids": [
+          "32008R1332",
+          "32015R2283",
+          "32008R1333",
+          "32004R0852",
+          "32004R0853",
+          "32008R1334"
+        ],
+        "resolved_refs": 328,
+        "unresolved_refs": 184
+      }
+    },
+    "retrieval": {
+      "query": "vitamin D food supplement permitted health claim labelling dosage requirements",
+      "results_count": 39,
+      "articles": [
+        {
+          "chunk_id": "32006R1924_annex1_SOURCE_OF_[NAME_OF_V",
+          "text": "[32006R1924] ANNEX 1 \u2014 SOURCE OF [NAME OF VITAMIN/S] AND/OR [NAME OF MINERAL/S]\n\nA claim that a food is a source of vitamins and/or minerals, and any claim likely to have the same meaning for the consumer, may only be made where the product contains at least a significant amount as defined in the Annex to Directive\u00a090/496/EEC or an amount provided for by derogations granted according to Article\u00a06 of Regulation\u00a0(EC) No 1925/2006 of the European Parliament and of the\u00a0Council of 20 December 2006 on the addition of vitamins and minerals and of certain other substances to foods\u00a0(16).",
+          "metadata": {
+            "celex_id": "32006R1924",
+            "article_number": 0,
+            "article_title": "SOURCE OF [NAME OF VITAMIN/S] AND/OR [NAME OF MINERAL/S]",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32006R1924_annex1_SOURCE_OF_[NAME_OF_V",
+            "char_count": 504,
+            "content_type": "annex",
+            "annex_number": "1"
+          },
+          "score": 0.6060613989830017
+        },
+        {
+          "chunk_id": "32011R1169_art50",
+          "text": "[32011R1169] CHAPTER VII \u2014 IMPLEMENTING, AMENDING AND FINAL PROVISIONS Article 50 \u2014 Amendments to Regulation (EC) No 1925/2006\n\nParagraph 3 of Article 7 of Regulation (EC) No 1925/2006 is replaced by the following:\nNutrition labelling of products to which vitamins and minerals have been added and which are covered by this Regulation shall be compulsory. The information to be provided shall consist of that specified in Article 30(1) of Regulation (EU) No 1169/2011 of the European Parliament and of the Council of 25 October 2011 on the provision of food information to consumers\u00a0(*2) and of the total amounts present of the vitamins and minerals when added to the food.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 50,
+            "article_title": "Amendments to Regulation (EC) No 1925/2006",
+            "chapter": "CHAPTER VII \u2014 IMPLEMENTING, AMENDING AND FINAL PROVISIONS",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art50",
+            "char_count": 545,
+            "content_type": "article"
+          },
+          "score": 0.5936800837516785
+        },
+        {
+          "chunk_id": "32006R1924_art7",
+          "text": "[32006R1924] CHAPTER II \u2014 GENERAL PRINCIPLES Article 7 \u2014 Nutrition information\n\nThe obligation and the modalities for providing information pursuant to Directive 90/496/EEC where a nutrition claim is made shall apply mutatis mutandis where a health claim is made, with the exception of generic advertising. However, the information to be provided shall consist of information in Group 2 as defined in Article 4(1) of Directive 90/496/EEC.\nIn addition and as the case may be, the amount(s) of the substance(s) to which a nutrition or health claim relates that does not appear in the nutrition labelling shall also be stated in the same field of vision as the nutrition information and be expressed in accordance with Article 6 of Directive\u00a090/496/EEC.\nIn the case of food supplements, the nutrition information shall be provided in accordance with Article\u00a08 of Directive 2002/46/EC.",
+          "metadata": {
+            "celex_id": "32006R1924",
+            "article_number": 7,
+            "article_title": "Nutrition information",
+            "chapter": "CHAPTER II \u2014 GENERAL PRINCIPLES",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32006R1924_art7",
+            "char_count": 801,
+            "content_type": "article"
+          },
+          "score": 0.5842593908309937
+        },
+        {
+          "chunk_id": "32006R1925_art7",
+          "text": "[32006R1925] CHAPTER II \u2014 ADDITION OF VITAMINS AND MINERALS Article 7 \u2014 Labelling, presentation and advertising\n\nThe labelling, presentation and advertising of foods to which vitamins and minerals have been added shall not include any mention stating or implying that a balanced and varied diet cannot provide appropriate quantities of nutrients. Where appropriate, a derogation concerning a specific nutrient and designed to amend non-essential elements of this Regulation by supplementing it may be adopted in accordance with the regulatory procedure with scrutiny referred to in Article\u00a014(3).\nThe labelling, presentation and advertising of foods to which vitamins and minerals have been added shall not mislead or deceive the consumer as to the nutritional merit of a food that may result from the addition of these nutrients.\nNutrition labelling of products to which vitamins and minerals have been added and which are covered by this Regulation shall be compulsory. The information to be provided shall consist of that specified in Article 30(1) of Regulation (EU) No\u00a01169/2011 of the European Parliament and of the Council of 25 October 2011 on the provision of food information to consumers\u00a0(3) and of the total amounts present of the vitamins and minerals when added to the food.\nThe labelling of products to which vitamins and minerals have been added may bear a statement indicating such addition under the conditions laid down in Regulation\u00a0(EC) No\u00a01924/2006.\nThis Article shall apply without prejudice to other provisions of food law applicable to specified categories of foods.\nRules for implementing this Article may be specified in accordance with the procedure referred to in Article\u00a014(2).",
+          "metadata": {
+            "celex_id": "32006R1925",
+            "article_number": 7,
+            "article_title": "Labelling, presentation and advertising",
+            "chapter": "CHAPTER II \u2014 ADDITION OF VITAMINS AND MINERALS",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32006R1925_art7",
+            "char_count": 1594,
+            "content_type": "article"
+          },
+          "score": 0.582911491394043
+        },
+        {
+          "chunk_id": "32002L0046_art8",
+          "text": "[32002L0046] Article 8\n\nThe amount of the nutrients or substances with a nutritional or physiological effect present in the product shall be declared on the labelling in numerical form. The units to be used for vitamins and minerals shall be those specified in Annex I.\nRules for implementing this paragraph may be specified in accordance with the procedure referred to in Article 13(2).\nThe amounts of the nutrients or other substances declared shall be those per portion of the product as recommended for daily consumption on the labelling.\nInformation on vitamins and minerals shall also be expressed as a percentage of the reference values mentioned, as the case may be, in the Annex to Directive 90/496/EEC.",
+          "metadata": {
+            "celex_id": "32002L0046",
+            "article_number": 8,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002L0046_art8",
+            "char_count": 688,
+            "content_type": "article"
+          },
+          "score": 0.5792312622070312
+        },
+        {
+          "chunk_id": "32002L0046_art7",
+          "text": "[32002L0046] Article 7\n\nThe labelling, presentation and advertising of food supplements shall not include any mention stating or implying that a balanced and varied diet cannot provide appropriate quantities of nutrients in general.\nRules for implementing this Article may be specified in accordance with the procedure referred to in Article 13(2).",
+          "metadata": {
+            "celex_id": "32002L0046",
+            "article_number": 7,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002L0046_art7",
+            "char_count": 324,
+            "content_type": "article"
+          },
+          "score": 0.5753648281097412
+        },
+        {
+          "chunk_id": "32011R1169_art49",
+          "text": "[32011R1169] CHAPTER VII \u2014 IMPLEMENTING, AMENDING AND FINAL PROVISIONS Article 49 \u2014 Amendments to Regulation (EC) No 1924/2006\n\nThe first and second paragraphs of Article 7 of Regulation (EC) No 1924/2006 are replaced by the following:\n\u2018Nutrition labelling of products on which a nutrition and/or health claim is made shall be mandatory, with the exception of generic advertising. The information to be provided shall consist of that specified in Article 30(1) of Regulation (EU) No 1169/2011 of the European Parliament and of the Council of 25 October 2011 on the provision of food information to consumers\u00a0(*1). Where a nutrition and/or health claim is made for a nutrient referred to in Article 30(2) of Regulation (EU) No 1169/2011 the amount of that nutrient shall be declared in accordance with Articles 31 to 34 of that Regulation.\nThe amount(s) of the substance(s) to which a nutrition or health claim relates that does not appear in the nutrition labelling shall be stated in the same field of vision as the nutrition labelling and be expressed in accordance with Articles 31, 32 and 33 of Regulation (EU) No 1169/2011. The units of measurement used to express the amount of the substance shall be appropriate for the individual substances concerned.",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 49,
+            "article_title": "Amendments to Regulation (EC) No 1924/2006",
+            "chapter": "CHAPTER VII \u2014 IMPLEMENTING, AMENDING AND FINAL PROVISIONS",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_art49",
+            "char_count": 1131,
+            "content_type": "article"
+          },
+          "score": 0.5730441808700562
+        },
+        {
+          "chunk_id": "32006R1924_art10",
+          "text": "[32006R1924] CHAPTER IV \u2014 HEALTH CLAIMS Article 10 \u2014 Specific conditions\n\n1.\u00a0\u00a0Health claims shall be prohibited unless they comply with the general requirements in Chapter\u00a0II and the specific requirements in this Chapter and are authorised in accordance with this Regulation and included in the lists of authorised claims provided for in Articles\u00a013 and\u00a014.\n2.\u00a0\u00a0Health claims shall only be permitted if the following information is included in the labelling, or if no such labelling exists, in the presentation and advertising:\n3.\u00a0\u00a0Reference to general, non-specific benefits of the nutrient or food for overall good health or health-related well-being may only be made if accompanied by a specific health claim included in the lists provided for in Article 13 or 14.\n4.\u00a0\u00a0Where appropriate, guidelines on the implementation of this Article shall be adopted in accordance with the procedure referred to in Article 25(2) and, if necessary, in consultation with interested parties, in particular food business operators and consumer groups.",
+          "metadata": {
+            "celex_id": "32006R1924",
+            "article_number": 10,
+            "article_title": "Specific conditions",
+            "chapter": "CHAPTER IV \u2014 HEALTH CLAIMS",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32006R1924_art10",
+            "char_count": 963,
+            "content_type": "article"
+          },
+          "score": 0.569076657295227
+        },
+        {
+          "chunk_id": "32006R1924_annex1_CONTAINS_[NAME_OF_TH",
+          "text": "[32006R1924] ANNEX 1 \u2014 CONTAINS [NAME OF THE NUTRIENT OR OTHER SUBSTANCE]\n\nA claim that a food contains a nutrient or another substance, for which specific conditions are not laid down in this Regulation, or any claim likely to have the same meaning for the consumer, may only be made where the product complies with all the applicable provisions of this Regulation, and in particular Article 5. For vitamins and minerals the conditions of the claim \u2018source of\u2019 shall apply.",
+          "metadata": {
+            "celex_id": "32006R1924",
+            "article_number": 0,
+            "article_title": "CONTAINS [NAME OF THE NUTRIENT OR OTHER SUBSTANCE]",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32006R1924_annex1_CONTAINS_[NAME_OF_TH",
+            "char_count": 399,
+            "content_type": "annex",
+            "annex_number": "1"
+          },
+          "score": 0.5646242499351501
+        },
+        {
+          "chunk_id": "32002L0046_art6",
+          "text": "[32002L0046] Article 6\n\nFor the purposes of Article 5(1) of Directive 2000/13/EC, the name under which products covered by this Directive are sold shall be \u2018food supplement\u2019.\nThe labelling, presentation and advertising must not attribute to food supplements the property of preventing, treating or curing a human disease, or refer to such properties.\nWithout prejudice to Directive 2000/13/EC, the labelling shall bear the following particulars:\n(a)the names of the categories of nutrients or substances that characterise the product or an indication of the nature of those nutrients or substances;\n(a)\nthe names of the categories of nutrients or substances that characterise the product or an indication of the nature of those nutrients or substances;\n(b)the portion of the product recommended for daily consumption;\n(b)\nthe portion of the product recommended for daily consumption;\n(c)a warning not to exceed the stated recommended daily dose;\n(c)\na warning not to exceed the stated recommended daily dose;\n(d)a statement to the effect that food supplements should not be used as a substitute for a varied diet;\n(d)\na statement to the effect that food supplements should not be used as a substitute for a varied diet;\n(e)a statement to the effect that the products should be stored out of the reach of young children.\n(e)\na statement to the effect that the products should be stored out of the reach of young children.",
+          "metadata": {
+            "celex_id": "32002L0046",
+            "article_number": 6,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002L0046_art6",
+            "char_count": 1396,
+            "content_type": "article"
+          },
+          "score": 0.5587264895439148
+        },
+        {
+          "chunk_id": "32012R0489_annexI_chunk1",
+          "text": "[32012R0489] ANNEX I (part 2/2)\n\ninformation on any observed changes in intake levels for vitamins and minerals including trends in the levels of intake that may be associated with the date of application of Regulation (EC) No 1925/2006. Member States shall provide the details for the basis of these observed changes, including details on the base-line data used to compare intake levels of vitamins and minerals prior to and after the date of application of Regulation (EC) No 1925/2006.\nD.\n1.\ninformation on the national market in foods to which certain other substances have been added, including the market share of specific foods or food categories;\n2.\ninformation on the national market in food supplements, as defined by point (a) of Article 2 of Directive 2002/46/EC;\n3.\ninformation on the most commonly added substances to foods based on information from commercially available market reports, national monitoring measures and other relevant and defined sources and shall include information on the levels of addition of other substances to specific foods or food categories;\n4.\ninformation on national measures including legislative and non-legislative measures that aim to restrict or prohibit the use of other substances in the manufacture of foods, including food supplements.",
+          "metadata": {
+            "celex_id": "32012R0489",
+            "article_number": 0,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 1,
+            "total_chunks": 2,
+            "chunk_id": "32012R0489_annexI_chunk1",
+            "char_count": 1257,
+            "content_type": "annex",
+            "annex_number": "I"
+          },
+          "score": 0.558477520942688
+        },
+        {
+          "chunk_id": "32006R1925_art6_chunk1",
+          "text": "[32006R1925] CHAPTER II \u2014 ADDITION OF VITAMINS AND MINERALS Article 6 \u2014 Conditions for the addition of vitamins and minerals (part 2/2)\n\nWhen the maximum amounts referred to in paragraph 1 and the conditions referred to in paragraph\u00a02 are set for vitamins and minerals whose reference intakes for the population are close to the upper safe levels, the following shall also be taken into account, as necessary:\n(a)the contribution of individual products to the overall diet of the population in general or of sub-groups of the population;\n(a)\nthe contribution of individual products to the overall diet of the population in general or of sub-groups of the population;\n(b)the nutrient profile of the product established as provided for by Regulation\u00a0(EC) No\u00a01924/2006.\n(b)\nthe nutrient profile of the product established as provided for by Regulation\u00a0(EC) No\u00a01924/2006.\nThe addition of a vitamin or a mineral to a food shall result in the presence of that vitamin or mineral in the food in at least a significant amount where this is defined according to the Annex to Directive 90/496/EEC. Measures determining the minimum amounts, including any lower amounts, by derogation from the significant amounts mentioned above, for specific foods or categories of foods and designed to amend non-essential elements of this Regulation by supplementing it shall be adopted in accordance with the regulatory procedure with scrutiny referred to in Article\u00a014(3) of this Regulation.",
+          "metadata": {
+            "celex_id": "32006R1925",
+            "article_number": 6,
+            "article_title": "Conditions for the addition of vitamins and minerals",
+            "chapter": "CHAPTER II \u2014 ADDITION OF VITAMINS AND MINERALS",
+            "section": "",
+            "chunk_index": 1,
+            "total_chunks": 2,
+            "chunk_id": "32006R1925_art6_chunk1",
+            "char_count": 1331,
+            "content_type": "article"
+          },
+          "score": 0.550051212310791
+        },
+        {
+          "chunk_id": "32006R1925_art15",
+          "text": "[32006R1925] CHAPTER IV \u2014 GENERAL AND FINAL PROVISIONS Article 15 \u2014 Monitoring\n\nTo facilitate efficient monitoring of foods to which vitamins and minerals have been added, and of foods containing substances listed in Annex III, Parts B and C, Member States may require the manufacturer or the person placing such foods on the market in their territory to notify the competent authority of that placing on the market by providing a model of the label used for the product. In such cases, information on the withdrawal of the product from the market may also be required.",
+          "metadata": {
+            "celex_id": "32006R1925",
+            "article_number": 15,
+            "article_title": "Monitoring",
+            "chapter": "CHAPTER IV \u2014 GENERAL AND FINAL PROVISIONS",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32006R1925_art15",
+            "char_count": 489,
+            "content_type": "article"
+          },
+          "score": 0.5385696887969971
+        },
+        {
+          "chunk_id": "32011R1169_annexXIII_PART_A_\u2014DAILY_REFERE",
+          "text": "[32011R1169] ANNEX XIII \u2014 PART A \u2014DAILY REFERENCE INTAKES FOR VITAMINS AND MINERALS (ADULTS)\n\nAs a rule, the following values should be taken into consideration in deciding what constitutes a significant amount:\n\u201415\u00a0% of the nutrient reference values specified in point 1 supplied by 100\u00a0g or 100\u00a0ml in the case of products other than beverages,\n\u20147,5\u00a0% of the nutrient reference values specified in point 1 supplied by 100\u00a0ml in the case of beverages, or,\n\u201415\u00a0% of the nutrient reference values specified in point 1 per portion if the package contains only a single portion,",
+          "metadata": {
+            "celex_id": "32011R1169",
+            "article_number": 0,
+            "article_title": "PART A \u2014DAILY REFERENCE INTAKES FOR VITAMINS AND MINERALS (ADULTS)",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32011R1169_annexXIII_PART_A_\u2014DAILY_REFERE",
+            "char_count": 480,
+            "content_type": "annex",
+            "annex_number": "XIII"
+          },
+          "score": 0.5303192138671875
+        },
+        {
+          "chunk_id": "32012R0432_art1",
+          "text": "[32012R0432] Article 1 \u2014 Permitted health claims\n\nThe list of health claims which may be made on foods, as referred to in Article 13(3) of Regulation (EC) No 1924/2006, is set out in the Annex to this Regulation.\nHealth claims referred to in paragraph 1 may be made on foods in compliance with the conditions set out in the Annex.",
+          "metadata": {
+            "celex_id": "32012R0432",
+            "article_number": 1,
+            "article_title": "Permitted health claims",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32012R0432_art1",
+            "char_count": 280,
+            "content_type": "article"
+          },
+          "score": 0.5115067958831787
+        },
+        {
+          "chunk_id": "32012R0489_art2",
+          "text": "[32012R0489] Article 2 \u2014 Relevant information\n\n1.\u00a0\u00a0\u00a0Member States shall by 1 July 2012 provide to the Commission the necessary relevant information in particular concerning the following:\n(a)\nevolution of the national market in foods to which vitamins and minerals have been added since the date of application of Regulation (EC) No 1925/2006;\n(b)\nconsumption patterns of foods to which vitamins and minerals have been added;\n(c)\nintake levels of vitamins and minerals by the population;\n(d)\nthe addition of substances other than vitamins or minerals to foods, including food supplements as defined in point (a) of Article 2 of Directive 2002/46/EC and the information on the consumption patterns of such foods as well as the amounts of these substances added to foods and food supplements.\n2.\u00a0\u00a0\u00a0The necessary relevant information to be provided by the Member States to the Commission referred to in paragraph 1 shall include at least the information specified in Annex I to this Regulation.\nThe necessary relevant information and details thereof shall be submitted to the Commission in the format laid down in Annex II to this Regulation.\n3.\u00a0\u00a0\u00a0A Member State shall inform the Commission if any of the information specified in Annex I is not available or cannot for any other reason be provided to the Commission by 1 July 2012.",
+          "metadata": {
+            "celex_id": "32012R0489",
+            "article_number": 2,
+            "article_title": "Relevant information",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32012R0489_art2",
+            "char_count": 1281,
+            "content_type": "article"
+          },
+          "score": 0.5100710391998291
+        },
+        {
+          "chunk_id": "32012R0307_art4_chunk1",
+          "text": "[32012R0307] Article 4 \u2014 Content of the request (part 2/2)\n\nSuch evidence shall include scientific data that represents actual dietary intake of the substance obtained from the most recently available dietary intake surveys or food consumption surveys. The inclusion of foods to which the substance has been added and/or food supplements containing the substance may be taken into account. Member States shall provide justification for the basis of their assessment of \u2018normal conditions of consumption of a balanced and varied diet\u2019 when making the request.\n(c)Evidence demonstrating a potential risk to consumers from consumption of the substance.This evidence shall consist of relevant scientific data including unpublished validated reports, scientific opinions by a public risk assessment body or independent and peer-reviewed articles. A summary of the scientific data and the list of references of the scientific data shall be provided.\n(c)\nEvidence demonstrating a potential risk to consumers from consumption of the substance.\nThis evidence shall consist of relevant scientific data including unpublished validated reports, scientific opinions by a public risk assessment body or independent and peer-reviewed articles. A summary of the scientific data and the list of references of the scientific data shall be provided.\nThe Commission may ask the Member State to provide clarifications or additional information if the request is incomplete.\nThe Commission shall publish any complete request made by a Member State on its official website.\nThe Commission shall send the request to the Authority accompanied by all the available information, following consultation of the Member States. The Authority shall adopt a scientific opinion within a specified time limit as laid down by Article 29(3) of Regulation (EC) No 178/2002.\nInterested parties may submit comments to the Commission within 30 days from the publication by the Authority of its opinion.",
+          "metadata": {
+            "celex_id": "32012R0307",
+            "article_number": 4,
+            "article_title": "Content of the request",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 1,
+            "total_chunks": 2,
+            "chunk_id": "32012R0307_art4_chunk1",
+            "char_count": 1901,
+            "content_type": "article"
+          },
+          "score": 0.5078531503677368
+        },
+        {
+          "chunk_id": "32008R1333_art22_chunk1",
+          "text": "[32008R1333] CHAPTER IV \u2014 LABELLING Article 22 \u2014 General labelling requirements for food additives not intended for sale to the final consumer (part 2/3)\n\nan indication of the maximum quantity of each component or group of components subject to quantitative limitation in food and/or appropriate information in clear and easily understandable terms enabling the purchaser to comply with this Regulation or other relevant Community law; where the same limit on quantity applies to a group of components used singly or in combination, the combined percentage may be given as a single figure; the limit on quantity shall be expressed either numerically or by the quantum satis principle;\n(h)the net quantity;\n(h)\nthe net quantity;\n(i)the date of minimum durability or use-by-date;\n(i)\nthe date of minimum durability or use-by-date;\n(j)where relevant, information on a food additive or other substances referred to in this Article and listed in Annex IIIa to Directive 2000/13/EC as regards the indication of the ingredients present in foodstuffs.\n(j)\nwhere relevant, information on a food additive or other substances referred to in this Article and listed in Annex IIIa to Directive 2000/13/EC as regards the indication of the ingredients present in foodstuffs.\nWhere food additives are sold mixed with each other and/or with other food ingredients, their packaging or containers shall bear a list of all ingredients in descending order of their percentage by weight of the total.\nWhere substances (including food additives or other food ingredients) are added to food additives to facilitate their storage, sale, standardisation, dilution or dissolution, their packaging or containers shall bear a list of all such substances in descending order of their percentage by weight of the total.",
+          "metadata": {
+            "celex_id": "32008R1333",
+            "article_number": 22,
+            "article_title": "General labelling requirements for food additives not intended for sale to the final consumer",
+            "chapter": "CHAPTER IV \u2014 LABELLING",
+            "section": "",
+            "chunk_index": 1,
+            "total_chunks": 3,
+            "chunk_id": "32008R1333_art22_chunk1",
+            "char_count": 1633,
+            "content_type": "article"
+          },
+          "score": 0.507133424282074
+        },
+        {
+          "chunk_id": "32008R1334_art15_chunk1",
+          "text": "[32008R1334] CHAPTER IV \u2014 LABELLING Article 15 \u2014 General labelling requirements for flavourings not intended for sale to the final consumer (part 2/2)\n\nan indication of the maximum quantity of each component or group of components subject to quantitative limitation in food and/or appropriate information in clear and easily understandable terms enabling the purchaser to comply with this Regulation or other relevant Community law;\n(h)the net quantity;\n(h)\nthe net quantity;\n(i)a date of minimum durability or use-by-date;\n(i)\na date of minimum durability or use-by-date;\n(j)where relevant, information on a flavouring or other substances referred to in this Article and listed in Annex IIIa to Directive 2000/13/EC as regards the indication of the ingredients present in foodstuffs.\n(j)\nwhere relevant, information on a flavouring or other substances referred to in this Article and listed in Annex IIIa to Directive 2000/13/EC as regards the indication of the ingredients present in foodstuffs.\nBy way of derogation from paragraph 1, the information required in points (e) and (g) of that paragraph may appear merely on the documents relating to the consignment which are to be supplied with or prior to the delivery, provided that the indication \u2018not for retail sale\u2019 appears on an easily visible part of the packaging or container of the product in question.\nBy way of derogation from paragraph 1, where flavourings are supplied in tankers, all of the information may appear merely on the accompanying documents relating to the consignment which are to be supplied with the delivery.",
+          "metadata": {
+            "celex_id": "32008R1334",
+            "article_number": 15,
+            "article_title": "General labelling requirements for flavourings not intended for sale to the final consumer",
+            "chapter": "CHAPTER IV \u2014 LABELLING",
+            "section": "",
+            "chunk_index": 1,
+            "total_chunks": 2,
+            "chunk_id": "32008R1334_art15_chunk1",
+            "char_count": 1436,
+            "content_type": "article"
+          },
+          "score": 0.483542799949646
+        },
+        {
+          "chunk_id": "32008R0353_art6",
+          "text": "[32008R0353] Article 6 \u2014 Conditions for use\n\nIn accordance with Article 15(3)(f) of Regulation (EC) No 1924/2006, and in addition to the proposal for the wording of the health claim, the conditions of use shall include:\n(a)the target population for the intended health claim;\n(a)\nthe target population for the intended health claim;\n(b)the quantity of the nutrient or other substance, or food or category of food, and the pattern of consumption required to obtain the claimed beneficial effect;\n(b)\nthe quantity of the nutrient or other substance, or food or category of food, and the pattern of consumption required to obtain the claimed beneficial effect;\n(c)where appropriate, a statement addressed to persons who should avoid using the nutrient or other substance, or food or category of food, for which the health claim is made;\n(c)\nwhere appropriate, a statement addressed to persons who should avoid using the nutrient or other substance, or food or category of food, for which the health claim is made;\n(d)a warning for the nutrient or other substance, or food or category of food, that is likely to present a health risk if consumed to excess;\n(d)\na warning for the nutrient or other substance, or food or category of food, that is likely to present a health risk if consumed to excess;\n(e)any other restrictions of use and directions for preparation and/or use.\n(e)\nany other restrictions of use and directions for preparation and/or use.",
+          "metadata": {
+            "celex_id": "32008R0353",
+            "article_number": 6,
+            "article_title": "Conditions for use",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32008R0353_art6",
+            "char_count": 1403,
+            "content_type": "article"
+          },
+          "score": 0.4762022793292999
+        },
+        {
+          "chunk_id": "32008R0353_annex1_GENERAL_PRINCIPLES_F",
+          "text": "[32008R0353] ANNEX 1 \u2014 GENERAL PRINCIPLES FOR THE SCIENTIFIC SUBSTANTIATION\n\n(a)the claimed effect of the food is beneficial for human health;\n(b)a cause and effect relationship is established between consumption of the food and the claimed effect in humans (such as the strength, consistency, specificity, dose-response, and biological plausibility of the relationship);\n(c)the quantity of the food and pattern of consumption required to obtain the claimed effect could reasonably be achieved as part of a balanced diet;\n(d)the specific study group(s) in which the evidence was obtained is representative of the target population for which the claim is intended.",
+          "metadata": {
+            "celex_id": "32008R0353",
+            "article_number": 0,
+            "article_title": "GENERAL PRINCIPLES FOR THE SCIENTIFIC SUBSTANTIATION",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32008R0353_annex1_GENERAL_PRINCIPLES_F",
+            "char_count": 586,
+            "content_type": "annex",
+            "annex_number": "1"
+          },
+          "score": 0.4746975004673004
+        },
+        {
+          "chunk_id": "32012R0489_annexI_chunk0",
+          "text": "[32012R0489] ANNEX I (part 1/2)\n\nA.\n1.\ngeneral information on the national market including the market share of specific foods or food categories;\n2.\ninformation on trends in the evolution of the national market.\nThe information referred to in points 1 and 2 shall include the information for the foods which contain the most commonly added vitamins and minerals and information on the amounts of vitamins and minerals added to foods. Such information may be obtained from commercially available market reports, national monitoring measures and other relevant and defined sources.\nB.\n1.\ninformation on the consumption patterns of specific foods or food categories to which vitamins and minerals have been added for the population and if appropriate, for specific population groups, including such information for the foods which contain the most commonly added vitamins and minerals and information on the amounts of vitamins and minerals added to foods;\n2.\ninformation obtained from nationally representative dietary consumption surveys, data from academic studies and other relevant and defined sources, including the information on the dietary survey methodology, such as the dietary assessment methodology, and the population subgroups and age groups assessed;\n3.\ninformation on any observed changes in overall dietary habits and trends in the consumption of foods to which vitamins and minerals have been added, in particular those changes that may be associated with the date of application of the Regulation (EC) No 1925/2006. Member States shall provide the details for the basis of these observed changes, including details on the base-line data used to compare past and current consumption of foods to which vitamins and minerals have been added.\nC.\n1.\ninformation on the intake levels for vitamins and minerals for the population and, if appropriate, for specific population groups. This information shall be obtained from the data sources referred to in point B.2 of this Annex;\n2.",
+          "metadata": {
+            "celex_id": "32012R0489",
+            "article_number": 0,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 2,
+            "chunk_id": "32012R0489_annexI_chunk0",
+            "char_count": 1960,
+            "content_type": "annex",
+            "annex_number": "I"
+          },
+          "score": 0.4718157947063446
+        },
+        {
+          "chunk_id": "32012R0307_art5_occ2",
+          "text": "[32012R0307] Article 5 \u2014 Pre-submission advice\n\nAt the request of a food business operator or any other interested party, the staff of the Authority shall provide advice on the rules applicable to, and the content required for, the submission of a file containing the scientific data aiming to demonstrate the safety of a substance listed in Part C of Annex III to Regulation (EC) No\u00a01925/2006.\nFood business operators and other interested parties may request pre-submission advice for a potential submission from the day of the adoption of an opinion by the Authority under Article\u00a08(2) of Regulation (EC) No\u00a01925/2006, which identifies the possibility of harmful effects on health associated with the intake of a substance.\nSuch pre-submission advice shall be provided in accordance with Article\u00a032a of Regulation (EC) No\u00a0178/2002, which shall applymutatis mutandis.",
+          "metadata": {
+            "celex_id": "32012R0307",
+            "article_number": 5,
+            "article_title": "Pre-submission advice",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32012R0307_art5_occ2",
+            "char_count": 820,
+            "content_type": "article"
+          },
+          "score": 0.452292799949646
+        },
+        {
+          "chunk_id": "32008R0353_annex1_SUMMARY_OF_PERTINENT",
+          "text": "[32008R0353] ANNEX 1 \u2014 SUMMARY OF PERTINENT SCIENTIFIC DATA\n\nIn addition to the requirement of Article 15(3)(g) of Regulation (EC) No 1924/2006 for a summary of the application, applicants shall provide a summary of the pertinent scientific data, which shall contain the following information:\n1.the summary of data from pertinent human studies, indicating to what extent the relationship between the food and the claimed effect is supported by the totality of human data;\n2.the summary of data from pertinent non-human studies, indicating how, and to what extent, the pertinent non-human studies may help to support the relationship between the food and the claimed effect in humans;\n3.the overall conclusions, by taking into account the totality of the data, including evidence in favour and not in favour and by weighing the evidence. The overall conclusions should clearly define to what extent:(a)the claimed effect of the food is beneficial for human health;(b)a cause and effect relationship is established between the consumption of the food and the claimed effect in humans (such as the strength, consistency, specificity, dose-response, and biological plausibility of the relationship);(c)the quantity of the food and pattern of consumption required to obtain the claimed effect could reasonably be consumed as part of a balanced diet;(d)the specific study group(s) in which the evidence was obtained is representative of the target population for which the claim is intended.",
+          "metadata": {
+            "celex_id": "32008R0353",
+            "article_number": 0,
+            "article_title": "SUMMARY OF PERTINENT SCIENTIFIC DATA",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32008R0353_annex1_SUMMARY_OF_PERTINENT",
+            "char_count": 1425,
+            "content_type": "annex",
+            "annex_number": "1"
+          },
+          "score": 0.45014768838882446
+        },
+        {
+          "chunk_id": "32012R0307_art3_chunk1",
+          "text": "[32012R0307] Article 3 \u2014 Conditions to be met for the request (part 2/2)\n\nFor the purposes of this Regulation those conditions that would result in the ingestion of amounts of a substance greatly exceeding those reasonably expected to be ingested under normal conditions of consumption of a balanced and varied diet shall occur under actual circumstances and shall be assessed on a case-by-case basis in comparison with the average intake of the concerned substance by the general adult population or other specified population group for which health concerns have been raised.\nThe conditions and requirements laid down in paragraphs 1, 2 and 3 of this Article and the requirements laid down in Article 4 of this Regulation, shall applymutatis mutandiswhere the procedure under Article 8 of Regulation (EC) No 1925/2006 is initiated by the Commission.",
+          "metadata": {
+            "celex_id": "32012R0307",
+            "article_number": 3,
+            "article_title": "Conditions to be met for the request",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 1,
+            "total_chunks": 2,
+            "chunk_id": "32012R0307_art3_chunk1",
+            "char_count": 777,
+            "content_type": "article"
+          },
+          "score": 0.4234221875667572
+        },
+        {
+          "chunk_id": "32002R0178_art14_chunk0",
+          "text": "[32002R0178] CHAPTER II \u2014 GENERAL FOOD LAW SECTION 4 \u2014 GENERAL REQUIREMENTS OF FOOD LAW Article 14 \u2014 Food safety requirements (part 1/2)\n\nFood shall not be placed on the market if it is unsafe.\nFood shall be deemed to be unsafe if it is considered to be:\n(a)injurious to health;\n(a)\ninjurious to health;\n(b)unfit for human consumption.\n(b)\nunfit for human consumption.\nIn determining whether any food is unsafe, regard shall be had:\n(a)to the normal conditions of use of the food by the consumer and at each stage of production, processing and distribution, and\n(a)\nto the normal conditions of use of the food by the consumer and at each stage of production, processing and distribution, and\n(b)to the information provided to the consumer, including information on the label, or other information generally available to the consumer concerning the avoidance of specific adverse health effects from a particular food or category of foods.\n(b)\nto the information provided to the consumer, including information on the label, or other information generally available to the consumer concerning the avoidance of specific adverse health effects from a particular food or category of foods.\nIn determining whether any food is injurious to health, regard shall be had:\n(a)not only to the probable immediate and/or short-term and/or long-term effects of that food on the health of a person consuming it, but also on subsequent generations;\n(a)\nnot only to the probable immediate and/or short-term and/or long-term effects of that food on the health of a person consuming it, but also on subsequent generations;\n(b)to the probable cumulative toxic effects;\n(b)\nto the probable cumulative toxic effects;\n(c)to the particular health sensitivities of a specific category of consumers where the food is intended for that category of consumers.\n(c)\nto the particular health sensitivities of a specific category of consumers where the food is intended for that category of consumers.",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 14,
+            "article_title": "Food safety requirements",
+            "chapter": "CHAPTER II \u2014 GENERAL FOOD LAW",
+            "section": "SECTION 4 \u2014 GENERAL REQUIREMENTS OF FOOD LAW",
+            "chunk_index": 0,
+            "total_chunks": 2,
+            "chunk_id": "32002R0178_art14_chunk0",
+            "char_count": 1830,
+            "content_type": "article"
+          },
+          "score": 0.42203351855278015
+        },
+        {
+          "chunk_id": "32002R0178_art21",
+          "text": "[32002R0178] CHAPTER II \u2014 GENERAL FOOD LAW SECTION 4 \u2014 GENERAL REQUIREMENTS OF FOOD LAW Article 21 \u2014 Liability\n\nThe provisions of this Chapter shall be without prejudice to Council Directive 85/374/EEC of 25 July 1985 on the approximation of the laws, regulations and administrative provisions of the Member States concerning liability for defective products\u00a0(6).",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 21,
+            "article_title": "Liability",
+            "chapter": "CHAPTER II \u2014 GENERAL FOOD LAW",
+            "section": "SECTION 4 \u2014 GENERAL REQUIREMENTS OF FOOD LAW",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32002R0178_art21",
+            "char_count": 251,
+            "content_type": "article"
+          },
+          "score": 0.42146313190460205
+        },
+        {
+          "chunk_id": "32008R1332_art12",
+          "text": "[32008R1332] CHAPTER III \u2014 LABELLING Article 12 \u2014 Labelling of food enzymes and food enzyme preparations intended for sale to the final consumer\n\n1.\u00a0\u00a0Without prejudice to Directive 2000/13/EC, Council Directive 89/396/EEC of 14\u00a0June 1989 on indications or marks identifying the lot to which a foodstuff belongs\u00a0(17) and Regulation (EC) No\u00a01829/2003, food enzymes and food enzyme preparations sold singly or mixed with each other and/or other food ingredients intended for sale to the final consumer may be marketed only if their packaging contains the following information:\n2.\u00a0\u00a0For the information provided for in paragraph\u00a01 of this Article, Article\u00a013(2) of Directive 2000/13/EC shall apply accordingly.",
+          "metadata": {
+            "celex_id": "32008R1332",
+            "article_number": 12,
+            "article_title": "Labelling of food enzymes and food enzyme preparations intended for sale to the final consumer",
+            "chapter": "CHAPTER III \u2014 LABELLING",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32008R1332_art12",
+            "char_count": 560,
+            "content_type": "article"
+          },
+          "score": 0.4143473207950592
+        },
+        {
+          "chunk_id": "32013R0907_annex1_chunk1",
+          "text": "[32013R0907] ANNEX 1 (part 2/2)\n\nRelevant bibliographical or otherwise verifiable evidence demonstrating the presence on the market of the class of foods or beverages with the generic descriptor, over at least a 20-year period, in the Member State(s), prior to the date of entry into force of this Regulation.\nRecipient Member States and the Member State(s) concerned may require the additional data by the applicant on the following types of information, prior to the submission of the application to the Commission, where they consider it necessary for the assessment of the application:\n\u2014\nrelevant evidence or information related to consumer understanding and perception of the effects that could be implied by the generic descriptor. Such data shall cover the Member State(s) where the generic descriptor is used,\n\u2014\nrelevant evidence or information demonstrating that the consumer links the generic descriptor with the specific class of foods or beverages mentioned in point 1.4 of this part of the Annex.",
+          "metadata": {
+            "celex_id": "32013R0907",
+            "article_number": 0,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 1,
+            "total_chunks": 2,
+            "chunk_id": "32013R0907_annex1_chunk1",
+            "char_count": 976,
+            "content_type": "annex",
+            "annex_number": "1"
+          },
+          "score": 0.41115957498550415
+        },
+        {
+          "chunk_id": "32002R0178_art33_chunk0",
+          "text": "[32002R0178] CHAPTER III \u2014 EUROPEAN FOOD SAFETY AUTHORITY SECTION 3 \u2014 OPERATION Article 33 \u2014 Collection of data (part 1/2)\n\nThe Authority shall search for, collect, collate, analyse and summarise relevant scientific and technical data in the fields within its mission. This shall involve in particular the collection of data relating to:\n(a)food consumption and the exposure of individuals to risks related to the consumption of food;\n(a)\nfood consumption and the exposure of individuals to risks related to the consumption of food;\n(b)incidence and prevalence of biological risk;\n(b)\nincidence and prevalence of biological risk;\n(c)contaminants in food and feed;\n(c)\ncontaminants in food and feed;\n(d)residues.\n(d)\nresidues.\nFor the purposes of paragraph 1, the Authority shall work in close cooperation with all organisations operating in the field of data collection, including those from applicant countries, third countries or international bodies.\nThe Member States shall take the necessary measures to enable the data they collect in the fields referred to in paragraphs 1 and 2 to be transmitted to the Authority.\nThe Authority shall forward to the Member States and the Commission appropriate recommendations which might improve the technical comparability of the data it receives and analyses, in order to facilitate consolidation at Community level.\nWithin one year following the date of entry into force of this Regulation, the Commission shall publish an inventory of data collection systems existing at Community level in the fields within the mission of the Authority.\nThe report, which shall be accompanied, where appropriate, by proposals, shall indicate in particular:\n(a)for each system, the role which should be assigned to the Authority, and any modifications or improvements which might be required to enable the Authority to carry out its mission, in cooperation with the Member States;\n(a)\nfor each system, the role which should be assigned to the Authority, and any modifications or improvements which might be required to enable the Authority to carry out its mission, in cooperation with the Member States;",
+          "metadata": {
+            "celex_id": "32002R0178",
+            "article_number": 33,
+            "article_title": "Collection of data",
+            "chapter": "CHAPTER III \u2014 EUROPEAN FOOD SAFETY AUTHORITY",
+            "section": "SECTION 3 \u2014 OPERATION",
+            "chunk_index": 0,
+            "total_chunks": 2,
+            "chunk_id": "32002R0178_art33_chunk0",
+            "char_count": 2009,
+            "content_type": "article"
+          },
+          "score": 0.4085865616798401
+        },
+        {
+          "chunk_id": "32015R2283_art7",
+          "text": "[32015R2283] CHAPTER II \u2014 REQUIREMENTS FOR PLACING NOVEL FOODS ON THE MARKET WITHIN THE UNION Article 7 \u2014 General conditions for inclusion of novel foods in the Union list\n\nThe Commission shall only authorise and include a novel food in the Union list if it complies with the following conditions:\n(a)the food does not, on the basis of the scientific evidence available, pose a safety risk to human health;\n(b)the food's intended use does not mislead the consumer, especially when the food is intended to replace another food and there is a significant change in the nutritional value;\n(c)where the food is intended to replace another food, it does not differ from that food in such a way that its normal consumption would be nutritionally disadvantageous for the consumer.",
+          "metadata": {
+            "celex_id": "32015R2283",
+            "article_number": 7,
+            "article_title": "General conditions for inclusion of novel foods in the Union list",
+            "chapter": "CHAPTER II \u2014 REQUIREMENTS FOR PLACING NOVEL FOODS ON THE MARKET WITHIN THE UNION",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32015R2283_art7",
+            "char_count": 600,
+            "content_type": "article"
+          },
+          "score": 0.39723920822143555
+        },
+        {
+          "chunk_id": "32004R0853_art5",
+          "text": "[32004R0853] CHAPTER II \u2014 FOOD BUSINESS OPERATORS' OBLIGATIONS Article 5 \u2014 Health and identification marking\n\nFood business operators shall not place on the market a product of animal origin handled in an establishment subject to approval in accordance with Article 4(2) unless it has either:\n(a)a health mark applied in accordance with Regulation (EC) No 854/2004;or\n(a)\na health mark applied in accordance with Regulation (EC) No 854/2004;\nor\n(b)when that Regulation does not provide for the application of a health mark, an identification mark applied in accordance with Annex II, Section I, of this Regulation.\n(b)\nwhen that Regulation does not provide for the application of a health mark, an identification mark applied in accordance with Annex II, Section I, of this Regulation.\nFood business operators may apply an identification mark to a product of animal origin only if the product has been manufactured in accordance with this Regulation in establishments meeting the requirements of Article 4.\nFood business operators may not remove a health mark applied in accordance with Regulation (EC) No 854/2004 from meat unless they cut or process it or work upon it in another manner.",
+          "metadata": {
+            "celex_id": "32004R0853",
+            "article_number": 5,
+            "article_title": "Health and identification marking",
+            "chapter": "CHAPTER II \u2014 FOOD BUSINESS OPERATORS' OBLIGATIONS",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32004R0853_art5",
+            "char_count": 1079,
+            "content_type": "article"
+          },
+          "score": 0.38706260919570923
+        },
+        {
+          "chunk_id": "32016R0854_art1",
+          "text": "[32016R0854] Article 1\n\nThe health claims set out in the Annex to this Regulation shall be included in the Union list of permitted claims as provided for in Article 13(3) of Regulation (EC) No 1924/2006.",
+          "metadata": {
+            "celex_id": "32016R0854",
+            "article_number": 1,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32016R0854_art1",
+            "char_count": 179,
+            "content_type": "article"
+          },
+          "score": 0.3710422217845917
+        },
+        {
+          "chunk_id": "32004R0852_annexII_Redistribution_of_fo",
+          "text": "[32004R0852] ANNEX II \u2014 Redistribution of food\n\nFood business operators may redistribute food for the purpose of food donation subject to the following conditions:\n(1)Food business operators shall routinely check if food under their responsibility is not injurious to health and is fit for human consumption in accordance with Article\u00a014(2) of Regulation (EC) No\u00a0178/2002\u00a0(5). If the check carried out is satisfactory, food business operators may redistribute food in accordance with point (2):\u2014for food for which a \u2018use by\u2019 date is applied in accordance with Article\u00a024 of Regulation (EU) No\u00a01169/2011, before the expiry of that date,\u2014for food for which a date of minimum durability is applied in accordance with Article\u00a02(2)(r) of Regulation (EU) No\u00a01169/2011, up to and after that date, or\u2014for food for which a date of minimum durability is not required in accordance with point 1(d) of Annex X to Regulation (EU) No\u00a01169/2011, at any time provided.\n(2)Food business operators handling food referred to in point 1, shall assess if food is not injurious to health and fit for human consumption by taking into account at least the following:\u2014the date of minimum durability or the \u2018use by\u2019 date, ensuring sufficient remaining shelf-life left to allow for the safe redistribution and use by the final consumer,\u2014the integrity of the packaging, when applicable,\u2014the proper storage and transport conditions, including applicable temperature requirements,\u2014the date of freezing in accordance with point 2(b) of Section IV of Annex II to Regulation (EC) No\u00a0853/2004 of the European Parliament and of the Council\u00a0(6), when applicable,\u2014the organoleptic conditions,\u2014the assurance of traceability in accordance with Commission Implementing Regulation (EU) No\u00a0931/2011\u00a0(7), in case of products of animal origin.",
+          "metadata": {
+            "celex_id": "32004R0852",
+            "article_number": 0,
+            "article_title": "Redistribution of food",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32004R0852_annexII_Redistribution_of_fo",
+            "char_count": 1751,
+            "content_type": "annex",
+            "annex_number": "II"
+          },
+          "score": 0.36802083253860474
+        },
+        {
+          "chunk_id": "32013R0907_annex1_chunk0",
+          "text": "[32013R0907] ANNEX 1 (part 1/2)\n\n1.\n2.\n3.\n\u2014\nacknowledge receipt of the application in writing within 14 days of its receipt. The acknowledgement shall state the date of receipt of the application,\n\u2014\ninform without delay the Commission by forwarding the summary of the application,\n\u2014\nwhere appropriate, forward the full application to any other Member State(s) for which the application concerning the use of the generic descriptor is made (hereafter referred to as the \u2018Member State(s) concerned\u2019),\n\u2014\nif the Member State(s) concerned consider(s) that the application does not contain data and information as foreseen in Part B of the Annex, it/they shall inform the recipient Member State within 4 weeks.\n4.\n5.\n6.\n7.\n8.\nThe application shall consist of the following:\n1.1.\u00a0\u00a0\u00a0A summary of the application that shall include:\n\u2014\nthe name and the address of the applicant,\n\u2014\nthe generic descriptor subject to the application,\n\u2014\na brief description of the particularity of the class of foods or beverages which the generic descriptor covers, and\n\u2014\nthe Member State(s) for which the application concerning the use of the generic descriptor is made by the applicant.\nName, address and contact details of the food business operator submitting an application and/or of the person authorised to communicate with the Commission on behalf of the applicant.\nApplications for the authorisation of a generic descriptor may also be submitted by trade associations, acting on behalf of their members and shall include the name, address and contact details of the trade association submitting an application and/or of the person authorised to communicate with the Commission on behalf of the trade association. Information about the support of the application by the members of the trade association would be desirable.\n1.\n2.\n1.\n2.",
+          "metadata": {
+            "celex_id": "32013R0907",
+            "article_number": 0,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 2,
+            "chunk_id": "32013R0907_annex1_chunk0",
+            "char_count": 1780,
+            "content_type": "annex",
+            "annex_number": "1"
+          },
+          "score": 0.26867392659187317
+        },
+        {
+          "chunk_id": "32013R0907_art1",
+          "text": "[32013R0907] Article 1\n\nApplications concerning the use of generic descriptors (denominations) within the meaning of Article 1(4) of Regulation (EC) No 1924/2006 shall be submitted and presented in accordance with the rules set out in the Annex.",
+          "metadata": {
+            "celex_id": "32013R0907",
+            "article_number": 1,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32013R0907_art1",
+            "char_count": 221,
+            "content_type": "article"
+          },
+          "score": 0.2225867062807083
+        },
+        {
+          "chunk_id": "32016R0854_annex1",
+          "text": "[32016R0854] ANNEX 1\n\nIn the Annex to Regulation (EU) No 432/2012, the following entries are inserted in an alphabetical order:",
+          "metadata": {
+            "celex_id": "32016R0854",
+            "article_number": 0,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32016R0854_annex1",
+            "char_count": 105,
+            "content_type": "annex",
+            "annex_number": "1"
+          },
+          "score": 0.1361730396747589
+        },
+        {
+          "chunk_id": "32016R0854_art2",
+          "text": "[32016R0854] Article 2\n\nThe Annex to Regulation (EU) No 432/2012 is amended in accordance with the Annex to this Regulation.",
+          "metadata": {
+            "celex_id": "32016R0854",
+            "article_number": 2,
+            "article_title": "",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32016R0854_art2",
+            "char_count": 100,
+            "content_type": "article"
+          },
+          "score": 0.1350165605545044
+        },
+        {
+          "chunk_id": "32012R0432_art2",
+          "text": "[32012R0432] Article 2 \u2014 Entry into force and application\n\nThis Regulation shall enter into force on the twentieth day following that of its publication in theOfficial Journal of the European Union.\nIt shall apply from 14 December 2012.",
+          "metadata": {
+            "celex_id": "32012R0432",
+            "article_number": 2,
+            "article_title": "Entry into force and application",
+            "chapter": "",
+            "section": "",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "chunk_id": "32012R0432_art2",
+            "char_count": 177,
+            "content_type": "article"
+          },
+          "score": 0.08186927437782288
+        }
+      ]
+    },
+    "extraction": {
+      "requirements": [
+        {
+          "regulation_id": "32006R1924",
+          "article_number": 0,
+          "article_title": "SOURCE OF [NAME OF VITAMIN/S] AND/OR [NAME OF MINERAL/S]",
+          "requirement_summary": "A 'source of vitamins/minerals' claim may only be made if the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC, or an amount provided for by derogations under Article 6 of Regulation (EC) No 1925/2006.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators making 'source of' vitamin/mineral claims on food supplements",
+          "conditions": "Only applies when a 'source of' nutrition claim is made",
+          "cross_references": [
+            "32006R1925"
+          ],
+          "source_text_snippet": "may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC",
+          "confidence": 0.92
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 50,
+          "article_title": "Amendments to Regulation (EC) No 1925/2006",
+          "requirement_summary": "Nutrition labelling is compulsory for products to which vitamins and minerals have been added. The label must include the information specified in Article 30(1) of Regulation (EU) No 1169/2011 and the total amounts of vitamins and minerals added.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators marketing foods with added vitamins and minerals",
+          "conditions": "",
+          "cross_references": [
+            "32006R1925",
+            "32011R1169"
+          ],
+          "source_text_snippet": "Nutrition labelling of products to which vitamins and minerals have been added and which are covered by this Regulation shall be compulsory",
+          "confidence": 0.93
+        },
+        {
+          "regulation_id": "32006R1924",
+          "article_number": 7,
+          "article_title": "Nutrition information",
+          "requirement_summary": "When a nutrition or health claim is made, nutrition labelling is mandatory. For food supplements specifically, nutrition information must be provided in accordance with Article 8 of Directive 2002/46/EC. Additionally, amounts of claimed substances not in the nutrition label must appear in the same field of vision.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators making nutrition or health claims on food supplements",
+          "conditions": "Applies when a nutrition or health claim is made",
+          "cross_references": [
+            "32002L0046"
+          ],
+          "source_text_snippet": "In the case of food supplements, the nutrition information shall be provided in accordance with Article 8 of Directive 2002/46/EC",
+          "confidence": 0.93
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 7,
+          "article_title": "Labelling, presentation and advertising",
+          "requirement_summary": "Labelling of foods with added vitamins/minerals must not state that a balanced diet cannot provide adequate nutrients. Labelling must not mislead consumers about the nutritional merit resulting from the addition. Nutrition labelling is compulsory and must include Article 30(1) information plus total amounts of added vitamins and minerals.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators marketing foods with added vitamins and minerals",
+          "conditions": "",
+          "cross_references": [
+            "32011R1169",
+            "32006R1924"
+          ],
+          "source_text_snippet": "shall not include any mention stating or implying that a balanced and varied diet cannot provide appropriate quantities of nutrients",
+          "confidence": 0.9
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 7,
+          "article_title": "Labelling, presentation and advertising",
+          "requirement_summary": "Labelling, presentation, and advertising of foods with added vitamins and minerals must not mislead or deceive the consumer as to the nutritional merit that may result from the addition of these nutrients.",
+          "requirement_type": "prohibition",
+          "priority": "ongoing",
+          "applicable_to": "food business operators marketing foods with added vitamins and minerals",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "shall not mislead or deceive the consumer as to the nutritional merit of a food that may result from the addition of these nutrients",
+          "confidence": 0.92
+        },
+        {
+          "regulation_id": "32002L0046",
+          "article_number": 8,
+          "article_title": "Article 8",
+          "requirement_summary": "The amount of nutrients or substances with nutritional/physiological effect must be declared numerically on the label using units specified in Annex I. Amounts must be declared per recommended daily portion. Vitamin and mineral information must also be expressed as a percentage of reference values from the Annex to Directive 90/496/EEC.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators placing food supplements on the market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "The amount of the nutrients or substances with a nutritional or physiological effect present in the product shall be declared on the labelling in numerical form",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002L0046",
+          "article_number": 7,
+          "article_title": "Article 7",
+          "requirement_summary": "The labelling, presentation, and advertising of food supplements must not include any statement implying that a balanced and varied diet cannot provide appropriate quantities of nutrients.",
+          "requirement_type": "prohibition",
+          "priority": "ongoing",
+          "applicable_to": "food business operators placing food supplements on the market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "shall not include any mention stating or implying that a balanced and varied diet cannot provide appropriate quantities of nutrients in general",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 49,
+          "article_title": "Amendments to Regulation (EC) No 1924/2006",
+          "requirement_summary": "Nutrition labelling is mandatory for products bearing a nutrition and/or health claim. The label must include information specified in Article 30(1) of Regulation (EU) No 1169/2011. When a claim is made for a nutrient in Article 30(2), that nutrient's amount must be declared per Articles 31-34. Amounts of claimed substances not in the nutrition label must appear in the same field of vision.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators making nutrition or health claims",
+          "conditions": "Applies when a nutrition and/or health claim is made",
+          "cross_references": [
+            "32006R1924",
+            "32011R1169"
+          ],
+          "source_text_snippet": "Nutrition labelling of products on which a nutrition and/or health claim is made shall be mandatory",
+          "confidence": 0.92
+        },
+        {
+          "regulation_id": "32006R1924",
+          "article_number": 10,
+          "article_title": "Specific conditions",
+          "requirement_summary": "Health claims are prohibited unless they comply with the general requirements in Chapter II and specific requirements in Chapter IV, and are authorised and included in the lists of authorised claims under Articles 13 and 14. Permitted health claims must include specific labelling information. General non-specific health benefit references may only accompany a specific authorised claim.",
+          "requirement_type": "authorisation",
+          "priority": "before_launch",
+          "applicable_to": "food business operators making health claims on food supplements",
+          "conditions": "Applies when any health claim is made",
+          "cross_references": [],
+          "source_text_snippet": "Health claims shall be prohibited unless they comply with the general requirements in Chapter II and the specific requirements in this Chapter and are authorised in accordance with this Regulation",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32006R1924",
+          "article_number": 0,
+          "article_title": "CONTAINS [NAME OF THE NUTRIENT OR OTHER SUBSTANCE]",
+          "requirement_summary": "A 'contains [nutrient]' claim may only be made where the product complies with all applicable provisions of Regulation (EC) No 1924/2006, including Article 5. For vitamins and minerals, the conditions of the 'source of' claim apply (i.e., the product must contain at least a significant amount).",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators making 'contains' nutrient claims on food supplements",
+          "conditions": "Only applies when a 'contains' claim is made for vitamins/minerals",
+          "cross_references": [
+            "32006R1924"
+          ],
+          "source_text_snippet": "For vitamins and minerals the conditions of the claim 'source of' shall apply",
+          "confidence": 0.9
+        },
+        {
+          "regulation_id": "32002L0046",
+          "article_number": 6,
+          "article_title": "Article 6",
+          "requirement_summary": "Food supplements must be sold under the name 'food supplement'. The labelling must not attribute properties of preventing, treating, or curing human disease. The label must bear: (a) names of nutrient categories characterising the product, (b) recommended daily portion, (c) warning not to exceed the recommended daily dose, (d) statement that supplements should not substitute a varied diet, (e) statement to store out of reach of young children.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators placing food supplements on the market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "the name under which products covered by this Directive are sold shall be 'food supplement'",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32002L0046",
+          "article_number": 6,
+          "article_title": "Article 6",
+          "requirement_summary": "The labelling, presentation, and advertising of food supplements must not attribute to them the property of preventing, treating, or curing a human disease, or refer to such properties.",
+          "requirement_type": "prohibition",
+          "priority": "ongoing",
+          "applicable_to": "food business operators placing food supplements on the market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "must not attribute to food supplements the property of preventing, treating or curing a human disease, or refer to such properties",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 6,
+          "article_title": "Conditions for the addition of vitamins and minerals",
+          "requirement_summary": "The addition of a vitamin or mineral to a food must result in at least a significant amount being present, as defined in the Annex to Directive 90/496/EEC. When maximum amounts are set for nutrients with reference intakes close to upper safe levels, the contribution of individual products to overall diet and nutrient profiles must be considered.",
+          "requirement_type": "max_limit",
+          "priority": "before_launch",
+          "applicable_to": "food business operators adding vitamins and minerals to foods",
+          "conditions": "",
+          "cross_references": [
+            "32006R1924"
+          ],
+          "source_text_snippet": "The addition of a vitamin or a mineral to a food shall result in the presence of that vitamin or mineral in the food in at least a significant amount",
+          "confidence": 0.88
+        },
+        {
+          "regulation_id": "32006R1925",
+          "article_number": 15,
+          "article_title": "Monitoring",
+          "requirement_summary": "Member States may require manufacturers or persons placing foods with added vitamins/minerals on the market to notify the competent authority by providing a model label. Withdrawal from the market may also need to be reported.",
+          "requirement_type": "notification",
+          "priority": "before_launch",
+          "applicable_to": "manufacturers or persons placing foods with added vitamins/minerals on the market",
+          "conditions": "Only where the Member State requires such notification",
+          "cross_references": [],
+          "source_text_snippet": "Member States may require the manufacturer or the person placing such foods on the market in their territory to notify the competent authority",
+          "confidence": 0.85
+        },
+        {
+          "regulation_id": "32011R1169",
+          "article_number": 0,
+          "article_title": "DAILY REFERENCE INTAKES FOR VITAMINS AND MINERALS (ADULTS)",
+          "requirement_summary": "A 'significant amount' of a vitamin/mineral is defined as 15% of the nutrient reference values per 100g (or per single-portion package), or 7.5% per 100ml for beverages. This threshold determines when 'source of' claims and minimum addition levels are met.",
+          "requirement_type": "labelling",
+          "priority": "before_launch",
+          "applicable_to": "food business operators making vitamin/mineral claims or adding vitamins/minerals to food",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "15 % of the nutrient reference values specified in point 1 supplied by 100 g or 100 ml in the case of products other than beverages",
+          "confidence": 0.88
+        },
+        {
+          "regulation_id": "32012R0432",
+          "article_number": 1,
+          "article_title": "Permitted health claims",
+          "requirement_summary": "Health claims made on foods must be from the authorised list set out in the Annex to this Regulation and must comply with the conditions of use specified therein.",
+          "requirement_type": "authorisation",
+          "priority": "before_launch",
+          "applicable_to": "food business operators making health claims on food supplements",
+          "conditions": "Applies when Article 13(3) health claims are made",
+          "cross_references": [
+            "32006R1924"
+          ],
+          "source_text_snippet": "Health claims referred to in paragraph 1 may be made on foods in compliance with the conditions set out in the Annex",
+          "confidence": 0.93
+        },
+        {
+          "regulation_id": "32008R0353",
+          "article_number": 6,
+          "article_title": "Conditions for use",
+          "requirement_summary": "When applying for health claim authorisation, the conditions of use must specify: target population, quantity and consumption pattern needed for the claimed effect, statements for persons who should avoid the substance, warnings for excess consumption, and any other restrictions or preparation directions.",
+          "requirement_type": "documentation",
+          "priority": "if_applicable",
+          "applicable_to": "food business operators applying for health claim authorisation under Article 15(3)(f) of Regulation (EC) No 1924/2006",
+          "conditions": "Only applies when submitting an application for health claim authorisation",
+          "cross_references": [
+            "32006R1924"
+          ],
+          "source_text_snippet": "the conditions of use shall include: (a) the target population for the intended health claim",
+          "confidence": 0.8
+        },
+        {
+          "regulation_id": "32002R0178",
+          "article_number": 14,
+          "article_title": "Food safety requirements",
+          "requirement_summary": "Food must not be placed on the market if it is unsafe \u2014 i.e. injurious to health or unfit for human consumption. Safety assessment must consider normal conditions of use, consumer information, probable short/long-term and cumulative toxic effects, and health sensitivities of the target consumer category.",
+          "requirement_type": "safety_assessment",
+          "priority": "before_launch",
+          "applicable_to": "all food business operators placing food on the EU market",
+          "conditions": "",
+          "cross_references": [],
+          "source_text_snippet": "Food shall not be placed on the market if it is unsafe",
+          "confidence": 0.95
+        },
+        {
+          "regulation_id": "32015R2283",
+          "article_number": 7,
+          "article_title": "General conditions for inclusion of novel foods in the Union list",
+          "requirement_summary": "A novel food may only be placed on the EU market if authorised and included in the Union list. Authorisation requires demonstrating no safety risk to human health, no misleading of consumers (especially regarding nutritional value changes), and no nutritional disadvantage compared to foods it replaces.",
+          "requirement_type": "authorisation",
+          "priority": "before_launch",
+          "applicable_to": "food business operators placing novel foods on the EU market",
+          "conditions": "Only applies if the food supplement or its ingredients qualify as novel foods",
+          "cross_references": [],
+          "source_text_snippet": "The Commission shall only authorise and include a novel food in the Union list if it complies with the following conditions",
+          "confidence": 0.75
+        }
+      ],
+      "requirements_count": 19,
+      "articles_processed": 39
+    }
+  }
+}
