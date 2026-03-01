@@ -246,9 +246,15 @@ def query(
             parts.extend(keywords)
         query_text = " ".join(parts) if parts else "food safety requirements"
 
-    # Hybrid search: first run a broad query to get the most semantically
-    # relevant results, then add per-regulation results to ensure coverage
-    # of every routed regulation.
+    # Hybrid search: broad query first, then tiered per-regulation search.
+    # Core (directly routed) regulations get more articles than cross-ref
+    # expansions — failure analysis showed 100% of FNs are retrieval failures
+    # from under-allocated core regulations, and 93% of FPs are tangential
+    # cross-reference extractions.
+    xref_celex_set = set(xref_new_ids)
+    core_celex = [c for c in routing_result.celex_ids if c not in xref_celex_set]
+    xref_celex = [c for c in routing_result.celex_ids if c in xref_celex_set]
+
     search_results = store.search(
         query=query_text,
         celex_ids=routing_result.celex_ids,
@@ -256,13 +262,25 @@ def query(
     )
 
     seen_chunk_ids = {r["chunk_id"] for r in search_results}
-    per_reg = max(2, n_results // len(routing_result.celex_ids)) if routing_result.celex_ids else 0
+    core_per_reg = max(3, n_results // max(len(core_celex), 1))
+    xref_per_reg = 1
 
-    for celex_id in routing_result.celex_ids:
+    for celex_id in core_celex:
         hits = store.search(
             query=query_text,
             celex_ids=[celex_id],
-            n_results=per_reg,
+            n_results=core_per_reg,
+        )
+        for hit in hits:
+            if hit["chunk_id"] not in seen_chunk_ids:
+                seen_chunk_ids.add(hit["chunk_id"])
+                search_results.append(hit)
+
+    for celex_id in xref_celex:
+        hits = store.search(
+            query=query_text,
+            celex_ids=[celex_id],
+            n_results=xref_per_reg,
         )
         for hit in hits:
             if hit["chunk_id"] not in seen_chunk_ids:
