@@ -39,7 +39,7 @@
       "priority": "ongoing",
       "description": "Mandatory nutrition declaration must include energy value, fat, saturates, carbohydrate, sugars, protein, and salt",
       "source": "Regulation (EU) No 1169/2011 Art 30(1)",
-      "notes": "Art 26 also relevant for nutrition declaration obligation"
+      "notes": ""
     },
     {
       "requirement_id": "FIC-04",
@@ -74,12 +74,12 @@
     {
       "requirement_id": "FIC-07",
       "regulation_id": "32011R1169",
-      "article_number": 24,
+      "article_number": 26,
       "requirement_type": "labelling",
       "priority": "if_applicable",
       "description": "Country of origin or place of provenance is mandatory where failure to indicate could mislead the consumer",
       "source": "Regulation (EU) No 1169/2011 Art 26(2)",
-      "notes": "Art 26 contains the obligation; Art 24 defines the terms"
+      "notes": "Art 24 defines terms; Art 26 has the obligation"
     },
     {
       "requirement_id": "FIC-08",
@@ -89,6 +89,106 @@
       "priority": "ongoing",
       "description": "The name of the food shall be its legal name, or in the absence thereof, its customary name or a descriptive name",
       "source": "Regulation (EU) No 1169/2011 Art 17",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-09",
+      "regulation_id": "32011R1169",
+      "article_number": 22,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "The quantity of an ingredient or category of ingredients (QUID) must be indicated when it appears in the name, is emphasised, or is essential to characterise the food",
+      "source": "Regulation (EU) No 1169/2011 Art 22",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-10",
+      "regulation_id": "32011R1169",
+      "article_number": 36,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "Any voluntary food information provided on labels must comply with the mandatory labelling requirements and must not be misleading, ambiguous, or confusing",
+      "source": "Regulation (EU) No 1169/2011 Art 36",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-11",
+      "regulation_id": "32011R1169",
+      "article_number": 16,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "For packaging with largest surface area less than 10 cm², only food name, allergens, net quantity, and date of minimum durability are required; nutrition declaration is not required for foods listed in Annex V",
+      "source": "Regulation (EU) No 1169/2011 Art 16",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-12",
+      "regulation_id": "32011R1169",
+      "article_number": 1,
+      "requirement_type": "general_obligation",
+      "priority": "ongoing",
+      "description": "The regulation applies to all food business operators at all stages of the food chain where their activities concern providing food information to consumers",
+      "source": "Regulation (EU) No 1169/2011 Art 1",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-13",
+      "regulation_id": "32002R0178",
+      "article_number": 16,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "The labelling, advertising and presentation of food must not mislead consumers as to characteristics, composition, nature, or properties",
+      "source": "Regulation (EC) No 178/2002 Art 16",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-14",
+      "regulation_id": "32002R0178",
+      "article_number": 14,
+      "requirement_type": "general_obligation",
+      "priority": "ongoing",
+      "description": "Food must not be placed on the market if it is unsafe (injurious to health or unfit for human consumption)",
+      "source": "Regulation (EC) No 178/2002 Art 14",
+      "notes": "May be classified as safety_assessment"
+    },
+    {
+      "requirement_id": "FIC-15",
+      "regulation_id": "32008R1333",
+      "article_number": 22,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "Food additives not sold to the final consumer must be labelled with name/E-number and relevant information",
+      "source": "Regulation (EC) No 1333/2008 Art 22",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-16",
+      "regulation_id": "32008R1333",
+      "article_number": 24,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "Foods containing food colours listed in Annex V must include an additional warning notice on the label",
+      "source": "Regulation (EC) No 1333/2008 Art 24",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-17",
+      "regulation_id": "32006R1924",
+      "article_number": 7,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "When a nutrition or health claim is made, mandatory nutrition labelling must be provided including specific nutrients relevant to the claim",
+      "source": "Regulation (EC) No 1924/2006 Art 7",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FIC-18",
+      "regulation_id": "32003R1829",
+      "article_number": 13,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "Foods containing or produced from GMOs must be labelled with GMO-related information",
+      "source": "Regulation (EC) No 1829/2003 Art 13",
       "notes": ""
     }
   ]

@@ -90,6 +90,86 @@
       "description": "Food business operators must establish traceability at all stages of production, processing and distribution",
       "source": "Regulation (EC) No 178/2002 Art 18",
       "notes": ""
+    },
+    {
+      "requirement_id": "FS-09",
+      "regulation_id": "32002L0046",
+      "article_number": 7,
+      "requirement_type": "prohibition",
+      "priority": "ongoing",
+      "description": "Food supplement labelling, presentation and advertising must not attribute to supplements the property of preventing, treating or curing human disease",
+      "source": "Directive 2002/46/EC Art 7",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-10",
+      "regulation_id": "32002L0046",
+      "article_number": 8,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "The amount of each nutrient or substance with a nutritional or physiological effect must be expressed as a percentage of reference values on the label",
+      "source": "Directive 2002/46/EC Art 8",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-11",
+      "regulation_id": "32006R1924",
+      "article_number": 7,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "When a nutrition or health claim is made on a food supplement, nutrition information must be provided in accordance with FIC regulation",
+      "source": "Regulation (EC) No 1924/2006 Art 7",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-12",
+      "regulation_id": "32006R1925",
+      "article_number": 7,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Foods with added vitamins and minerals must not claim that a balanced diet cannot provide adequate amounts, and labelling must not mislead consumers",
+      "source": "Regulation (EC) No 1925/2006 Art 7",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-13",
+      "regulation_id": "32006R1925",
+      "article_number": 6,
+      "requirement_type": "max_limit",
+      "priority": "ongoing",
+      "description": "When adding a vitamin or mineral to food, the total amount must be at least 15% of the reference intake per 100g/100ml/per package (significant amount)",
+      "source": "Regulation (EC) No 1925/2006 Art 6",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-14",
+      "regulation_id": "32012R0432",
+      "article_number": 1,
+      "requirement_type": "authorisation",
+      "priority": "before_launch",
+      "description": "Health claims on foods may only be made if they appear in the authorised list set out in the Annex to this regulation",
+      "source": "Regulation (EU) No 432/2012 Art 1",
+      "notes": ""
+    },
+    {
+      "requirement_id": "FS-15",
+      "regulation_id": "32002R0178",
+      "article_number": 14,
+      "requirement_type": "general_obligation",
+      "priority": "ongoing",
+      "description": "Food must not be placed on the market if it is unsafe (injurious to health or unfit for human consumption)",
+      "source": "Regulation (EC) No 178/2002 Art 14",
+      "notes": "May be classified as safety_assessment"
+    },
+    {
+      "requirement_id": "FS-16",
+      "regulation_id": "32011R1169",
+      "article_number": 49,
+      "requirement_type": "labelling",
+      "priority": "if_applicable",
+      "description": "When a nutrition or health claim is made, nutrition labelling is mandatory and must include the amount of the substance to which the claim refers",
+      "source": "Regulation (EU) No 1169/2011 Art 49",
+      "notes": ""
     }
   ]
 }

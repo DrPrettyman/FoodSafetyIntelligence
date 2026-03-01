@@ -57,9 +57,9 @@
       "article_number": 25,
       "requirement_type": "monitoring",
       "priority": "ongoing",
-      "description": "Post-market monitoring requirements may be imposed where specified in the authorisation decision",
+      "description": "Post-market monitoring requirements may be imposed where specified in the authorisation decision; operator must immediately inform Commission of new information on safety",
       "source": "Regulation (EU) 2015/2283 Art 25",
-      "notes": "if_applicable priority also acceptable"
+      "notes": "if_applicable or notification priority also acceptable"
     },
     {
       "requirement_id": "NF-06",
@@ -89,6 +89,106 @@
       "priority": "ongoing",
       "description": "Mandatory food information: name, ingredients list, allergens, net quantity, date marking, storage conditions, nutrition declaration",
       "source": "Regulation (EU) No 1169/2011 Art 9",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-09",
+      "regulation_id": "32017R2470",
+      "article_number": 1,
+      "requirement_type": "authorisation",
+      "priority": "before_launch",
+      "description": "A novel food may only be placed on the EU market if it is included in the Union list of authorised novel foods established by this regulation",
+      "source": "Regulation (EU) 2017/2470 Art 1",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-10",
+      "regulation_id": "32018R0456",
+      "article_number": 4,
+      "requirement_type": "documentation",
+      "priority": "before_launch",
+      "description": "A consultation request on novel food status must be submitted electronically to the recipient Member State with specified information",
+      "source": "Regulation (EU) 2018/456 Art 4",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-11",
+      "regulation_id": "32018R0456",
+      "article_number": 7,
+      "requirement_type": "notification",
+      "priority": "before_launch",
+      "description": "A notification on novel food status must include the name and description of the food, its composition, and evidence of significant consumption history",
+      "source": "Regulation (EU) 2018/456 Art 7",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-12",
+      "regulation_id": "32017R2469",
+      "article_number": 3,
+      "requirement_type": "documentation",
+      "priority": "before_launch",
+      "description": "The summary dossier in a novel food authorisation application must set out reasons why the novel food does not pose a safety risk",
+      "source": "Regulation (EU) 2017/2469 Art 3",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-13",
+      "regulation_id": "32017R2469",
+      "article_number": 5,
+      "requirement_type": "safety_assessment",
+      "priority": "before_launch",
+      "description": "Toxicological studies submitted in novel food applications must be conducted in facilities complying with good laboratory practice",
+      "source": "Regulation (EU) 2017/2469 Art 5",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-14",
+      "regulation_id": "32017R2468",
+      "article_number": 3,
+      "requirement_type": "documentation",
+      "priority": "if_applicable",
+      "description": "A notification to modify conditions of use, specifications, labelling or monitoring requirements for an authorised novel food must include specified information",
+      "source": "Regulation (EU) 2017/2468 Art 3",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-15",
+      "regulation_id": "32017R2468",
+      "article_number": 4,
+      "requirement_type": "documentation",
+      "priority": "if_applicable",
+      "description": "An application to modify conditions of use, specifications, labelling requirements, or monitoring conditions must be submitted with supporting evidence",
+      "source": "Regulation (EU) 2017/2468 Art 4",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-16",
+      "regulation_id": "32002R0178",
+      "article_number": 16,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "The labelling, advertising and presentation of food must not mislead consumers as to characteristics, composition, nature, or properties",
+      "source": "Regulation (EC) No 178/2002 Art 16",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-17",
+      "regulation_id": "32011R1169",
+      "article_number": 6,
+      "requirement_type": "labelling",
+      "priority": "ongoing",
+      "description": "Any food intended for supply to the final consumer or mass caterers must be accompanied by food information",
+      "source": "Regulation (EU) No 1169/2011 Art 6",
+      "notes": ""
+    },
+    {
+      "requirement_id": "NF-18",
+      "regulation_id": "32011R1169",
+      "article_number": 1,
+      "requirement_type": "general_obligation",
+      "priority": "ongoing",
+      "description": "Regulation 1169/2011 on food information applies to all food business operators at all stages of the food chain",
+      "source": "Regulation (EU) No 1169/2011 Art 1",
       "notes": ""
     }
   ]
