@@ -304,7 +304,10 @@ class TestLiveChunking:
         for chunk in chunks:
             assert chunk.char_count > 0
             assert chunk.celex_id
-            assert chunk.article_number > 0
+            if chunk.content_type == "article":
+                assert chunk.article_number > 0
+            else:
+                assert chunk.annex_number  # annex chunks must have annex_number
 
         # No chunk should exceed 2x MAX_CHUNK_CHARS (generous bound for edge cases)
         oversized = [c for c in chunks if c.char_count > MAX_CHUNK_CHARS * 2]
@@ -320,3 +323,16 @@ class TestLiveChunking:
         chunks = chunk_corpus(regulations)
         ids = [c.chunk_id for c in chunks]
         assert len(ids) == len(set(ids)), "Chunk IDs should be unique"
+
+    def test_annex_chunks_present(self):
+        """Expanded corpus should produce annex chunks from CLG/XHTML files."""
+        from src.ingestion.html_parser import parse_corpus
+
+        regulations = parse_corpus()
+        chunks = chunk_corpus(regulations)
+        annex_chunks = [c for c in chunks if c.content_type == "annex"]
+        assert len(annex_chunks) > 0, "Expected annex chunks from corpus"
+        for ac in annex_chunks:
+            assert ac.annex_number
+            assert ac.celex_id
+            assert ac.char_count > 0

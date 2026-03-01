@@ -67,45 +67,45 @@ class TestExtractionQuality:
         scenario, output = evaluation_data["novel_food_insect_protein"]
         result = _run_matching(scenario, output)
         print("\n" + format_scenario_report(scenario.scenario_id, result))
-        assert result.precision >= 0.15, (
-            f"Novel food precision {result.precision:.2f} < 0.15"
+        assert result.precision >= 0.30, (
+            f"Novel food precision {result.precision:.2f} < 0.30"
         )
 
     def test_novel_food_recall(self, evaluation_data):
         scenario, output = evaluation_data["novel_food_insect_protein"]
         result = _run_matching(scenario, output)
-        assert result.recall >= 0.20, (
-            f"Novel food recall {result.recall:.2f} < 0.20"
+        assert result.recall >= 0.40, (
+            f"Novel food recall {result.recall:.2f} < 0.40"
         )
 
     def test_fic_labelling_precision(self, evaluation_data):
         scenario, output = evaluation_data["fic_labelling_general"]
         result = _run_matching(scenario, output)
         print("\n" + format_scenario_report(scenario.scenario_id, result))
-        assert result.precision >= 0.15, (
-            f"FIC labelling precision {result.precision:.2f} < 0.15"
+        assert result.precision >= 0.30, (
+            f"FIC labelling precision {result.precision:.2f} < 0.30"
         )
 
     def test_fic_labelling_recall(self, evaluation_data):
         scenario, output = evaluation_data["fic_labelling_general"]
         result = _run_matching(scenario, output)
-        assert result.recall >= 0.20, (
-            f"FIC labelling recall {result.recall:.2f} < 0.20"
+        assert result.recall >= 0.40, (
+            f"FIC labelling recall {result.recall:.2f} < 0.40"
         )
 
     def test_food_supplements_precision(self, evaluation_data):
         scenario, output = evaluation_data["food_supplement_vitamin_d"]
         result = _run_matching(scenario, output)
         print("\n" + format_scenario_report(scenario.scenario_id, result))
-        assert result.precision >= 0.15, (
-            f"Food supplements precision {result.precision:.2f} < 0.15"
+        assert result.precision >= 0.30, (
+            f"Food supplements precision {result.precision:.2f} < 0.30"
         )
 
     def test_food_supplements_recall(self, evaluation_data):
         scenario, output = evaluation_data["food_supplement_vitamin_d"]
         result = _run_matching(scenario, output)
-        assert result.recall >= 0.20, (
-            f"Food supplements recall {result.recall:.2f} < 0.20"
+        assert result.recall >= 0.40, (
+            f"Food supplements recall {result.recall:.2f} < 0.40"
         )
 
     def test_aggregate_precision(self, evaluation_data):
@@ -117,8 +117,8 @@ class TestExtractionQuality:
 
         agg = compute_aggregate_metrics(results)
         print(f"\nAggregate: P={agg['precision']:.2f} R={agg['recall']:.2f} F1={agg['f1']:.2f}")
-        assert agg["precision"] >= 0.15, (
-            f"Aggregate precision {agg['precision']:.2f} < 0.15"
+        assert agg["precision"] >= 0.35, (
+            f"Aggregate precision {agg['precision']:.2f} < 0.35"
         )
 
     def test_aggregate_recall(self, evaluation_data):
@@ -129,8 +129,8 @@ class TestExtractionQuality:
             results.append((scenario_id, result))
 
         agg = compute_aggregate_metrics(results)
-        assert agg["recall"] >= 0.20, (
-            f"Aggregate recall {agg['recall']:.2f} < 0.20"
+        assert agg["recall"] >= 0.45, (
+            f"Aggregate recall {agg['recall']:.2f} < 0.45"
         )
 
     def test_no_hallucinated_regulations(self, evaluation_data):
@@ -149,6 +149,46 @@ class TestExtractionQuality:
             f"Found {len(hallucinations)} hallucinated regulation references:\n"
             + "\n".join(f"  - {h}" for h in hallucinations)
         )
+
+    def test_no_entity_extraction_gaps(self, evaluation_data):
+        """All ground truth regulations should be in the routed set."""
+        from src.evaluation.failure_analysis import (
+            ErrorCategory,
+            classify_false_negative,
+        )
+
+        gaps = []
+        for scenario_id, (scenario, output) in evaluation_data.items():
+            result = _run_matching(scenario, output)
+            for fn in result.false_negatives:
+                diag = classify_false_negative(fn, output)
+                if diag.error_category == ErrorCategory.ENTITY_EXTRACTION_GAP:
+                    gaps.append(
+                        f"{scenario_id}: {fn.regulation_id} Art {fn.article_number}"
+                    )
+
+        assert not gaps, (
+            f"Found {len(gaps)} entity extraction gaps:\n"
+            + "\n".join(f"  - {g}" for g in gaps)
+        )
+
+    def test_failure_analysis_report(self, evaluation_data):
+        """Run full failure analysis and print the report (always passes)."""
+        from src.evaluation.failure_analysis import (
+            analyze_scenario,
+            format_failure_report,
+            AggregateFailureAnalysis,
+        )
+
+        agg = AggregateFailureAnalysis()
+        for scenario_id, (scenario, output) in sorted(evaluation_data.items()):
+            result = _run_matching(scenario, output)
+            analysis = analyze_scenario(
+                scenario_id, result, output, scenario.product_type
+            )
+            agg.scenarios.append(analysis)
+
+        print("\n" + format_failure_report(agg))
 
     def test_full_diagnostic_report(self, evaluation_data):
         """Print full diagnostic report for all scenarios (always passes)."""

@@ -7,9 +7,12 @@ from bs4 import XMLParsedAsHTMLWarning
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 from src.ingestion.html_parser import (
+    AnnexSection,
     Article,
     ParsedRegulation,
     _consolidated_to_base_celex,
+    _parse_clg_annexes,
+    _parse_xhtml_annexes,
     detect_format,
     parse_regulation,
 )
@@ -417,6 +420,228 @@ class TestLiveCLGFiles:
         assert len(art8s) == 4, f"Expected 4 Art 8 variants, got {len(art8s)}"
         titles = {a.title for a in art8s}
         assert "Objectives of risk communication" in titles
+
+
+# --- Annex parsing tests ---
+
+
+@pytest.fixture
+def clg_doc_with_annexes():
+    """CLG document with annexes containing prose and tables."""
+    return """<html><body>
+    <div class="eli-container">
+        <div class="eli-main-title">
+            <p class="title-doc-first">REGULATION (EC) No 888/2099</p>
+            <p class="title-doc-last">on test annex parsing</p>
+        </div>
+        <div class="eli-subdivision">
+            <div class="eli-subdivision">
+                <p class="title-article-norm">Article 1</p>
+                <div class="eli-title">
+                    <p class="stitle-article-norm">Subject matter</p>
+                </div>
+                <p class="norm">This regulation has annexes.</p>
+            </div>
+        </div>
+        <hr class="separator-annex"/>
+        <p class="title-annex-1">ANNEX I</p>
+        <p class="title-annex-2">Conditions of use</p>
+        <p class="norm">Novel foods must meet these conditions.</p>
+        <p class="norm">All operators shall comply with requirements.</p>
+        <table border="1"><tr><td>E100</td><td>Curcumin</td></tr></table>
+        <p class="norm">Additional prose after table.</p>
+        <p class="title-gr-seq-level-1">PART A</p>
+        <p class="norm">Part A contains specific rules.</p>
+        <div class="grid-container grid-list">
+            <div class="grid-list-column-1">1.</div>
+            <div class="grid-list-column-2">First condition of Part A.</div>
+        </div>
+        <p class="title-annex-1">ANNEX II</p>
+        <p class="title-annex-2">Restricted substances</p>
+        <p class="norm">These substances are restricted in novel foods.</p>
+    </div>
+    </body></html>"""
+
+
+@pytest.fixture
+def xhtml_doc_with_annexes():
+    """XHTML document with annexes containing prose and tables."""
+    return """<?xml version="1.0" encoding="UTF-8"?>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <body>
+    <div class="eli-container">
+        <div class="eli-main-title"><p class="oj-doc-ti">TEST REGULATION</p></div>
+        <div class="eli-subdivision" id="art_1">
+            <p class="oj-ti-art">Article 1</p>
+            <div>
+                <p class="oj-sti-art">Scope</p>
+                <p class="oj-normal">This regulation applies.</p>
+            </div>
+        </div>
+    </div>
+    <div class="eli-container" id="anx_I">
+        <p class="oj-doc-ti">ANNEX I</p>
+        <p class="oj-doc-ti">List of authorised substances</p>
+        <p class="oj-normal">The following substances are authorised.</p>
+        <p class="oj-normal">All conditions must be met.</p>
+        <table class="oj-table"><tr><td>Data</td></tr></table>
+        <p class="oj-normal">Additional requirements apply.</p>
+    </div>
+    <div class="eli-container" id="anx_II">
+        <p class="oj-doc-ti">ANNEX II</p>
+        <p class="oj-normal">Second annex prose text.</p>
+    </div>
+    </body>
+    </html>"""
+
+
+class TestCLGAnnexParsing:
+    def test_clg_annexes_detected(self, clg_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(clg_doc_with_annexes, "lxml")
+        annexes = _parse_clg_annexes(soup, "32099R0888")
+        assert len(annexes) >= 2  # At least ANNEX I (possibly split by part) + ANNEX II
+
+    def test_clg_annex_number(self, clg_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(clg_doc_with_annexes, "lxml")
+        annexes = _parse_clg_annexes(soup, "32099R0888")
+        annex_numbers = {a.annex_number for a in annexes}
+        assert "I" in annex_numbers
+        assert "II" in annex_numbers
+
+    def test_clg_annex_prose_extracted(self, clg_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(clg_doc_with_annexes, "lxml")
+        annexes = _parse_clg_annexes(soup, "32099R0888")
+        all_text = "\n".join(a.text for a in annexes)
+        assert "Novel foods must meet these conditions" in all_text
+        assert "operators shall comply" in all_text
+
+    def test_clg_annex_tables_skipped(self, clg_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(clg_doc_with_annexes, "lxml")
+        annexes = _parse_clg_annexes(soup, "32099R0888")
+        all_text = "\n".join(a.text for a in annexes)
+        # Table content (E100, Curcumin) should not appear in prose
+        assert "E100" not in all_text
+        assert "Curcumin" not in all_text
+
+    def test_clg_annex_parts_split(self, clg_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(clg_doc_with_annexes, "lxml")
+        annexes = _parse_clg_annexes(soup, "32099R0888")
+        annex_i_sections = [a for a in annexes if a.annex_number == "I"]
+        # Should have at least 2 sections: before PART A and PART A itself
+        assert len(annex_i_sections) >= 2
+        parts = [a.part for a in annex_i_sections]
+        assert "PART A" in parts
+
+    def test_clg_annex_grid_list_collected(self, clg_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(clg_doc_with_annexes, "lxml")
+        annexes = _parse_clg_annexes(soup, "32099R0888")
+        all_text = "\n".join(a.text for a in annexes)
+        assert "First condition of Part A" in all_text
+
+    def test_clg_annex_celex_id(self, clg_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(clg_doc_with_annexes, "lxml")
+        annexes = _parse_clg_annexes(soup, "32099R0888")
+        for annex in annexes:
+            assert annex.celex_id == "32099R0888"
+
+
+class TestXHTMLAnnexParsing:
+    def test_xhtml_annexes_detected(self, xhtml_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(xhtml_doc_with_annexes, "lxml")
+        annexes = _parse_xhtml_annexes(soup, "32099R0777")
+        assert len(annexes) == 2
+
+    def test_xhtml_annex_number(self, xhtml_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(xhtml_doc_with_annexes, "lxml")
+        annexes = _parse_xhtml_annexes(soup, "32099R0777")
+        assert annexes[0].annex_number == "I"
+        assert annexes[1].annex_number == "II"
+
+    def test_xhtml_annex_prose_extracted(self, xhtml_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(xhtml_doc_with_annexes, "lxml")
+        annexes = _parse_xhtml_annexes(soup, "32099R0777")
+        assert "following substances are authorised" in annexes[0].text
+        assert "All conditions must be met" in annexes[0].text
+        assert "Additional requirements apply" in annexes[0].text
+
+    def test_xhtml_annex_tables_skipped(self, xhtml_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(xhtml_doc_with_annexes, "lxml")
+        annexes = _parse_xhtml_annexes(soup, "32099R0777")
+        # Table content shouldn't be in prose
+        all_text = "\n".join(a.text for a in annexes)
+        assert "Data" not in all_text
+
+    def test_xhtml_annex_subtitle(self, xhtml_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(xhtml_doc_with_annexes, "lxml")
+        annexes = _parse_xhtml_annexes(soup, "32099R0777")
+        assert annexes[0].annex_title == "List of authorised substances"
+
+    def test_xhtml_annex_celex_id(self, xhtml_doc_with_annexes):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(xhtml_doc_with_annexes, "lxml")
+        annexes = _parse_xhtml_annexes(soup, "32099R0777")
+        for annex in annexes:
+            assert annex.celex_id == "32099R0777"
+
+
+class TestAnnexIntegration:
+    def test_parse_clg_includes_annexes(self, clg_doc_with_annexes, tmp_path):
+        html_file = tmp_path / "02099R0888-20990101.html"
+        html_file.write_text(clg_doc_with_annexes)
+        result = parse_regulation(html_file, "02099R0888-20990101")
+        assert len(result.articles) >= 1
+        assert len(result.annexes) >= 2
+
+    def test_parse_xhtml_includes_annexes(self, xhtml_doc_with_annexes, tmp_path):
+        html_file = tmp_path / "32099R0777.html"
+        html_file.write_text(xhtml_doc_with_annexes)
+        result = parse_regulation(html_file, "32099R0777")
+        assert len(result.articles) >= 1
+        assert len(result.annexes) == 2
+
+    def test_no_annexes_returns_empty_list(self, clg_doc, tmp_path):
+        """A document without annexes should have an empty annexes list."""
+        html_file = tmp_path / "02099R0999-20990101.html"
+        html_file.write_text(clg_doc)
+        result = parse_regulation(html_file, "02099R0999-20990101")
+        assert result.annexes == []
+
+    def test_annex_section_dataclass(self):
+        section = AnnexSection(
+            celex_id="32015R2283",
+            annex_number="I",
+            annex_title="Conditions of use",
+            text="Some prose content.",
+            part="PART A",
+        )
+        assert section.celex_id == "32015R2283"
+        assert section.annex_number == "I"
+        assert section.part == "PART A"
 
 
 class TestParseCorpusFallback:
