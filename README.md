@@ -28,7 +28,7 @@ EUR-Lex HTML → Parse (4 formats) → Chunk → Extract Entities
 | **Recall** | **0.69** |
 | **F1** | **0.63** |
 | Hallucination rate | 0% |
-| Tests | 304 passing |
+| Tests | 314 passing |
 
 Every false negative is a retrieval failure (relevant article ranked outside the search window), not an extraction error. The LLM never hallucinated a regulation — it only extracts from what the routing layer selects.
 
@@ -58,7 +58,7 @@ streamlit run app.py             # or: uvicorn src.api:app
 
 ## Tech Stack
 
-Python, sentence-transformers, NumPy, Anthropic API (tool_use), FastAPI, Streamlit, Docker
+Python, ONNX Runtime, NumPy, Anthropic API (tool_use), FastAPI, Streamlit, Docker
 
 ## Evaluation Approach
 

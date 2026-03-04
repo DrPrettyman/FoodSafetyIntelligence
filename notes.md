@@ -84,6 +84,13 @@
 | 2026-03-01 | Docker: multi-stage Dockerfile (python:3.12-slim), docker-compose.yml (streamlit + api) | Done |
 | 2026-03-01 | Docker: .dockerignore excludes raw HTML (~100MB), eval data, notebooks, tests | Done |
 | 2026-03-01 | README.md: business-first portfolio README, 358 words prose, key results + limitations | Done |
+| 2026-03-04 | ONNX Runtime migration: replaced sentence-transformers/PyTorch with onnxruntime + tokenizers | Done |
+| 2026-03-04 | Created onnx_embedder.py (ONNX Runtime + HF tokenizer, mean pooling, L2 norm in numpy) | Done |
+| 2026-03-04 | Created export script: downloads pre-existing ONNX model from HuggingFace Hub (86MB) | Done |
+| 2026-03-04 | Updated pyproject.toml: sentence-transformers → onnxruntime + tokenizers | Done |
+| 2026-03-04 | Updated Dockerfile: removed CPU torch workaround, added ONNX model COPY | Done |
+| 2026-03-04 | Un-ignored data/indexes/ and data/vectorstore/ in .gitignore (~15.5MB committed) | Done |
+| 2026-03-04 | Tests: 314 total (5 new ONNX embedder tests), all passing, zero regressions | Done |
 
 ## Data Notes
 
@@ -798,6 +805,37 @@ Re-ran all 3 scenarios with the tiered hybrid search (run_007/008 vs previous ru
 5. **Food supplements scenario improved** (F1 0.64→0.67, P 0.56→0.65). This scenario benefited most from tiered search because it has many core regulations.
 
 **Conclusion:** The tiered search achieved its primary goal (reducing tangential cross-ref FPs) but the aggregate metrics are muddied by LLM variability and ground truth coverage gaps. The next high-impact improvement would be expanding the ground truth to capture the over-extraction FPs, many of which are legitimate requirements.
+
+### ONNX Runtime Migration (2026-03-04)
+
+**Problem:** Docker container was ~1.5GB due to PyTorch (~800MB). Railway builds were timing out. PyTorch was only needed to embed a single query string per request via `SentenceTransformer("all-MiniLM-L6-v2")` — the corpus embeddings are pre-computed in `data/vectorstore/embeddings.npy`.
+
+**Solution:** Replaced `sentence-transformers` (PyTorch) with `onnxruntime` (~60MB) + `tokenizers` library. Expected container size ~400MB.
+
+**Files changed:**
+- `pyproject.toml` — replaced `sentence-transformers>=4.0` with `onnxruntime>=1.17` + `tokenizers>=0.19`
+- `src/indexing/vector_store.py` — swapped `SentenceTransformer` import for `OnnxEmbedder`, removed `MODEL_NAME` constant, removed `show_progress_bar` kwarg from `index_chunks()`
+- `Dockerfile` — removed CPU torch workaround (`pip install torch --index-url .../cpu`), simplified to `pip install --no-cache-dir .`, added `COPY models/all-MiniLM-L6-v2-onnx/`
+- `.gitignore` — un-ignored `data/indexes/` and `data/vectorstore/` so pre-built artifacts are committed (~15.5MB)
+
+**Files created:**
+- `src/indexing/onnx_embedder.py` — runtime embedder using ONNX Runtime + HuggingFace fast tokenizer, mean pooling + L2 normalisation in numpy, lazy-loads session + tokenizer
+- `scripts/export_onnx_model.py` — one-time script that downloads pre-existing ONNX model from HuggingFace Hub (model.onnx 86MB, tokenizer.json, tokenizer_config.json)
+- `models/all-MiniLM-L6-v2-onnx/` — model.onnx (86MB), tokenizer.json, tokenizer_config.json
+- `tests/test_onnx_embedder.py` — 5 tests (single text shape, batch shape, no-normalise, batch_size chunking, semantic ordering)
+
+**Technical details:**
+- Tokenizer max_length set to 256 (matching sentence-transformers config, not HF default of 512)
+- Dynamic padding (to longest in batch), not fixed-length
+- `token_type_ids` must be passed to ONNX model (all zeros, but BERT expects them)
+- Parity verified: cosine similarity = 1.0 between ONNX and PyTorch outputs on test sentences
+
+**Gotchas encountered:**
+- Manual `torch.onnx.export` failed — newer PyTorch requires onnxscript, had opset version conflicts, produced broken 0.1MB model files
+- `sentence-transformers` `backend="onnx"` requires `optimum` package, then hit internal API errors (`AttributeError: 'Transformer' has no 'model'`)
+- Final approach: download pre-existing ONNX model directly from HuggingFace Hub via `hf_hub_download` — worked immediately
+
+**Test results:** 314 passed, 4 skipped (zero regressions from the migration)
 
 ## Open Questions
 
