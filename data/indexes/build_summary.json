@@ -1,0 +1,10 @@
+{
+  "regulations": 242,
+  "articles": 3042,
+  "chunks": 5152,
+  "defined_terms": 693,
+  "unique_terms": 470,
+  "cross_references": 1043,
+  "indexed_chunks": 5152,
+  "build_time_seconds": 32.0
+}

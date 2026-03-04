@@ -34,7 +34,7 @@ COPY src/ src/
 COPY app.py .
 COPY pyproject.toml .
 
-# Copy pre-built data artifacts (indexes, vectorstore, discovery report)
+# Copy pre-built data artifacts
 COPY data/discovery/ data/discovery/
 COPY data/indexes/ data/indexes/
 COPY data/vectorstore/ data/vectorstore/

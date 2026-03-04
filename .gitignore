@@ -9,8 +9,6 @@ logs/
 data/raw/
 data/processed/
 data/cache/
-data/indexes/
-data/vectorstore/
 
 # Python
 __pycache__/
