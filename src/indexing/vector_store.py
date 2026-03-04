@@ -1,23 +1,22 @@
 """
-Vector store for article chunks using sentence-transformers + numpy.
+Vector store for article chunks using ONNX Runtime + numpy.
 
 Indexes ArticleChunks with metadata for filtered retrieval. The routing table
 narrows the search space to relevant regulations, and the vector store
 provides semantic similarity search within that subset.
 
-Uses all-MiniLM-L6-v2 for embeddings — runs locally, no API key needed.
-Persistence via numpy .npz files + JSON metadata.
+Uses all-MiniLM-L6-v2 (ONNX) for embeddings — runs locally, no API key needed.
+Persistence via numpy .npy files + JSON metadata.
 """
 
 import json
 from pathlib import Path
 
 import numpy as np
-from sentence_transformers import SentenceTransformer
 
+from src.indexing.onnx_embedder import OnnxEmbedder
 from src.retrieval.chunking import ArticleChunk
 
-MODEL_NAME = "all-MiniLM-L6-v2"
 DEFAULT_PERSIST_DIR = "data/vectorstore"
 
 
@@ -28,7 +27,7 @@ class VectorStore:
         self._persist_dir = Path(persist_dir)
         self._persist_dir.mkdir(parents=True, exist_ok=True)
 
-        self._model: SentenceTransformer | None = None
+        self._model: OnnxEmbedder | None = None
 
         # In-memory index
         self._ids: list[str] = []
@@ -39,9 +38,9 @@ class VectorStore:
         # Try to load from disk
         self._load()
 
-    def _get_model(self) -> SentenceTransformer:
+    def _get_model(self) -> OnnxEmbedder:
         if self._model is None:
-            self._model = SentenceTransformer(MODEL_NAME)
+            self._model = OnnxEmbedder()
         return self._model
 
     @property
@@ -66,7 +65,6 @@ class VectorStore:
         embeddings = model.encode(
             texts,
             batch_size=batch_size,
-            show_progress_bar=True,
             normalize_embeddings=True,  # pre-normalize for cosine similarity via dot product
         )
 

@@ -34,7 +34,8 @@ COPY src/ src/
 COPY app.py .
 COPY pyproject.toml .
 
-# Copy pre-built data artifacts
+# Copy ONNX model and pre-built data artifacts
+COPY models/all-MiniLM-L6-v2-onnx/ models/all-MiniLM-L6-v2-onnx/
 COPY data/discovery/ data/discovery/
 COPY data/indexes/ data/indexes/
 COPY data/vectorstore/ data/vectorstore/
