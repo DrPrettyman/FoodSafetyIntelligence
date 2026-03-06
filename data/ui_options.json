@@ -1,0 +1,1068 @@
+{
+  "groups": {
+    "claims": {
+      "label": "Marketing claims",
+      "description": "Claims made on the label or in advertising.",
+      "options": [
+        "health claim",
+        "nutrition claim"
+      ],
+      "details": [
+        {
+          "term": "health claim",
+          "source": "routing_key",
+          "category": "nutrition_health_claims",
+          "definition": ""
+        },
+        {
+          "term": "nutrition claim",
+          "source": "routing_key",
+          "category": "nutrition_health_claims",
+          "definition": ""
+        }
+      ]
+    },
+    "commodity_keywords": {
+      "label": "Commodity type",
+      "description": "Specific food commodity (triggers product-standard regulations).",
+      "options": [
+        "bivalve molluscs",
+        "casein",
+        "chocolate",
+        "cocoa",
+        "coffee",
+        "colostrum",
+        "dehydrated milk",
+        "edible acid casein",
+        "edible caseinate",
+        "edible rennet casein",
+        "extraction solvent",
+        "fishery products",
+        "fresh meat",
+        "frozen food",
+        "fruit juice",
+        "honey",
+        "jam",
+        "marmalade",
+        "meat preparations",
+        "mechanically separated meat",
+        "minced meat",
+        "mineral water",
+        "quick-frozen",
+        "raw milk",
+        "sugar",
+        "wild game"
+      ],
+      "details": [
+        {
+          "term": "bivalve molluscs",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "bivalve molluscs as defined in point 2.1 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "casein",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "chocolate",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "cocoa",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "coffee",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "colostrum",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "colostrum as defined in point 1 of Section IX of Annex III of Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "dehydrated milk",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "edible acid casein",
+          "source": "defined_term",
+          "category": "product_standards",
+          "definition": "a milk product obtained by separating, washing and drying the acid-precipitated coagulum of skimmed "
+        },
+        {
+          "term": "edible caseinate",
+          "source": "defined_term",
+          "category": "product_standards",
+          "definition": "a milk product obtained by action of edible casein or edible casein curd coagulum with neutralizing "
+        },
+        {
+          "term": "edible rennet casein",
+          "source": "defined_term",
+          "category": "product_standards",
+          "definition": "a milk product obtained by separating, washing and drying the coagulum of skimmed milk and/or of oth"
+        },
+        {
+          "term": "extraction solvent",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "fishery products",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "fishery products as defined in point 3.1 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "fresh meat",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "fresh meat as defined in point 1.10 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "frozen food",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "fruit juice",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "honey",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "jam",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "marmalade",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "meat preparations",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "meat preparations as defined in point 1.15 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "mechanically separated meat",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "mechanically separated meat as defined in point 1.14 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "minced meat",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "minced meat as defined in point 1.13 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "mineral water",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "quick-frozen",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "raw milk",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "raw milk as defined in point 4.1 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "sugar",
+          "source": "routing_key",
+          "category": "product_standards",
+          "definition": ""
+        },
+        {
+          "term": "wild game",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "wild game as defined in point 1.5 of Annex I to Regulation (EC) No 853/2004"
+        }
+      ]
+    },
+    "ingredients": {
+      "label": "Ingredients & additives",
+      "description": "What ingredients or additive types does the product contain?",
+      "options": [
+        "additive",
+        "animal by-products",
+        "approved food additive",
+        "bisphenol",
+        "bisphenol derivative",
+        "collagen",
+        "engineered nanomaterial",
+        "feed additives",
+        "feed materials",
+        "flavour precursor",
+        "flavouring",
+        "flavouring preparation",
+        "flavouring substance",
+        "food additive",
+        "mineral",
+        "natural flavouring substance",
+        "other flavouring",
+        "plant protection products",
+        "processing aid",
+        "smoke flavouring",
+        "table-top sweeteners",
+        "thermal process flavouring",
+        "veterinary medicinal product",
+        "vitamin"
+      ],
+      "details": [
+        {
+          "term": "additive",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "a substance which is intentionally added to the plastic to achieve a physical or chemical effect dur"
+        },
+        {
+          "term": "animal by-products",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "animal by-products as defined in point (1) of Article 3 of Regulation (EC) No 1069/2009"
+        },
+        {
+          "term": "approved food additive",
+          "source": "defined_term",
+          "category": "food_additives",
+          "definition": "a food additive authorised before 20 January 2009 and listed in Directive 94/35/EC of the European P"
+        },
+        {
+          "term": "bisphenol",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "a substance consisting of two hydroxyphenyl functional groups linked by one bridging atom, in accord"
+        },
+        {
+          "term": "bisphenol derivative",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "a substance indicated by the general structure B laid down in Annex I, not including the salt form o"
+        },
+        {
+          "term": "collagen",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "collagen as defined in point 7.8 of Annex I to Regulation (EC) No 853/2004"
+        },
+        {
+          "term": "engineered nanomaterial",
+          "source": "defined_term",
+          "category": "novel_food",
+          "definition": "any intentionally produced material that has one or more dimensions of the order of 100 nm or less o"
+        },
+        {
+          "term": "feed additives",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "feed additives as defined in point (a) of Article 2(2) of Regulation (EC) No 1831/2003 of the Europe"
+        },
+        {
+          "term": "feed materials",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "feed materials as defined in point (g) of Article 3(2) of Regulation (EC) No 767/2009 of the Europea"
+        },
+        {
+          "term": "flavour precursor",
+          "source": "defined_term",
+          "category": "flavourings",
+          "definition": "a product, not necessarily having flavouring properties itself, intentionally added to food for the "
+        },
+        {
+          "term": "flavouring",
+          "source": "routing_key",
+          "category": "flavourings",
+          "definition": ""
+        },
+        {
+          "term": "flavouring preparation",
+          "source": "defined_term",
+          "category": "flavourings",
+          "definition": "a product, other than a flavouring substance, obtained from:(i)food by appropriate physical, enzymat"
+        },
+        {
+          "term": "flavouring substance",
+          "source": "defined_term",
+          "category": "flavourings",
+          "definition": "a defined chemical substance with flavouring properties"
+        },
+        {
+          "term": "food additive",
+          "source": "routing_key",
+          "category": "food_additives",
+          "definition": ""
+        },
+        {
+          "term": "mineral",
+          "source": "routing_key",
+          "category": "fortification",
+          "definition": ""
+        },
+        {
+          "term": "natural flavouring substance",
+          "source": "defined_term",
+          "category": "flavourings",
+          "definition": "a flavouring substance obtained by appropriate physical, enzymatic or microbiological processes from"
+        },
+        {
+          "term": "other flavouring",
+          "source": "defined_term",
+          "category": "flavourings",
+          "definition": "a flavouring added or intended to be added to food in order to impart odour and/or taste and which d"
+        },
+        {
+          "term": "plant protection products",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "the products referred to in Article 2 of Regulation (EC) No 1107/2009"
+        },
+        {
+          "term": "processing aid",
+          "source": "defined_term",
+          "category": "food_additives",
+          "definition": "any substance which:(i)is not consumed as a food by itself"
+        },
+        {
+          "term": "smoke flavouring",
+          "source": "defined_term",
+          "category": "flavourings",
+          "definition": "a product obtained by fractionation and purification of a condensed smoke yielding primary smoke con"
+        },
+        {
+          "term": "table-top sweeteners",
+          "source": "defined_term",
+          "category": "food_additives",
+          "definition": "preparations of permitted sweeteners, which may contain other food additives and/or food ingredients"
+        },
+        {
+          "term": "thermal process flavouring",
+          "source": "defined_term",
+          "category": "flavourings",
+          "definition": "a product obtained after heat treatment from a mixture of ingredients not necessarily having flavour"
+        },
+        {
+          "term": "veterinary medicinal product",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "a veterinary medicinal product as defined in point (2) of Article 1 of Directive 2001/82/EC of the E"
+        },
+        {
+          "term": "vitamin",
+          "source": "routing_key",
+          "category": "fortification",
+          "definition": ""
+        }
+      ]
+    },
+    "labelling": {
+      "label": "Labelling concerns",
+      "description": "Specific labelling requirements to check.",
+      "options": [
+        "allergen",
+        "compound ingredient",
+        "customary name",
+        "descriptive name",
+        "gluten",
+        "label",
+        "legal name",
+        "mandatory food information",
+        "mass caterer",
+        "nutrient",
+        "nutrition declaration",
+        "origin labelling",
+        "place of provenance",
+        "primary ingredient",
+        "wheat"
+      ],
+      "details": [
+        {
+          "term": "allergen",
+          "source": "routing_key",
+          "category": "labelling_fic",
+          "definition": ""
+        },
+        {
+          "term": "compound ingredient",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "an ingredient that is itself the product of more than one ingredient"
+        },
+        {
+          "term": "customary name",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "a name which is accepted as the name of the food by consumers in the Member State in which that food"
+        },
+        {
+          "term": "descriptive name",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "a name providing a description of the food, and if necessary of its use, which is sufficiently clear"
+        },
+        {
+          "term": "gluten",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "a protein fraction from wheat, rye, barley, oats or their crossbred varieties and derivatives thereo"
+        },
+        {
+          "term": "label",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "any tag, brand, mark, pictorial or other descriptive matter, written, printed, stencilled, marked, e"
+        },
+        {
+          "term": "legal name",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "the name of a food prescribed in the Union provisions applicable to it or, in the absence of such Un"
+        },
+        {
+          "term": "mandatory food information",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "the particulars that are required to be provided to the final consumer by Union provisions"
+        },
+        {
+          "term": "mass caterer",
+          "source": "defined_term",
+          "category": "gmo",
+          "definition": "‘mass caterer’ as referred to in Article 1 of Directive 2000/13/EC.\n16.\n‘mass caterer’ means ‘mass c"
+        },
+        {
+          "term": "nutrient",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "protein, carbohydrate, fat, fibre, sodium, vitamins and minerals listed in point 1 of Part A of Anne"
+        },
+        {
+          "term": "nutrition declaration",
+          "source": "routing_key",
+          "category": "labelling_fic",
+          "definition": ""
+        },
+        {
+          "term": "origin labelling",
+          "source": "routing_key",
+          "category": "labelling_fic",
+          "definition": ""
+        },
+        {
+          "term": "place of provenance",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "any place where a food is indicated to come from, and that is not the ‘country of origin’ as determi"
+        },
+        {
+          "term": "primary ingredient",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "an ingredient or ingredients of a food that represent more than 50 % of that food or which are usual"
+        },
+        {
+          "term": "wheat",
+          "source": "defined_term",
+          "category": "labelling_fic",
+          "definition": "any Triticum species."
+        }
+      ]
+    },
+    "other": {
+      "label": "Other",
+      "description": "Additional regulatory areas.",
+      "options": [
+        "animal feed",
+        "feed"
+      ],
+      "details": [
+        {
+          "term": "animal feed",
+          "source": "routing_key",
+          "category": "feed",
+          "definition": ""
+        },
+        {
+          "term": "feed",
+          "source": "routing_key",
+          "category": "feed",
+          "definition": ""
+        }
+      ]
+    },
+    "packaging": {
+      "label": "Packaging",
+      "description": "Packaging material and type.",
+      "options": [
+        "active materials and articles",
+        "food contact material",
+        "functional barrier",
+        "hermetically sealed container",
+        "intelligent materials and articles",
+        "multi-material multi-layer",
+        "packaging",
+        "plastic",
+        "plastic materials and articles",
+        "plastic multi-layer",
+        "plastic packaging",
+        "recycled plastic",
+        "recycled plastic materials and articles",
+        "wrapping"
+      ],
+      "details": [
+        {
+          "term": "active materials and articles",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "materials and articles that are intended to extend the shelf-life or to maintain or improve the cond"
+        },
+        {
+          "term": "food contact material",
+          "source": "routing_key",
+          "category": "food_contact_materials",
+          "definition": ""
+        },
+        {
+          "term": "functional barrier",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "a barrier consisting of one or more layers of food contact materials which ensures that the finished"
+        },
+        {
+          "term": "hermetically sealed container",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "a container that is designed and intended to be secure against the entry of hazards"
+        },
+        {
+          "term": "intelligent materials and articles",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "materials and articles which monitor the condition of packaged food or the environment surrounding t"
+        },
+        {
+          "term": "multi-material multi-layer",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "a material or article composed of two or more layers of different types of materials, at least one o"
+        },
+        {
+          "term": "packaging",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "the placing of one or more wrapped foodstuffs in a second container, and the latter container itself"
+        },
+        {
+          "term": "plastic",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "polymer to which additives or other substances may have been added, which is capable of functioning "
+        },
+        {
+          "term": "plastic materials and articles",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": ":(a)materials and articles referred to in points (a), (b) and (c) of Article 2(1)"
+        },
+        {
+          "term": "plastic multi-layer",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "a material or article composed of two or more layers of plastic"
+        },
+        {
+          "term": "plastic packaging",
+          "source": "routing_key",
+          "category": "food_contact_materials",
+          "definition": ""
+        },
+        {
+          "term": "recycled plastic",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "plastic resulting from the decontamination process of a recycling process and plastic resulting from"
+        },
+        {
+          "term": "recycled plastic materials and articles",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "food contact materials and articles in their finished state, and that are made either fully or partl"
+        },
+        {
+          "term": "wrapping",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "the placing of a foodstuff in a wrapper or container in direct contact with the foodstuff concerned,"
+        }
+      ]
+    },
+    "product_properties": {
+      "label": "Product properties",
+      "description": "Special characteristics of the product.",
+      "options": [
+        "composite product",
+        "energy-reduced food",
+        "food enzyme",
+        "food with no added sugars",
+        "genetically modified feed",
+        "genetically modified food",
+        "gmo",
+        "irradiated food",
+        "irradiation",
+        "minor food",
+        "organic food",
+        "organic product",
+        "pre-packaged food",
+        "processed products",
+        "produced by GMOs",
+        "produced from GMOs",
+        "unprocessed food",
+        "unprocessed products"
+      ],
+      "details": [
+        {
+          "term": "composite product",
+          "source": "defined_term",
+          "category": "official_controls",
+          "definition": "food containing both products of plant origin and processed products of animal origin"
+        },
+        {
+          "term": "energy-reduced food",
+          "source": "defined_term",
+          "category": "food_additives",
+          "definition": "a food with an energy value reduced by at least 30 % compared with the original food or a similar pr"
+        },
+        {
+          "term": "food enzyme",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "a food enzyme as defined in point (a) of Article 3(2) of Regulation (EC) No 1332/2008 of the Europea"
+        },
+        {
+          "term": "food with no added sugars",
+          "source": "defined_term",
+          "category": "food_additives",
+          "definition": "a food without the following:(i)any added monosaccharides or disaccharides"
+        },
+        {
+          "term": "genetically modified feed",
+          "source": "defined_term",
+          "category": "gmo",
+          "definition": "feed containing, consisting of or produced from GMOs"
+        },
+        {
+          "term": "genetically modified food",
+          "source": "defined_term",
+          "category": "gmo",
+          "definition": "food containing, consisting of or produced from GMOs"
+        },
+        {
+          "term": "gmo",
+          "source": "routing_key",
+          "category": "gmo",
+          "definition": ""
+        },
+        {
+          "term": "irradiated food",
+          "source": "routing_key",
+          "category": "food_irradiation",
+          "definition": ""
+        },
+        {
+          "term": "irradiation",
+          "source": "routing_key",
+          "category": "food_irradiation",
+          "definition": ""
+        },
+        {
+          "term": "minor food",
+          "source": "defined_term",
+          "category": "contaminants",
+          "definition": "food of minor dietary importance which makes only a marginal contribution to food consumption by the"
+        },
+        {
+          "term": "organic food",
+          "source": "routing_key",
+          "category": "organic",
+          "definition": ""
+        },
+        {
+          "term": "organic product",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "a product resulting from organic production, other than a product produced during the conversion per"
+        },
+        {
+          "term": "pre-packaged food",
+          "source": "defined_term",
+          "category": "gmo",
+          "definition": "any single item for presentation as such consisting of a food and the packaging into which it was pu"
+        },
+        {
+          "term": "processed products",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "foodstuffs resulting from the processing of unprocessed products. These products may contain ingredi"
+        },
+        {
+          "term": "produced by GMOs",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "derived by using a GMO as the last living organism in the production process, but not containing or "
+        },
+        {
+          "term": "produced from GMOs",
+          "source": "defined_term",
+          "category": "gmo",
+          "definition": "derived, in whole or in part, from GMOs, but not containing or consisting of GMOs"
+        },
+        {
+          "term": "unprocessed food",
+          "source": "defined_term",
+          "category": "food_additives",
+          "definition": "a food which has not undergone any treatment resulting in a substantial change in the original state"
+        },
+        {
+          "term": "unprocessed products",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "foodstuffs that have not undergone processing, and includes products that have been divided, parted,"
+        }
+      ]
+    },
+    "product_types": {
+      "label": "Product type",
+      "description": "What kind of food product is this?",
+      "options": [
+        "baby food",
+        "follow-on formula",
+        "food for special medical purposes",
+        "food supplement",
+        "infant",
+        "infant formula",
+        "novel food",
+        "processed cereal-based food",
+        "total diet replacement for weight control",
+        "traditional food from a third country",
+        "young child"
+      ],
+      "details": [
+        {
+          "term": "baby food",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "food intended to fulfil the particular requirements of infants in good health while they are being w"
+        },
+        {
+          "term": "follow-on formula",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "food intended for use by infants when appropriate complementary feeding is introduced and which cons"
+        },
+        {
+          "term": "food for special medical purposes",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "food specially processed or formulated and intended for the dietary management of patients, includin"
+        },
+        {
+          "term": "food supplement",
+          "source": "routing_key",
+          "category": "food_supplements",
+          "definition": ""
+        },
+        {
+          "term": "infant",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "a child under the age of 12 months;\n(a)\n‘infant’ means a child under the age of 12 months;\n(b)‘young"
+        },
+        {
+          "term": "infant formula",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "food intended for use by infants during the first months of life and satisfying by itself the nutrit"
+        },
+        {
+          "term": "novel food",
+          "source": "routing_key",
+          "category": "novel_food",
+          "definition": ""
+        },
+        {
+          "term": "processed cereal-based food",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "food:(i)intended to fulfil the particular requirements of infants in good health while they are bein"
+        },
+        {
+          "term": "total diet replacement for weight control",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "food specially formulated for use in energy restricted diets for weight reduction which, when used a"
+        },
+        {
+          "term": "traditional food from a third country",
+          "source": "defined_term",
+          "category": "novel_food",
+          "definition": "novel food as defined in point (a) of this paragraph, other than novel food as referred to in points"
+        },
+        {
+          "term": "young child",
+          "source": "defined_term",
+          "category": "food_specific_groups",
+          "definition": "a child aged between one and three years;\n(b)\n‘young child’ means a child aged between one and three"
+        }
+      ]
+    },
+    "production": {
+      "label": "Production & farming",
+      "description": "Production methods and agricultural context.",
+      "options": [
+        "aquaculture",
+        "aquaculture products",
+        "farmer",
+        "holding",
+        "ionising radiation",
+        "livestock production",
+        "organic production",
+        "pest",
+        "plant production",
+        "plant products",
+        "plants",
+        "primary production",
+        "primary products",
+        "veterinary treatment"
+      ],
+      "details": [
+        {
+          "term": "aquaculture",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "aquaculture as defined in point (25) of Article 4(1) of Regulation (EU) No 1380/2013 of the European"
+        },
+        {
+          "term": "aquaculture products",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "aquaculture products as defined in point (34) of Article 4(1) of Regulation (EU) No 1380/2013"
+        },
+        {
+          "term": "farmer",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "a natural or legal person, or a group of natural or legal persons, regardless of the legal status of"
+        },
+        {
+          "term": "holding",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "all the production units operated under single management for the purpose of producing live or unpro"
+        },
+        {
+          "term": "ionising radiation",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "ionising radiation as defined in point (46) of Article 4 of Council Directive 2013/59/Euratom (16)"
+        },
+        {
+          "term": "livestock production",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "the production of domestic or domesticated terrestrial animals, including insects"
+        },
+        {
+          "term": "organic production",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "the use, including during the conversion period referred to in Article 10, of production methods tha"
+        },
+        {
+          "term": "pest",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "a pest as defined in Article 1(1) of Regulation (EU) 2016/2031 of the European Parliament and of the"
+        },
+        {
+          "term": "plant production",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "production of agricultural crop products including harvesting of wild plant products for commercial "
+        },
+        {
+          "term": "plant products",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "plant products as defined in point (6) of Article 3 of Regulation (EC) No 1107/2009"
+        },
+        {
+          "term": "plants",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "plants as defined in point (5) of Article 3 of Regulation (EC) No 1107/2009"
+        },
+        {
+          "term": "primary production",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "the production, rearing or growing of primary products including harvesting, milking and farmed anim"
+        },
+        {
+          "term": "primary products",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "products of primary production including products of the soil, of stock farming, of hunting and fish"
+        },
+        {
+          "term": "veterinary treatment",
+          "source": "defined_term",
+          "category": "organic",
+          "definition": "all courses of a curative or preventive treatment against an occurrence of a specific disease"
+        }
+      ]
+    },
+    "safety": {
+      "label": "Safety & contaminants",
+      "description": "Contaminant, hygiene, and safety concerns.",
+      "options": [
+        "acceptable daily intake",
+        "acute reference dose",
+        "clean seawater",
+        "clean water",
+        "contaminant",
+        "contamination",
+        "food hygiene",
+        "good agricultural practice",
+        "incidental contamination",
+        "maximum residue level",
+        "official control",
+        "pesticide residues",
+        "potable water",
+        "radiological emergency"
+      ],
+      "details": [
+        {
+          "term": "acceptable daily intake",
+          "source": "defined_term",
+          "category": "contaminants",
+          "definition": "the estimate of the amount of substances in food expressed on a body weight basis, that can be inges"
+        },
+        {
+          "term": "acute reference dose",
+          "source": "defined_term",
+          "category": "contaminants",
+          "definition": "the estimate of the amount of substance in food, expressed on a body weight basis, that can be inges"
+        },
+        {
+          "term": "clean seawater",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "natural, artificial or purified seawater or brackish water that does not contain micro-organisms, ha"
+        },
+        {
+          "term": "clean water",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "clean seawater and fresh water of a similar quality"
+        },
+        {
+          "term": "contaminant",
+          "source": "routing_key",
+          "category": "contaminants",
+          "definition": ""
+        },
+        {
+          "term": "contamination",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "the presence or introduction of a hazard;\n(f)\n‘contamination’ means the presence or introduction of "
+        },
+        {
+          "term": "food hygiene",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "the measures and conditions necessary to control hazards and to ensure fitness for human consumption"
+        },
+        {
+          "term": "good agricultural practice",
+          "source": "defined_term",
+          "category": "contaminants",
+          "definition": "the nationally recommended, authorised or registered safe use of plant protection products under act"
+        },
+        {
+          "term": "incidental contamination",
+          "source": "defined_term",
+          "category": "food_contact_materials",
+          "definition": "contamination present in plastic input originating from food, from plastic materials and articles in"
+        },
+        {
+          "term": "maximum residue level",
+          "source": "defined_term",
+          "category": "contaminants",
+          "definition": "the upper legal level of a concentration for a pesticide residue in or on food or feed set in accord"
+        },
+        {
+          "term": "official control",
+          "source": "routing_key",
+          "category": "official_controls",
+          "definition": ""
+        },
+        {
+          "term": "pesticide residues",
+          "source": "defined_term",
+          "category": "contaminants",
+          "definition": "residues, including active substances, metabolites and/or breakdown or reaction products of active s"
+        },
+        {
+          "term": "potable water",
+          "source": "defined_term",
+          "category": "general_food_law",
+          "definition": "water meeting the minimum requirements laid down in Council Directive 98/83/EC of 3 November 1998 on"
+        },
+        {
+          "term": "radiological emergency",
+          "source": "defined_term",
+          "category": "contaminants",
+          "definition": "a non-routine situation or event involving a radiation source that necessitates prompt action to mit"
+        }
+      ]
+    }
+  },
+  "corpus_stats": {
+    "regulations": 243,
+    "categories": 18
+  }
+}

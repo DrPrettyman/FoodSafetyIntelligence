@@ -91,6 +91,10 @@
 | 2026-03-04 | Updated Dockerfile: removed CPU torch workaround, added ONNX model COPY | Done |
 | 2026-03-04 | Un-ignored data/indexes/ and data/vectorstore/ in .gitignore (~15.5MB committed) | Done |
 | 2026-03-04 | Tests: 314 total (5 new ONNX embedder tests), all passing, zero regressions | Done |
+| 2026-03-05 | Streamlit UX rewrite: sidebar → linear flow (welcome → form → results) | Done |
+| 2026-03-05 | scripts/extract_ui_options.py: extracts 140 UI dropdown options from entity index | Done |
+| 2026-03-05 | Form now shows 10 grouped multiselects populated from corpus (was 5+6+2+2 hardcoded) | Done |
+| 2026-03-05 | Added example scenario presets, corpus stats banner, articles grouped by regulation | Done |
 
 ## Data Notes
 
