@@ -86,6 +86,16 @@ def setup_style() -> None:
     })
 
 
+def _save_fig(fig, output_dir: Path, name: str) -> Path:
+    """Save figure as both PNG and SVG."""
+    png_path = output_dir / f"{name}.png"
+    svg_path = output_dir / f"{name}.svg"
+    fig.savefig(png_path)
+    fig.savefig(svg_path, format="svg")
+    print(f"  Saved {png_path} + {svg_path}")
+    return png_path
+
+
 def build_category_colormap(categories: list[str], category_labels: dict) -> dict:
     """Assign colors to categories, muting official_controls."""
     import matplotlib.pyplot as plt
@@ -175,10 +185,8 @@ def plot_umap_scatter(data: dict, output_dir: Path, umap_result=None) -> Path:
         markerscale=2,
     )
 
-    out_path = output_dir / "umap_scatter.png"
-    fig.savefig(out_path)
+    out_path = _save_fig(fig, output_dir, "umap_scatter")
     plt.close(fig)
-    print(f"  Saved {out_path}")
     return out_path
 
 
@@ -298,10 +306,8 @@ def plot_crossref_network(data: dict, output_dir: Path) -> Path:
     ax.legend(handles=legend_handles, bbox_to_anchor=(1.02, 1), loc="upper left",
               fontsize=7, frameon=False)
 
-    out_path = output_dir / "crossref_network.png"
-    fig.savefig(out_path)
+    out_path = _save_fig(fig, output_dir, "crossref_network")
     plt.close(fig)
-    print(f"  Saved {out_path}")
     return out_path
 
 
@@ -382,10 +388,8 @@ def plot_query_retrieval(
     )
     ax.legend(loc="upper right", fontsize=9)
 
-    out_path = output_dir / "query_retrieval.png"
-    fig.savefig(out_path)
+    out_path = _save_fig(fig, output_dir, "query_retrieval")
     plt.close(fig)
-    print(f"  Saved {out_path}")
     return out_path
 
 
@@ -425,10 +429,8 @@ def plot_chunk_distribution(data: dict, output_dir: Path) -> Path:
     )
     ax.set_xlim(0, max(cat_counts) * 1.12)
 
-    out_path = output_dir / "chunk_distribution.png"
-    fig.savefig(out_path)
+    out_path = _save_fig(fig, output_dir, "chunk_distribution")
     plt.close(fig)
-    print(f"  Saved {out_path}")
     return out_path
 
 
