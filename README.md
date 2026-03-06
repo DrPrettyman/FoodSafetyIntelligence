@@ -2,6 +2,10 @@
 
 Given a food product's category, ingredients, claims, and packaging, generates a compliance checklist citing specific EU regulation articles.
 
+**[Live Demo](https://joshuaprettyman.com/projects/eu-food-regulation-app)**
+
+![5,152 regulation chunks projected into 2D with UMAP, colored by regulatory category](visuals/umap_scatter.png)
+
 ## The Problem
 
 Launching a food product into the EU means complying with regulations spread across dozens of legal acts. A protein bar with a novel ingredient like insect flour touches 15+ acts — novel food authorisation, allergen labelling, health claims, food contact materials. Regulatory consultants charge €300-500/hour to answer "what do I need to comply with?"
@@ -31,6 +35,8 @@ EUR-Lex HTML → Parse (4 formats) → Chunk → Extract Entities
 | Tests | 314 passing |
 
 Every false negative is a retrieval failure (relevant article ranked outside the search window), not an extraction error. The LLM never hallucinated a regulation — it only extracts from what the routing layer selects.
+
+![Chunk distribution across 17 regulation categories](visuals/chunk_distribution.png)
 
 ## Quick Start
 
