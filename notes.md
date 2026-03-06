@@ -95,6 +95,8 @@
 | 2026-03-05 | scripts/extract_ui_options.py: extracts 140 UI dropdown options from entity index | Done |
 | 2026-03-05 | Form now shows 10 grouped multiselects populated from corpus (was 5+6+2+2 hardcoded) | Done |
 | 2026-03-05 | Added example scenario presets, corpus stats banner, articles grouped by regulation | Done |
+| 2026-03-06 | scripts/visualise_embeddings.py: UMAP scatter, cross-ref network, query retrieval, chunk distribution | Done |
+| 2026-03-06 | Added viz optional deps (matplotlib, umap-learn, networkx) to pyproject.toml | Done |
 
 ## Data Notes
 
@@ -840,6 +842,23 @@ Re-ran all 3 scenarios with the tiered hybrid search (run_007/008 vs previous ru
 - Final approach: download pre-existing ONNX model directly from HuggingFace Hub via `hf_hub_download` — worked immediately
 
 **Test results:** 314 passed, 4 skipped (zero regressions from the migration)
+
+### 2026-03-06: Embedding Visualizations for Blog Post
+
+Created `scripts/visualise_embeddings.py` — standalone script for blog post illustrations.
+
+**Visualizations generated (in `visuals/`):**
+1. **umap_scatter.png** — UMAP projection of 5,152 chunk embeddings, colored by 17 regulation categories. Clear semantic clustering visible; official_controls muted to gray to avoid dominating.
+2. **crossref_network.png** — NetworkX directed graph of 136 regulations with 328 cross-reference edges. General Food Law is the obvious central hub. Node size by in-degree, labeled with short readable names.
+3. **query_retrieval.png** — Sample query ("novel food insect protein labelling requirements") projected into UMAP space with top-10 results highlighted. Illustrates how semantic search selects relevant chunks.
+4. **chunk_distribution.png** — Horizontal bar chart showing chunks per category. Official controls dominates at 1,909 (37%), motivating the category-aware routing design.
+
+**Technical choices:**
+- UMAP over t-SNE: better global structure preservation, supports `.transform()` for new points
+- matplotlib for static PNGs (blog-friendly, no JS dependency)
+- `tab20` palette with muted gray for official_controls (prevents visual dominance)
+- Dependencies in optional `[viz]` group: `pip install -e ".[viz]"` (matplotlib, umap-learn, networkx)
+- Not part of pipeline/Docker — purely for illustration
 
 ## Open Questions
 

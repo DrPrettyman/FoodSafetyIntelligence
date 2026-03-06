@@ -25,6 +25,11 @@ dev = [
     "pytest>=8.0",
     "ruff>=0.4",
 ]
+viz = [
+    "matplotlib>=3.8",
+    "umap-learn>=0.5",
+    "networkx>=3.0",
+]
 
 [build-system]
 requires = ["setuptools>=68.0"]
